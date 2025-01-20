@@ -44,7 +44,7 @@ const App = () => {
       <div className="flex-1 bg-gray-100 p-6">
         <h1 className="text-2xl font-bold">Main Content Area</h1>
         <p>Here is your main content!</p>
-        <h1>Version: {version}</h1>
+        <h1 className="text-green-500">Version: {version}</h1>
       </div>
     </div>
   );
