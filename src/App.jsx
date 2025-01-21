@@ -1,53 +1,79 @@
-import React, { useState, version } from "react";
+// import React, { useState, version } from "react";
+import React from "react";
+import Sidebar from "./components/sidebar/Sidebar";
+import MainContent from "./components/MainContent";
 
 const App = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  // const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
+  // const toggleSidebar = () => {
+  //   setIsSidebarOpen(!isSidebarOpen);
+  // };
 
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
-      <div
-        className={`bg-gray-900 text-white transition-all duration-300 ${
-          isSidebarOpen ? "w-64" : "w-16"
-        }`}
-      >
-        {/* Toggle Button */}
-        <button
-          className="bg-gray-800 text-white w-full py-3 text-sm hover:bg-gray-700"
-          onClick={toggleSidebar}
-        >
-          {isSidebarOpen ? "<<" : ">>"}
-        </button>
+     <Sidebar />
 
-        {/* Menu Items */}
-        <ul className="mt-4 space-y-2">
-          <li className="px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-            Home
-          </li>
-          <li className="px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-            Trending
-          </li>
-          <li className="px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-            Subscriptions
-          </li>
-          <li className="px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-            Library
-          </li>
-        </ul>
-      </div>
+     <MainContent />
 
       {/* Main Content */}
-      <div className="flex-1 bg-gray-100 p-6">
+      {/* <div className="flex-1 bg-gray-100 p-6">
         <h1 className="text-2xl font-bold">Main Content Area</h1>
         <p>Here is your main content!</p>
         <h1 className="text-green-500">Version: {version}</h1>
-      </div>
+      </div> */}
+
+      
     </div>
   );
 };
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React from "react";
+// import Sidebar from "./components/sidebar/Sidebar";
+// import MainContent from "./components/MainContent";
+
+// function App() {
+//   return (
+//     <div className="flex h-screen">
+//       {/* Sidebar */}
+//       <Sidebar />
+
+//       {/* Main Content */}
+//       <MainContent />
+//     </div>
+//   );
+// }
+
+// export default App;
