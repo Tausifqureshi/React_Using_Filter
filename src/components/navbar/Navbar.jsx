@@ -9,7 +9,6 @@ const NavBar = () => {
     { name: "All Posts", slug: "/all-posts" },
     { name: "Add Post", slug: "/add-post" },
   ];
-
   return (
     <nav>
       <ul className="flex list-none gap-4">
