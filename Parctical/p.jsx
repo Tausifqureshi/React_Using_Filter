@@ -15,7 +15,7 @@
         <ul className="flex list-none gap-4">
           {navItems.map((item) => (
             <li key={item.slug}>
-              {/* <NavLink
+              <NavLink
                 to={item.slug}
                 className={({ isActive }) =>
                   `text-blue-500 no-underline ${
@@ -24,8 +24,8 @@
                 }
               >
                 {item.name}
-              </NavLink> */}
-              {item.name}
+              </NavLink>
+              {/* {item.name} */}
             </li>
           ))}
         </ul>
@@ -35,3 +35,10 @@
   
   export default NavBar;
   
+
+  {/* <li
+              key={item.URL}
+              className="hover:bg-blue-100 cursor-pointer px-2 py-2"
+            >
+              <NavLink to={item.URL}>{item.name}</NavLink>
+            </li> */}
