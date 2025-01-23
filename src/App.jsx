@@ -1,7 +1,7 @@
 import React from "react";
 // import NavBar from "./components/navbar/Navbar";
 // import Sidebar from "./components/sidebar/Sidebar";
-import Main from "./components/main/Main";
+import MainContents from "./components/main/MainContents";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./page/Home";
 // import MainContent from "./components/MainContent";
@@ -11,13 +11,9 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Main />,
+      element: <MainContents />,
     
     children: [
-      // {
-      //   path: "/", // Default route
-      //   element: <MainContent />, // Landing page with products
-      // },
       {
         path: "/",
         element: <Home />
