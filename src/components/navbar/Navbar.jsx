@@ -159,9 +159,3 @@ function Navbar() {
 }
 
 export default Navbar;
-{/* <li
-key={item.URL}
-className="hover:bg-blue-100 cursor-pointer px-2 py-2"
->
-{item.name}
-</li> */}

@@ -2,6 +2,7 @@ import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Sidebar from "../sidebar/Sidebar";
 import NavBar from "../navbar/NavBar";
+import Input from "../Input";
 
 const Main = () => {
   const location = useLocation(); // Current URL path
@@ -20,6 +21,7 @@ const Main = () => {
           <Outlet />
         </div>
       </div>
+      <Input />
     </>
   );
 };
