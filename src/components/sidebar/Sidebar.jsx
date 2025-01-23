@@ -21,7 +21,7 @@ function Sidebar() {
 
   return (
     <div
-      className={`bg-gray-900 text-white transition-all duration-300 ease-in-out ${
+      className={ `h-screen bg-gray-900 text-white transition-all duration-300 ease-in-out ${
         isSidebarOpen ? "w-64" : "w-14"
       }`}
     >

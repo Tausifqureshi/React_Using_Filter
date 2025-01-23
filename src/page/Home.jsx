@@ -4,7 +4,7 @@ import Products from "../components/product/Products";
 
 function Home() {
   return <div>
-  Home
+  {/* Home */}
   <Products />
   </div>;
   

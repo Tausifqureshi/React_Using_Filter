@@ -88,13 +88,13 @@ const MainContents = () => {
 
       {/* Main Content Layout */}
       {/* <div className="flex flex-1"> */}
-      <div className={`flex flex-1 ${isHomePage ? "h-screen" : "h-auto"}`}>
+      <div className={`flex ${isHomePage ? "" : "h-auto"}`}>
         {/* Sidebar: Only show on / Page */}
         {isHomePage && <Sidebar />}
 
         {/* Main Content */}
         <div
-          className={`flex-1 p-6 text-gray-800 ${
+          className={`flex-1 pb-3  pt-1 px-2 text-gray-800 ${
             isHomePage ? "bg-gray-100" : "bg-white"
           }`}
         >
@@ -103,7 +103,7 @@ const MainContents = () => {
       </div>
 
       {/* Input: Always at the Bottom */}
-      <div className="border-t p-4 bg-gray-200">
+      <div className="border-t p-4 bg-gray-200 mt-5">
         <Input />
       </div>
     </div>

@@ -26,11 +26,10 @@ const Products = () => {
     { id: 3, name: "Product 3", price: "$30" },
     { id: 3, name: "Product 3", price: "$30" },
     { id: 3, name: "Product 3", price: "$30" },
-    { id: 3, name: "Product 3", price: "$30" },
-    { id: 3, name: "Product 3", price: "$30" },
-    { id: 3, name: "Product 3", price: "$30" },
-    { id: 3, name: "Product 3", price: "$30" },
-    { id: 3, name: "Product 3", price: "$30" },
+    
+   
+   
+    
   ];
 
   return (
