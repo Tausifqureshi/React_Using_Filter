@@ -122,12 +122,13 @@ function Navbar() {
   }, []);  // lastScrollY ko dependency ke roop me pass kiya gaya hai
   
   const navItem = [
-    { name: "Home", URL: "home" },
+    { name: "Home", URL: "/" },
     { name: "About", URL: "/about" },
     { name: "Contact", URL: "/contact" },
     { name: "Signup", URL: "/signup" },
     { name: "Login", URL: "/login" },
     { name: "Cart", URL: "/cart" },
+    { name: "Footer", URL: "/footer" },
   ];
 
   return (

@@ -4,7 +4,8 @@ import React from "react";
 import Main from "./components/main/Main";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./page/Home";
-import MainContent from "./components/MainContent";
+// import MainContent from "./components/MainContent";
+import Footer from "./page/Footer";
 
 function App() {
   const router = createBrowserRouter([
@@ -13,13 +14,17 @@ function App() {
       element: <Main />,
     
     children: [
+      // {
+      //   path: "/", // Default route
+      //   element: <MainContent />, // Landing page with products
+      // },
       {
-        path: "/", // Default route
-        element: <MainContent />, // Landing page with products
+        path: "/",
+        element: <Home />
       },
       {
-        path: "home",
-        element: <Home />
+        path: "/footer",
+        element: <Footer />
       },
      
      
