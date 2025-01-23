@@ -4,6 +4,7 @@ import React from "react";
 import Main from "./components/main/Main";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./page/Home";
+import MainContent from "./components/MainContent";
 
 function App() {
   const router = createBrowserRouter([
@@ -12,6 +13,10 @@ function App() {
       element: <Main />,
     
     children: [
+      {
+        path: "/", // Default route
+        element: <MainContent />, // Landing page with products
+      },
       {
         path: "home",
         element: <Home />
