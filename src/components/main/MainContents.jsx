@@ -30,42 +30,6 @@
 
 
 
-// import React from "react";
-// import { Outlet, useLocation } from "react-router-dom";
-// import Sidebar from "../sidebar/Sidebar";
-// import NavBar from "../navbar/NavBar";
-// import Input from "../Input";
-
-// const MainContents = () => {
-//   const location = useLocation(); // Current URL path
-//   const isHomePage = location.pathname === "/"; // Check if current path is "/"
-
-//   return (
-//     <div className="flex flex-col min-h-screen">
-//       {/* Navbar */}
-//       <NavBar />
-
-//       {/* Main Layout */}
-//       <div className={`flex ${isHomePage ? "h-screen" : "h-auto"}`}>
-//         {/* Sidebar: Only show on / Page */}
-//         {isHomePage && <Sidebar />}
-
-//         {/* Main Content */}
-//         <div
-//           className={`flex-1 p-6 text-gray-800 ${
-//             isHomePage ? "bg-gray-100" : "bg-white"
-//           }`}
-//         >
-//           <Outlet />
-//         </div>
-//      </div>
-
-//       <Input />
-//     </div>
-//   );
-// };
-
-// export default MainContents;
 
 
 
