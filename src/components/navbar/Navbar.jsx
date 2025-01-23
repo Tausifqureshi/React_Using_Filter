@@ -1,3 +1,74 @@
+// import React, { useState, useEffect } from "react";
+// import { FaCarTunnel } from "react-icons/fa6";
+
+// function Navbar() {
+//   const [isScrolled, setIsScrolled] = useState(false);
+//   // Scroll handler to update the state
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       if (window.scrollY > 50) {
+//         setIsScrolled(true);
+//       } else {
+//         setIsScrolled(false);
+//       }
+//     };
+
+//     window.addEventListener("scroll", handleScroll);
+//     return () => {
+//       window.removeEventListener("scroll", handleScroll);
+//     };
+//   }, []);
+
+//   const navItem = [
+//     { name: "Home", URL: "/" },
+//     { name: "About", URL: "/about" },
+//     { name: "Contact", URL: "/contact" },
+//     { name: "Signup", URL: "/signup" },
+//     { name: "Login", URL: "/login" },
+//     // {name: "Logout", URL: "/logout"},
+//     { name: "Cart", URL: "/cart" },
+//   ];
+//   return (
+//     <div className="p-4 bg-gray-100 shadow-md sticky top-0 z-50 transition duration-500">
+//       <nav className="flex justify-between items-center">
+//         <div>
+//           {/* Logo  */}
+//         </div>
+
+//           <ul className="flex gap-4 items-center">
+//           {navItem.map((item) => (
+//             <li key={item.URL} className=" hover:bg-blue-100 cursor-pointer px-2 py-2">
+//               {item.name}
+//             </li>
+//           ))}
+
+//           </ul>
+//       </nav>
+//     </div>
+//   );
+// }
+
+// export default Navbar;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
@@ -51,7 +122,7 @@ function Navbar() {
   }, []);  // lastScrollY ko dependency ke roop me pass kiya gaya hai
   
   const navItem = [
-    { name: "Home", URL: "/" },
+    { name: "Home", URL: "home" },
     { name: "About", URL: "/about" },
     { name: "Contact", URL: "/contact" },
     { name: "Signup", URL: "/signup" },
@@ -75,21 +146,10 @@ function Navbar() {
 
         <ul className="flex gap-4 items-center">
           {navItem.map((item) => (
-            
-          <li key={item.URL}  className="hover:bg-blue-100 cursor-pointer px-2 py-2">
-              <NavLink
-                to={item.URL}
-                className={({ isActive }) =>
-                  `text-blue-500 no-underline ${
-                    isActive ? "font-bold border-b-2 border-blue-500" : "hover:text-blue-700"
-                  }`
-                }
-              >
-                {item.name}
-              </NavLink>
+            <li key={item.URL} className="hover:bg-blue-100 cursor-pointer px-2 py-2">
+              <NavLink to={item.URL}>{item.name}</NavLink>
             </li>
-
-            
+           
           ))}
         </ul>
       </nav>
@@ -98,3 +158,9 @@ function Navbar() {
 }
 
 export default Navbar;
+{/* <li
+key={item.URL}
+className="hover:bg-blue-100 cursor-pointer px-2 py-2"
+>
+{item.name}
+</li> */}
