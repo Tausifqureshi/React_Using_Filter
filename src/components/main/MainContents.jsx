@@ -60,7 +60,7 @@ const MainContents = () => {
         <div
           className={`flex-1 pb-3  pt-1 px-2 text-gray-800 ${
             isHomePage ? "bg-gray-100" : "bg-white"
-          } overflow-y-auto`}
+          }`}
         >
           <Outlet />
         </div>
