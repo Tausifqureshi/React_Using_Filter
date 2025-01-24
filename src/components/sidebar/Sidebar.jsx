@@ -1,10 +1,4 @@
-// import React from "react";
 
-// function Sidebar() {
-//   return <div>Sidebar</div>;
-// }
-
-// export default Sidebar;
 
 
 
@@ -16,7 +10,7 @@ function Sidebar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
+    setIsSidebarOpen(!isSidebarOpen); 
   };
 
   return (
@@ -57,3 +51,4 @@ function Sidebar() {
 }
 
 export default Sidebar;
+  
