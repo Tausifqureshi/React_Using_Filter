@@ -6,37 +6,33 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./page/Home";
 // import MainContent from "./components/MainContent";
 import Footer from "./page/Footer";
-
+import { Provider } from "react-redux";
+import store from "./Redux/store"
 
 function App() {
   const router = createBrowserRouter([
-    
     {
       path: "/",
       element: <MainContents />,
-    
-    children: [
-      {
-        path: "/",
-        element: <Home />
-      },
-      {
-        path: "/footer",
-        element: <Footer />
-      },
-     
-     
-    ],
-  },
+
+      children: [
+        {
+          path: "/",
+          element: <Home />,
+        },
+        {
+          path: "/footer",
+          element: <Footer />,
+        },
+      ],
+    },
   ]);
   return (
     // <div className="text-3xl text-center my-5">App
-     <> 
-     
-      <RouterProvider router={router} />
-
-      
-
+    <>
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
     </>
   );
 }
