@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const productSlice = createSlice({
     name: 'product',
@@ -6,9 +6,7 @@ const productSlice = createSlice({
         products: []
     },
 
-    reducers: {
-        
-    },
+    reducers: {},
 
 
 
