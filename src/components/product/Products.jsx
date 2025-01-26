@@ -1,7 +1,14 @@
-// src/components/products/Products.js
-import React from "react";
+import React, { useEffect } from "react";
+import {fetchProduct } from "../../Redux/productSlice";
+import { useDispatch } from "react-redux";
 
 const Products = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProduct());
+  }, [dispatch]);
+
   // Dummy product data
   const productList = [
     { id: 1, name: "Product 1", price: "$10" },
@@ -48,12 +55,17 @@ const Products = () => {
     
   ];
 
+
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
       {productList.map((product) => (
         <div key={product.id} className="border p-4 rounded shadow">
           <h3 className="text-lg font-bold">{product.name}</h3>
           <p className="text-gray-700">{product.price}</p>
+          {/* <button onClick={() => {dispatch(fetchProducts(product))}} className="bg-blue-500 text-white px-4 py-2  mt-2 rounded">
+            Add to Cart
+          </button> */}
         </div>
       ))}
     </div>

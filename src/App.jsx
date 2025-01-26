@@ -7,7 +7,7 @@ import Home from "./page/Home";
 // import MainContent from "./components/MainContent";
 import Footer from "./page/Footer";
 import { Provider } from "react-redux";
-import store from "./Redux/store"
+import store from "./Redux/store";
 
 function App() {
   const router = createBrowserRouter([
@@ -30,9 +30,9 @@ function App() {
   return (
     // <div className="text-3xl text-center my-5">App
     <>
-      <Provider store={store}>
+     <Provider store={store}>
         <RouterProvider router={router} />
-      </Provider>
+     </Provider>
     </>
   );
 }
