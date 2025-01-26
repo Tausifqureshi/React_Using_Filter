@@ -4,9 +4,14 @@ const productSlice = createSlice({
     name: 'product',
     initialState: {
         products: []
-    },
+    }
+, 
+
 
     reducers: {},
+    
+
+  
 
 
 

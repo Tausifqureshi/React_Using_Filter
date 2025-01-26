@@ -7,8 +7,10 @@ import Home from "./page/Home";
 // import MainContent from "./components/MainContent";
 import Footer from "./page/Footer";
 
+
 function App() {
   const router = createBrowserRouter([
+    
     {
       path: "/",
       element: <MainContents />,
