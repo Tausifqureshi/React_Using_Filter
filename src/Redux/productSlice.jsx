@@ -11,7 +11,7 @@ export const fetchProduct = createAsyncThunk("product/fetchProducts", async () =
         console.log(error.message);
         
     }
-});
+});     
 
 const productSlice = createSlice({      
     name: "product",
