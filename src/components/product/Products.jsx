@@ -10,68 +10,78 @@ const Products = () => {
     dispatch(fetchProduct());
   }, [dispatch]);
 
-  // Dummy product data
-  const productList = [
-    { id: 1, name: "Product 1", price: "$10" },
-    { id: 2, name: "Product 2", price: "$20" },
-    { id: 3, name: "Product 3", price: "$30" },
-    { id: 4, name: "Product 4", price: "$40" },
-    { id: 5, name: "Product 5", price: "$50" },
-    { id: 6, name: "Product 6", price: "$60" },
-    { id: 7, name: "Product 7", price: "$70" },
-    { id: 8, name: "Product 8", price: "$80" },
-    { id: 10, name: "Product 9", price: "$90" },
-    { id: 11, name: "Product 10", price: "$100" },
-    { id: 12, name: "Product 11", price: "$110" },
-    { id: 13, name: "Product 12", price: "$120" },
-    { id: 14, name: "Product 13", price: "$130" },
-    { id: 15, name: "Product 14", price: "$140" },
-    { id: 16, name: "Product 15", price: "$150" },
-    { id: 117, name: "Product 16", price: "$160" },
-    { id: 17, name: "Product 17", price: "$170" },
-    { id: 19, name: "Product 18", price: "$180" },
-    { id: 19, name: "Product 18", price: "$180" },
-    { id: 19, name: "Product 18", price: "$180" },
-    { id: 19, name: "Product 18", price: "$180" },
-    { id: 19, name: "Product 18", price: "$180" },
-    { id: 19, name: "Product 18", price: "$180" },
-    { id: 19, name: "Product 18", price: "$180" },
-    { id: 19, name: "Product 18", price: "$180" },
-    { id: 19, name: "Product 18", price: "$180" },
-    { id: 19, name: "Product 18", price: "$180" },
-    { id: 19, name: "Product 18", price: "$180" },
-    { id: 19, name: "Product 18", price: "$180" },
-    { id: 19, name: "Product 18", price: "$180" },
-    { id: 19, name: "Product 18", price: "$180" },
-    { id: 19, name: "Product 18", price: "$180" },
-    { id: 19, name: "Product 18", price: "$180" },
-    { id: 19, name: "Product 18", price: "$180" },
-    { id: 19, name: "Product 18", price: "$180" },
-    { id: 19, name: "Product 18", price: "$180" },
-    { id: 19, name: "Product 18", price: "$180" },
-    
-    
-   
-   
-    
-  ];
-    
-  
-
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
       {products.map((product) => (
-        <div key={product.id} className="border p-4 rounded shadow">
-          <img src={product.image} alt={product.title} className="w-full h-48 object-contain mix-blend-darken  "/>
-          <h3 className="text-lg font-bold mt-2">{product.title}</h3>
-          <p className="text-gray-700">{product.price}</p>
-          {/* <button onClick={() => {dispatch(fetchProducts(product))}} className="bg-blue-500 text-white px-4 py-2  mt-2 rounded">
-            Add to Cart
-          </button> */}
+        <div
+          key={product.id}
+          className="border rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 bg-white overflow-hidden"
+        >
+          <div className="w-full bg-gray-100 " style={{ aspectRatio: '4/3' }}>
+            <img
+              src={product.image}
+              alt={product.title}
+              className="w-full h-full object-contain mix-blend-darken"
+            />
+          </div>
+          <div className="p-4">
+            <h3 className="text-lg font-semibold text-gray-800 hover:text-blue-600 transition-colors truncate">
+              {product.title}
+            </h3>
+            <p className="text-xl font-bold text-green-600 mt-2">${product.price.toFixed(2)}</p>
+            <button
+              className="bg-yellow-500 hover:bg-yellow-600 text-white font-medium px-6 py-2 rounded-full mt-4 w-full transition-all duration-300"
+            >
+              Add to Cart
+            </button>
+          </div>
         </div>
       ))}
     </div>
   );
+
+  // return (
+  //   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+  //     {products.map((product) => (
+  //       <div
+  //         key={product.id}
+  //         className="border rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 bg-white overflow-hidden"
+  //       >
+  //         <img
+  //           src={product.image}
+  //           alt={product.title}
+  //           className="w-full h-64 object-contain p-4 mix-blend-darken mx-auto"
+  //         />
+  //         <div className="p-4">
+  //           <h3 className="text-lg font-semibold text-gray-800 hover:text-blue-600 transition-colors truncate">
+  //             {product.title}
+  //           </h3>
+  //           <p className="text-xl font-bold text-green-600 mt-2">${product.price.toFixed(2)}</p>
+  //           <button
+  //             className="bg-yellow-500 hover:bg-yellow-600 text-white font-medium px-6 py-2 rounded-full mt-4 w-full transition-all duration-300"
+  //           >
+  //             Add to Cart
+  //           </button>
+  //         </div>
+  //       </div>
+  //     ))}
+  //   </div>
+  // );
+
+  // return (
+  //   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+  //     {products.map((product) => (
+  //       <div key={product.id} className="border p-4 rounded shadow">
+  //         <img src={product.image} alt={product.title} className="w-full h-48 object-contain mix-blend-darken  "/>
+  //         <h3 className="text-lg font-bold mt-2">{product.title.slice(0, 25)}</h3>
+  //         <p className="text-gray-700">{product.price}</p>
+  //         <button  className="bg-blue-500 text-white px-4 py-2  mt-2 rounded">
+  //           Add to Cart
+  //         </button>
+  //       </div>
+  //     ))}
+  //   </div>
+  // );
 };
 
 export default Products;
