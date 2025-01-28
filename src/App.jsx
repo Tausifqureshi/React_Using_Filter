@@ -5,7 +5,7 @@ import MainContents from "./components/main/MainContents";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./page/Home";
 // import MainContent from "./components/MainContent";
-import Footer from "./page/Footer";
+import Input from "./components/Input";
 import { Provider } from "react-redux";
 import store from "./Redux/store";
 
@@ -21,8 +21,8 @@ function App() {
           element: <Home />,
         },
         {
-          path: "/footer",
-          element: <Footer />,
+          path: "/input",
+          element: <Input />,
         },
       ],
     },

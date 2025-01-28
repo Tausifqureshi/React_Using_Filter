@@ -53,7 +53,7 @@ function Navbar() {
     { name: "Signup", URL: "/signup" },
     { name: "Login", URL: "/login" },
     { name: "Cart", URL: "/cart" },
-    { name: "Footer", URL: "/footer" },
+    { name: "Input", URL: "/input" },
   ];
 
   return (

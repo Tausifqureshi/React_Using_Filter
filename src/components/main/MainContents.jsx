@@ -40,6 +40,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Sidebar from "../sidebar/Sidebar";
 import NavBar from "../navbar/NavBar";
 import Input from "../Input";
+import Footer from "../../page/Footer";
 
 const MainContents = () => {
   const location = useLocation(); // Current URL path
@@ -68,7 +69,7 @@ const MainContents = () => {
 
       {/* Input: Always at the Bottom */}
       <div className="border-t p-4 bg-gray-200 mt-5">
-        <Input />
+        <Footer />
       </div>
     </div>
   );
