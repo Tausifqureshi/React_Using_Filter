@@ -46,14 +46,14 @@ const MainContents = () => {
 
       {/* Main Content Layout */}
       {/* <div className="flex flex-1"> */}
-      <div className={`flex ${isHomePage ? "" : "h-auto"}`}>
+      <div className={`flex mt-3 mx-2 ${isHomePage ? "" : "h-auto"}`}>
         {/* Sidebar: Only show on / Page */}
         {isHomePage && <Sidebar />}
 
         {/* Main Content */}
         <div
           className={`flex-1 pb-3  pt-1 px-2 text-gray-800 ${
-            isHomePage ? "bg-gray-100" : "bg-white"
+            isHomePage ? "bg-gray-200" : "bg-white"
           }`}
         >
           <Outlet />

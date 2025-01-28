@@ -12,7 +12,7 @@ function Sidebar() {
 
   return (
     <div
-      className={ `ml-1 h-screen bg-gray-900 overflow-auto text-white transition-all duration-300 ease-in-out  scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-800 scrollbar-thumb-rounded-full scrollbar-track-rounded-full hover:scrollbar-thumb-gray-500 ${
+      className={ ` h-screen bg-gray-900 overflow-auto text-white transition-all duration-300 ease-in-out  scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-800 scrollbar-thumb-rounded-full scrollbar-track-rounded-full hover:scrollbar-thumb-gray-500 ${
       isSidebarOpen ? "w-64" : "w-17"
       }`}
       

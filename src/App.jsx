@@ -3,9 +3,6 @@ import React from "react";
 // import Sidebar from "./components/sidebar/Sidebar";
 import MainContents from "./components/main/MainContents";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-// import Home from "./page/Home";
-
-// import Input from "./components/Input";
 import {Home, About, Contact} from "./page/index";
 import { Provider } from "react-redux";
 import store from "./Redux/store";

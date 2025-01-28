@@ -60,7 +60,7 @@ function Navbar() {
     <div
       className={
         `p-4 sticky top-0 z-50 transition-all duration-300 ${
-          isScrolled ? "bg-white shadow-md bg-opacity-95" : "bg-gray-100"
+          isScrolled ? "bg-white shadow-md" : "bg-gray-500"
         } 
       `
         // ${!isVisible ? "-translate-y-full" : ""}
