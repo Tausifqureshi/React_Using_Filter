@@ -5,11 +5,11 @@ function Button({
   label,
   onClick,
   type = "button",
-  className,
+  className = "",
   ...props
 }) {
   return (
-    <div>
+    
       <button
         onClick={onClick}
         type={type}
@@ -18,7 +18,7 @@ function Button({
       >
          {children || label}
       </button>
-    </div>
+    
   );
 }
 
