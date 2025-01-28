@@ -29,18 +29,11 @@
 // export default Main;
 
 
-
-
-
-
-
-
 import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Sidebar from "../sidebar/Sidebar";
 import NavBar from "../navbar/NavBar";
-import Input from "../Input";
-import Footer from "../../page/Footer";
+import Footer from "../../page/Footer/Footer";
 
 const MainContents = () => {
   const location = useLocation(); // Current URL path
