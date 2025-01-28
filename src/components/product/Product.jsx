@@ -9,8 +9,8 @@ function Product({ image, title, price, isSidebarOpen }) {
             src={image}
             alt={title}
             className={`w-full h-full object-contain mix-blend-darken
-             ${ isSidebarOpen ? "w-full" : "aspect-ratio: 6 / 3"}
             `
+            //  ${ isSidebarOpen ? "w-full" : "aspect-ratio: 6 / 3"}
             }
             
           />
