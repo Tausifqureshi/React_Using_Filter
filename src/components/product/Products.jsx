@@ -12,11 +12,11 @@ const Products = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
       {products.map((items)=>(
         <Product key={items.id} {...items} />
       ))}
-    </>
+    </div>
   );
 
 
@@ -39,3 +39,16 @@ const Products = () => {
 };
 
 export default Products;
+
+
+
+
+// addToCart: (state, action) => {
+//   // state.cart.push(action.payload);
+//   // return [...state, action.payload]; // Add to cart mein jo bhi product aayega usko cart mein add karna.
+// return {
+// ...state, // Pura state ko copy karo
+// cart: [...state.cart, action.payload] // Purane cart ko copy karke naye product ko add karo
+// };
+
+// },

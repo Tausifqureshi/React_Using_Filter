@@ -1,10 +1,7 @@
-
-
-
-
 import React, { useState } from "react";
 // Importing icons from react-icons
 import { FaHome, FaRegBell, FaRegListAlt, FaBook } from 'react-icons/fa';
+import Products from "../product/Product";
 
 function Sidebar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -169,6 +166,7 @@ function Sidebar() {
           {isSidebarOpen && "Library"}
         </li>
       </ul>
+    <Products isSidebarOpen={isSidebarOpen}/>
     </div>
   );
 }

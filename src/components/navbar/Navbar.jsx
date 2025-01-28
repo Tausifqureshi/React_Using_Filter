@@ -71,13 +71,16 @@ function Navbar() {
 
         <ul className="flex gap-4 items-center">
           {navItem.map((item) => (
-            <li
-              key={item.URL}
-              className="hover:bg-blue-100 cursor-pointer px-2 py-2"
-            >
-              <NavLink to={item.URL}>{item.name}</NavLink>
+            <li key={item.URL} className="hover:bg-gray-500 cursor-pointer px-2 py-2">
+
+           <NavLink to={item.URL}  className={({ isActive }) => isActive
+            ? "text-blue-500 no-underline border-b-2 border-blue-500"
+            : "hover:text-black-700"}>
+            {item.name}</NavLink>
+
             </li>
           ))}
+          
         </ul>
       </nav>
     </div>
