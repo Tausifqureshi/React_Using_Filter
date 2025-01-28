@@ -38,6 +38,9 @@
         color: 'color',
         luminosity: 'luminosity',
       },
+      // gridTemplateColumns: {
+      //   custom: "repeat(4, minmax(0, 350px))",
+      // },
     },
   },
   plugins: [],

@@ -52,7 +52,7 @@ const MainContents = () => {
 
         {/* Main Content */}
         <div
-          className={`flex-1 pb-3  pt-1 px-2 text-gray-800 ${
+          className={`flex-1 pb-3 pt-1 px-2 text-gray-800 ${
             isHomePage ? "bg-gray-200" : "bg-white"
           }`}
         >
