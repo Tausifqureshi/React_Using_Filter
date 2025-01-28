@@ -1,16 +1,17 @@
 import React from "react";
-import { LuScanSearch } from "react-lu-search";
-import {Button}  from "../../page/index"
+import { LuScanSearch } from "react-icons/lu";
+import Button from "../Button";
 
 function SearchBar() {
   return (
-    <div>
+    <div className="relative flex items-center bg-white rounded-full border border-gray-300 shadow-sm w-[26rem]">
       <input
         type="text"
         placeholder="Search..."
-        className="border-2 border-gray-300 p-2 rounded-lg"
+        className="w-full px-4 py-2 text-sm text-gray-800 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
-      <Button className="rounded-lg cursor-pointer">
+
+      <Button className="absolute right-2 flex items-center justify-center w-8 h-8 text-white bg-blue-500 rounded-full hover:bg-blue-600 transition-all">
         <LuScanSearch />
       </Button>
       

@@ -3,6 +3,7 @@ import React from "react";
 // import Sidebar from "./components/sidebar/Sidebar";
 import MainContents from "./components/main/MainContents";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import {Home, About, Contact} from "./page/index";
 import { Provider } from "react-redux";
 import store from "./Redux/store";

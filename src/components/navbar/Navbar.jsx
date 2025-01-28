@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import SearchBar from "../searchBar/SearchBar";
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false); //isScrolled: Page scroll hone ki condition ko track karta hai.
@@ -67,8 +68,16 @@ function Navbar() {
       }
     >
       <nav className="flex justify-between items-center">
-        <div>{/* Logo */}</div>
+        <div>{/* Logo */}
+        <h1>Logo</h1>
+        </div>
+        {/* Search Bar */}
+        <div >
+          <SearchBar />
+        </div>
 
+
+        {/* Navigation Links */}
         <ul className="flex gap-4 items-center">
           {navItem.map((item) => (
             <li key={item.URL} className="hover:bg-gray-500 cursor-pointer px-2 py-2">
