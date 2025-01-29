@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import SearchBar from "../searchBar/SearchBar";
 
-function Navbar() {
+function Navbar(setFilteredProducts) {
   const [isScrolled, setIsScrolled] = useState(false); //isScrolled: Page scroll hone ki condition ko track karta hai.
   // const [lastScrollY, setLastScrollY] = useState(0); //lastScrollY: Pichli scroll position ko store karta hai, jisse scroll direction detect ho sake.
 
@@ -73,7 +73,7 @@ function Navbar() {
         </div>
         {/* Search Bar */}
         <div >
-          <SearchBar />
+          <SearchBar setFilteredProducts={setFilteredProducts}/>
         </div>
 
 

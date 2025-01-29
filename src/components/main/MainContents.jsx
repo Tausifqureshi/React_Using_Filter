@@ -29,20 +29,21 @@
 // export default Main;
 
 
-import React from "react";
+import React, { useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Sidebar from "../sidebar/Sidebar";
 import NavBar from "../navbar/NavBar";
 import Footer from "../../page/Footer/Footer";
 
 const MainContents = () => {
+  const [filteredProducts, setFilteredProducts] = useState([]); 
   const location = useLocation(); // Current URL path
   const isHomePage = location.pathname === "/"; // Check if current path is "/"
 
   return (
     <div className="flex flex-col min-h-screen">
       {/* Navbar */}
-      <NavBar />
+      <NavBar  setFilteredProducts={setFilteredProducts}/>
 
       {/* Main Content Layout */}
       {/* <div className="flex flex-1"> */}
