@@ -88,6 +88,6 @@ const productSlice = createSlice({
   },
 });
 
-export const { fetchProducts } = productSlice.actions;
+export const { fetchProducts, addToCart, removeFromCart, clearCart } = productSlice.actions;
 export { fetchData }; // export fetchData thunk function aysnc
 export default productSlice.reducer;

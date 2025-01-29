@@ -1,42 +1,107 @@
+// import React from "react";
+// // import NavBar from "./components/navbar/Navbar";
+// // import Sidebar from "./components/sidebar/Sidebar";
+// import MainContents from "./components/main/MainContents";
+// import { createBrowserRouter, RouterProvider } from "react-router-dom";
+// import {Home, About, Contact} from "./page/index";
+// import { Provider } from "react-redux";
+// import store from "./Redux/store";
+// import ProductProvider from "./components/Context API/ProductProvider";
+
+
+// function App() {
+//   const router = createBrowserRouter([
+//     {
+//       path: "/",
+//       element: <MainContents />,
+
+//       children: [
+//         {
+//           path: "/",
+//           element: <Home />,
+//         },
+//         {
+//           path: "/about",
+//           element: <About />,
+//         },
+//         {
+//           path: "/contact",
+//           element: <Contact />,
+//         },
+//       ],
+//     },
+//   ]);
+//   return (
+//     // <div className="text-3xl text-center my-5">App
+//     <>
+//      <Provider store={store}>
+//      <ProductProvider>
+//         <RouterProvider router={router} />
+//         </ProductProvider>
+//      </Provider>
+//     </>
+//   );
+// }
+
+// export default App;
+
+
+
+
+
+
 import React from "react";
-// import NavBar from "./components/navbar/Navbar";
-// import Sidebar from "./components/sidebar/Sidebar";
 import MainContents from "./components/main/MainContents";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-import {Home, About, Contact} from "./page/index";
+import { Home, About, Contact } from "./page/index";
 import { Provider } from "react-redux";
 import store from "./Redux/store";
+import ProductProvider from "./components/Context API/ProductProvider"; // Import ProductProvider
+
+const router = createBrowserRouter([
+
+  // {
+  //   path: "/",
+  //   element: <Home />,
+  // },
+  // {
+  //   path: "/about",
+  //   element: <About />,
+  // },
+  // {
+  //   path: "/contact",
+  //   element: <Contact />,
+  // },
+
+
+  {
+          path: "/",
+          element: <MainContents />,
+    
+          children: [
+            {
+              path: "/",
+              element: <Home />,
+            },
+            {
+              path: "/about",
+              element: <About />,
+            },
+            {
+              path: "/contact",
+              element: <Contact />,
+            },
+          ],
+        },
+]);
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <MainContents />,
-
-      children: [
-        {
-          path: "/",
-          element: <Home />,
-        },
-        {
-          path: "/about",
-          element: <About />,
-        },
-        {
-          path: "/contact",
-          element: <Contact />,
-        },
-      ],
-    },
-  ]);
   return (
-    // <div className="text-3xl text-center my-5">App
-    <>
-     <Provider store={store}>
+    <Provider store={store}>
+      <ProductProvider> {/* ✅ Ensure this is wrapping RouterProvider */}
         <RouterProvider router={router} />
-     </Provider>
-    </>
+      </ProductProvider>
+    </Provider>
   );
 }
 
