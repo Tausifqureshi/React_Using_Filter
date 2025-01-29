@@ -48,7 +48,7 @@ const MainContents = () => {
 
       {/* Main Content Layout */}
       {/* <div className="flex flex-1"> */}
-      <div className={`flex mt-3 mx-2 ${isHomePage ? "" : "h-auto"}`}>
+      <div className={`flex mt-3 mx-2 ${isHomePage ? "" : "h-[75vh]"}`}>
         {/* Sidebar: Only show on / Page */}
         {isHomePage && <Sidebar />}
 
