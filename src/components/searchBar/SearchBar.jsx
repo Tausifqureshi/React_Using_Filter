@@ -13,10 +13,12 @@ function SearchBar() {
 
     
   function searchFilter(e) {
-   let searchProducts = setSearch(e.target.value.toLowerCase());
+   let searchProducts = e.target.value.toLowerCase();
+   setSearch(searchProducts);
 
     if (e.target.value === "") {
       dispatch(fetchProduct());
+      return;
     }
 
     // const filteredProducts = products.filter((product) =>
