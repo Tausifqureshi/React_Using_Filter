@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchProduct = createAsyncThunk(
+ const fetchData = createAsyncThunk(
   "product/fetchProducts",
   async () => {
     try {
@@ -67,20 +67,20 @@ const productSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
-      .addCase(fetchProduct.pending, (state) => {
+      .addCase(fetchData.pending, (state) => {
         state.loading = true; // Jab tak data load ho raha hai
         // console.log("padding state...");
       })
 
       // `fulfilled` case, jab data successfully fetch ho gaya ho
-      .addCase(fetchProduct.fulfilled, (state, action) => {
+      .addCase(fetchData.fulfilled, (state, action) => {
         // jo uperr axios me datat return kar re hai o is fulfiled wale me mile ga action.payload me
         // console.log("actions mil ra hai yaha se fulfiled ka",action.payload);
         state.loading = false; // Loading ko false set karna.
         state.data = action.payload; // Data ko state mein store karna.
       })
       // `rejected` case, jab data fetch mein error aaye
-      .addCase(fetchProduct.rejected, (state, action) => {
+      .addCase(fetchData.rejected, (state, action) => {
         // console.log("actions mil ra hai yaha se reject ka",action.error);
         state.loading = false; // Loading ko false set karna
         state.error = action.error.message; // Error ko state mein store karna
@@ -89,4 +89,5 @@ const productSlice = createSlice({
 });
 
 export const { fetchProducts } = productSlice.actions;
+export { fetchData }; // export fetchData thunk function aysnc
 export default productSlice.reducer;

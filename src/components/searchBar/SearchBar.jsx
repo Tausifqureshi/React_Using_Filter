@@ -2,7 +2,7 @@ import React, { useState ,useEffect} from "react";
 import { LuScanSearch } from "react-icons/lu";
 import Button from "../Button";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchProduct } from "../../Redux/productSlice";
+import { fetchData } from "../../Redux/productSlice";
 
 
 function SearchBar() {
@@ -17,7 +17,7 @@ function SearchBar() {
    setSearch(searchProducts);
 
     if (e.target.value === "") {
-      dispatch(fetchProduct());
+      dispatch(fetchData());
       return;
     }
 
@@ -25,14 +25,14 @@ function SearchBar() {
     //   product.title.toLowerCase().includes(e.target.value.toLowerCase())
     // );
 
-    // dispatch(fetchProduct(filteredProducts));
+    // dispatch(fetchData(filteredProducts));
 
 
     const filterProducts = products.filter((product)=>
         product.title.toLowerCase().includes(searchProducts)
     )
 
-    dispatch(fetchProduct(filterProducts));
+    dispatch(fetchData(filterProducts));
 
 
   }
