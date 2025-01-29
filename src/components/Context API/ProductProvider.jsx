@@ -5,17 +5,24 @@ import { fetchData} from '../../Redux/productSlice';
 const ProductContext = createContext();
 
 
-function ProductProvider() {
+function ProductProvider( {children}) {
   const dispatch = useDispatch();
   const { data, cart, loading, error } = useSelector((state) => state.product);
+
   useEffect(() => {
     dispatch(fetchData());
   }, [dispatch]);
-  
-  return (
-  <div>
 
-  </div>
+  return (
+ <ProductContext.Provider value={{
+   data: data,
+   cart: cart,
+   loading: loading,
+   jerror: error,
+
+ }}>
+    {children}
+ </ProductContext.Provider>
 
 );
 }
