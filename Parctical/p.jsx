@@ -62,7 +62,7 @@
 
 
 
-
+// Search bar component CODE
 
 import React from "react";
 import { LuScanSearch } from "react-icons/lu";
