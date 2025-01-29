@@ -3,7 +3,9 @@ import { LuScanSearch } from "react-icons/lu";
 import Button from "../Button";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProduct } from "../../Redux/productSlice";
-function SearchBar(setFilteredProducts) {
+
+
+function SearchBar() {
   const [search, setSearch] = useState("");
     const dispatch = useDispatch();
     const products = useSelector((state) => state.product.data);
@@ -14,30 +16,23 @@ function SearchBar(setFilteredProducts) {
    let searchProducts = e.target.value.toLowerCase();
    setSearch(searchProducts);
 
-    if (searchProducts === "") {
+    if (e.target.value === "") {
       dispatch(fetchProduct());
       return;
     }
+
+    // const filteredProducts = products.filter((product) =>
+    //   product.title.toLowerCase().includes(e.target.value.toLowerCase())
+    // );
+
+    // dispatch(fetchProduct(filteredProducts));
+
 
     const filterProducts = products.filter((product)=>
         product.title.toLowerCase().includes(searchProducts)
     )
 
     dispatch(fetchProduct(filterProducts));
-
-  // const searchValue = e.target.value.toLowerCase();
-  // setSearch(searchValue);
-
-  // if (searchValue === "") {
-  //   setFilteredProducts([]); // ✅ Agar input empty ho to suggestions hata do
-  //   return;
-  // }
-
-  // const filteredData = products.filter((items)=>
-  //   items.title.toLowerCase().includes(searchValue)
-  // )
-
-  // setFilteredProducts(filteredData);
 
 
   }
@@ -63,11 +58,6 @@ function SearchBar(setFilteredProducts) {
 }
 
 export default SearchBar;
-
-
-
-
-
 
 
 
