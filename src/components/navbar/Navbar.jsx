@@ -73,7 +73,7 @@ function Navbar(setFilteredProducts) {
         </div>
         {/* Search Bar */}
         <div >
-          <SearchBar setFilteredProducts={setFilteredProducts}/>
+          <SearchBar />
         </div>
 
 

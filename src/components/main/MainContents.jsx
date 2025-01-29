@@ -36,14 +36,14 @@ import NavBar from "../navbar/NavBar";
 import Footer from "../../page/Footer/Footer";
 
 const MainContents = () => {
-  const [filteredProducts, setFilteredProducts] = useState([]); 
+
   const location = useLocation(); // Current URL path
   const isHomePage = location.pathname === "/"; // Check if current path is "/"
 
   return (
     <div className="flex flex-col min-h-screen">
       {/* Navbar */}
-      <NavBar  setFilteredProducts={setFilteredProducts}/>
+      <NavBar/>
 
       {/* Main Content Layout */}
       {/* <div className="flex flex-1"> */}
