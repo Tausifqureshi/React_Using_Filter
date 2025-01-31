@@ -8,7 +8,7 @@ import { useProductContext } from '../Context API/ProductProvider';
 const Products = () => {
   // const dispatch = useDispatch();
   // const fetched_Products_Data = useSelector((state) => state.product.data);  
-  const { data, loading, error,} = useProductContext(); // Use context to get data, loading, error, and addToCart
+  const { data, loading, error, filteredProducts} = useProductContext(); // Use context to get data, loading, error, and addToCart
 
   // useEffect(() => {
   //   dispatch(fetchData());
@@ -20,7 +20,7 @@ const Products = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 p-1">
       {data.map((items)=>(
-        <Product key={items.id} {...items} />
+        <Product key={items.id} {...items} filteredProducts={filteredProducts}/>
       ))}
     </div>
   );

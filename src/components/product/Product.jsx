@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../Button";
 
-function Product({ image, title, price, isSidebarOpen }) {
+function Product({ image, title, price,filteredProducts }) {
   return (
       <div className="border rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 bg-white overflow-hidden">
         <div className="w-full bg-gray-100 " style={{ aspectRatio: "4/3" }}>
