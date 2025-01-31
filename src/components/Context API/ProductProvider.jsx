@@ -47,16 +47,11 @@ function ProductProvider({ children }) {
   );
 }
 
-// export const useProductContext = () => useContext(ProductContext);
+
 export const useProductContext = () => {
-return useContext(ProductContext);
+  return useContext(ProductContext);
 };
 export default ProductProvider;
-
-
-
-
-
 
 // import React, { createContext, useContext, useEffect } from "react";
 // import { useDispatch, useSelector } from "react-redux";
