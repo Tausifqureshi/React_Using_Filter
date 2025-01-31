@@ -28,7 +28,7 @@ const Products = () => {
           <p>No products found</p> // Agar filteredProducts ka length 0 hai, toh koi product nahi mila, isliye "No products found" show karna hai.
         )} */}
         
-
+         {/* is tara se bhi likh sakte ho */}
         {filteredProducts.length > 0 ?
         filteredProducts.map((item)=>{
           return <Product key={item.id} {...item} />
