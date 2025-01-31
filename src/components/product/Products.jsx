@@ -6,7 +6,7 @@ import { useProductContext } from '../Context API/ProductProvider';
 
   
 const Products = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   // const fetched_Products_Data = useSelector((state) => state.product.data);  
   const { data, loading, error,} = useProductContext(); // Use context to get data, loading, error, and addToCart
 
