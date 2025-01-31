@@ -16,7 +16,7 @@ function SearchBar() {
   // Is tara se bhi likh sakte ho filter laga sakte hai
   useEffect(() => {
     // if(searchQuery === ""){ // Agar searchQuery khali hai toh filteredProducts me data dal do
-    //   setFilteredProducts(data); //
+    //   setFilteredProducts(data); // `data` me jo bhi products hai usko filteredProducts me dal do
     //   return;// return kar do
     //  };
     // const filteredProducts = data.filter((product) =>
@@ -25,6 +25,8 @@ function SearchBar() {
 
     // setFilteredProducts(filteredProducts); // filteredProducts me filteredProducts dal do
 
+
+
     if (searchQuery.trim() === "") { // Agar searchQuery khali hai toh filteredProducts me data dal do
       setFilteredProducts(data); // `data` me jo bhi products hai usko filteredProducts me dal do
       return; // return kar do
@@ -32,7 +34,7 @@ function SearchBar() {
     const filterProduct = data.filter((product) =>
       product.title.toLowerCase().includes(searchQuery.toLowerCase())
     ); // searchQuery me jo value hai usko lowercase me convert karke check karo ki product.title me hai ya nahi
-    
+
     setFilteredProducts(filterProduct); // filteredProducts me filteredProducts dal do
   }, [data, searchQuery, setFilteredProducts]); // Ye dependencies change hone par effect run hoga
 
