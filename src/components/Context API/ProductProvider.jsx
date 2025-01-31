@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect } from "react";
+import React, { createContext, useContext, useEffect , useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchData,
@@ -10,6 +10,7 @@ import {
 const ProductContext = createContext();
 
 function ProductProvider({ children }) { //✅ Default value to children
+  const [filteredProducts, setFilteredProducts] = useState([]); // Filtered products state
   const dispatch = useDispatch();
   const { data, cart, loading, error } = useSelector((state) => state.product);
   const useProdutc = useSelector((state) => state.product);
@@ -41,6 +42,8 @@ function ProductProvider({ children }) { //✅ Default value to children
         handleAddToCart,
         handleRemoveFromCart,
         handleClearCart,
+        filteredProducts,
+        setFilteredProducts,
         key: "product Fetching Data from Redux",
       }}
     >

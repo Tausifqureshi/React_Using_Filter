@@ -7,32 +7,16 @@ import {useProductContext} from "../Context API/ProductProvider";
 
 
 function SearchBar() {
-  const [search, setSearch] = useState("");
-    const dispatch = useDispatch();
-    const products = useSelector((state) => state.product.data);
-    console.log("PRODUCT DATA FROM REDUX",products);
-const {data,loading,error} = useProductContext();
+  const [searchQuery, setSearchQuery] = useState("");
+  // const [search, setSearch] = useState("");
+    // const dispatch = useDispatch();
+    // const products = useSelector((state) => state.product.data);
+    // console.log("PRODUCT DATA FROM REDUX",products);
+  const {data,loading,error, setFilteredProducts} = useProductContext();
+  
 
     
-  function searchFilter(e) {
-   let searchProducts = e.target.value.toLowerCase();
-   setSearch(searchProducts);
-
-    if (e.target.value === "") {
-      dispatch(fetchData());
-      return;
-    }
-
-
-
-    const filterProducts = products.filter((product)=>
-        product.title.toLowerCase().includes(searchProducts)
-    )
-
-    dispatch(fetchData(filterProducts));
-
-
-  }
+  
 
 
 
@@ -43,8 +27,8 @@ const {data,loading,error} = useProductContext();
         placeholder="Search..."
         className="w-full px-4 py-2 text-sm text-gray-800 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-label="Search"
-        value={search}
-        onChange={searchFilter}
+        value={searchQuery}
+        onChange={(e)=>setSearchQuery(e.target.value)}
       />
 
 
