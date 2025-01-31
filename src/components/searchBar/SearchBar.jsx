@@ -3,6 +3,7 @@ import { LuScanSearch } from "react-icons/lu";
 import Button from "../Button";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchData } from "../../Redux/productSlice";
+import {useProductContext} from "../Context API/ProductProvider";
 
 
 function SearchBar() {
@@ -10,6 +11,7 @@ function SearchBar() {
     const dispatch = useDispatch();
     const products = useSelector((state) => state.product.data);
     console.log("PRODUCT DATA FROM REDUX",products);
+const {data,loading,error} = useProductContext();
 
     
   function searchFilter(e) {
@@ -45,9 +47,11 @@ function SearchBar() {
         onChange={searchFilter}
       />
 
+
       <Button className="absolute right-2 flex items-center justify-center w-8 h-8 text-white bg-blue-500 rounded-full hover:bg-blue-600 transition-all">
         <LuScanSearch />
       </Button>
+
     </div>
   );
 }
