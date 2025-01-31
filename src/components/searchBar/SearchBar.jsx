@@ -21,11 +21,6 @@ function SearchBar() {
       return;
     }
 
-    // const filteredProducts = products.filter((product) =>
-    //   product.title.toLowerCase().includes(e.target.value.toLowerCase())
-    // );
-
-    // dispatch(fetchData(filteredProducts));
 
 
     const filterProducts = products.filter((product)=>
