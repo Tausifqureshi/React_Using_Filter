@@ -39,14 +39,12 @@ function Sidebar() {
           <FaRegListAlt className="w-6 h-6 mr-3" />
           {isSidebarOpen && "Trending"}
         </li>
-
-        {/* Duplicate menu items */}
         <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
           <FaBook className="w-6 h-6 mr-3" />
           {isSidebarOpen && "Library"}
         </li>
 
-        
+        {/* Duplicate menu items */}
         <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
           <FaBook className="w-6 h-6 mr-3" />
           {/* {isSidebarOpen && "Library"} */}
