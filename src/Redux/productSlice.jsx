@@ -6,7 +6,7 @@ import axios from "axios";
   async () => {
     try {
       const response = await axios.get("https://fakestoreapi.com/products");
-      console.log(" response", response.data);
+      // console.log(" response", response.data);
       return response.data;
     } catch (error) {
       console.log(error.message);
@@ -90,4 +90,5 @@ const productSlice = createSlice({
 
 export const { fetchProducts, addToCart, removeFromCart, clearCart } = productSlice.actions;
 export { fetchData }; // export fetchData thunk function aysnc
+console.log("productSlice", productSlice.actions);
 export default productSlice.reducer;

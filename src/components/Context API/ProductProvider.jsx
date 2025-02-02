@@ -12,12 +12,14 @@ const ProductContext = createContext();
 function ProductProvider({ children }) { //✅ Default value to children
   const [filteredProducts, setFilteredProducts] = useState([]); // Filtered products state
   const dispatch = useDispatch();
+
   const { data, cart, loading, error } = useSelector((state) => state.product);
   const useProdutc = useSelector((state) => state.product);
-  console.log("PRODUCT DATA FROM REDUX",useProdutc);
+  // console.log("PRODUCT DATA FROM REDUX",useProdutc);
 
   useEffect(() => {
     dispatch(fetchData());
+    // fetchData();
   }, [dispatch]);
 
   const handleAddToCart = (product) => {
