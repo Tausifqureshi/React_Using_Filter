@@ -12,7 +12,7 @@ function Sidebar() {
 
   return (
     <div
-      className={ ` h-screen bg-gray-900 overflow-auto text-white transition-all duration-300 ease-in-out  scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-800 scrollbar-thumb-rounded-full scrollbar-track-rounded-full hover:scrollbar-thumb-gray-500 ${
+      className={ `h-screen bg-gray-900 overflow-auto text-white transition-all duration-300 ease-in-out  scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-800 scrollbar-thumb-rounded-full scrollbar-track-rounded-full hover:scrollbar-thumb-gray-500 ${
       isSidebarOpen ? "w-64" : "w-17"
       }`}
       
@@ -45,126 +45,17 @@ function Sidebar() {
           <FaBook className="w-6 h-6 mr-3" />
           {isSidebarOpen && "Library"}
         </li>
+
+        
         <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
           <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
+          {/* {isSidebarOpen && "Library"} */}
+          Library
         </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
-          <FaBook className="w-6 h-6 mr-3" />
-          {isSidebarOpen && "Library"}
-        </li>
+
+
+
+        
       </ul>
     
     </div>

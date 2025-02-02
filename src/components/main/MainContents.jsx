@@ -39,7 +39,7 @@ const MainContents = () => {
 
   const location = useLocation(); // Current URL path
   const isHomePage = location.pathname === "/"; // Check if current path is "/"
-
+ 
   return (
 
     <div className="flex flex-col min-h-screen">
