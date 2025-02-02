@@ -10,6 +10,7 @@ import ProductProvider from "./components/Context API/ProductProvider";
 
 
 function App() {
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -34,9 +35,10 @@ function App() {
   return (
     // <div className="text-3xl text-center my-5">App
     <>
+   
      <Provider store={store}>
      <ProductProvider>
-        <RouterProvider router={router} />
+        <RouterProvider router={router} /> 
         </ProductProvider>
      </Provider>
     </>
