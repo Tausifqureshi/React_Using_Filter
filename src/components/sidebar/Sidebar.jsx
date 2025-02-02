@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 // Importing icons from react-icons
 import { FaHome, FaRegBell, FaRegListAlt, FaBook } from 'react-icons/fa';
+import Category from "./Category/Category";
 
 
 function Sidebar() {
@@ -14,8 +15,7 @@ function Sidebar() {
     <div
       className={ `h-screen bg-gray-900 overflow-auto text-white transition-all duration-300 ease-in-out  scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-800 scrollbar-thumb-rounded-full scrollbar-track-rounded-full hover:scrollbar-thumb-gray-500 ${
       isSidebarOpen ? "w-64" : "w-17"
-      }`}
-      
+      }`}   
     >
       {/* Toggle Button */}
       <button
@@ -51,7 +51,7 @@ function Sidebar() {
           Library
         </li>
 
-
+   <Category />
 
         
       </ul>
