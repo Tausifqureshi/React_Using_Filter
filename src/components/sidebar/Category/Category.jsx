@@ -12,7 +12,7 @@ function Category({isSidebarOpen}) {
   <Input isSidebarOpen = {isSidebarOpen}/>
   <Input isSidebarOpen = {isSidebarOpen}/>
   <Input isSidebarOpen = {isSidebarOpen}/>
-   <h1>Category {produtsContex.App}</h1>
+  <h1>Category {produtsContex.App}</h1>
  
  </div>
   );
