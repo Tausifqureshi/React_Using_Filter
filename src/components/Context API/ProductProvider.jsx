@@ -46,7 +46,7 @@ function ProductProvider({ children }) { //✅ Default value to children
         handleClearCart,
         filteredProducts,
         setFilteredProducts,
-        key: "product Fetching Data from Redux",
+        App: "product Fetching Data from Redux",
       }}
     >
       {children}

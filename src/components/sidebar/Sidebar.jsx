@@ -51,7 +51,7 @@ function Sidebar() {
           Library
         </li>
 
-   <Category />
+       <Category isSidebarOpen={isSidebarOpen}/>
 
         
       </ul>
