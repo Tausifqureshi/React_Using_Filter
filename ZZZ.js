@@ -1,62 +1,111 @@
 
+import React, { useState, useEffect } from "react";
+import Input from "../../Input";
+import { useProductContext } from "../../Context API/ProductProvider";
 
- // Is tara se bhi likh sakte ho filter laga sakte hai
+function Category({ isSidebarOpen }) {
+  const { data, setFilteredProducts } = useProductContext();
+  const [selectedCategories, setSelectedCategories] = useState([]);
 
-  
+  const categories = [...new Set(data.map((item) => item.category))];
+
+  // handleCategoryChange function for selecting/deselecting categories
+  const handleCategoryChange = (category) => {
+    let updatedCategories = selectedCategories.includes(category)
+      ? selectedCategories.filter((c) => c !== category)
+      : [...selectedCategories, category];
+
+    setSelectedCategories(updatedCategories);
+  };
+
+  // Effect hook for filtering products whenever selectedCategories changes
   useEffect(() => {
-    // Agar searchQuery ka `trim()` empty string hai, iska matlab user ne kuch enter nahi kiya ya sirf spaces diye hain. Aise case me, hame saare products dikhane chahiye, isliye `data` ko directly set kar diya.
-    const filtered = searchQuery.trim() === ""  
-      ? data  // ✅ Search bar khali hai, toh saare products dikhaye.
-      : data.filter((product) => 
-          // ✅ Otherwise, filter karo jo searchQuery se match karte hain.
-          product.title.toLowerCase().includes(searchQuery.toLowerCase()) 
-        );
-  
-    
-    setFilteredProducts(filtered); // ✅ Final filtered products ko state me update kar do.
-  
-  }, [data, searchQuery, setFilteredProducts]); 
-  // ✅ Dependency array: Jab `data` ya `searchQuery` change ho, tab useEffect chalega.
-  
+    const filteredProducts =
+      selectedCategories.length > 0
+        ? data.filter((product) => selectedCategories.includes(product.category))
+        : data; // Show all products if no category selected
+
+    setFilteredProducts(filteredProducts); // Update the filtered products state
+  }, [selectedCategories, data, setFilteredProducts]);
 
 
+  return (
+    <div className="flex flex-col">
+      <h3>Filter by Category:</h3>
+      {categories.map((category) => (
+        <Input
+          key={category}
+          value={category}
+          handleChange={() => handleCategoryChange(category)} // Passing the correct handler
+          isSidebarOpen={isSidebarOpen}
+        />
+      ))}
+    </div>
+  );
+}
+
+export default Category;
+
+
+
+
+
+
+
+
+
+
+
+//    
+
+
+
+import React, { useState, useEffect } from "react";
+import Input from "../../Input";
+import { useProductContext } from "../../Context API/ProductProvider";
+
+function Category({ isSidebarOpen }) {
+  const { data, setFilteredProducts } = useProductContext();
+  const [selectedCategories, setSelectedCategories] = useState([]);
+
+  const categories = [...new Set(data.map((item) => item.category))];
+
+  // Filtering products whenever selectedCategories changes
   useEffect(() => {
-    // ✅ Step 1: Agar searchQuery empty ya sirf spaces hai, toh saare products dikhane chahiye.
-    if (searchQuery.trim() === "") {  
-      setFilteredProducts(data);  // 🔹 Search bar khali hai, toh saare products dikhaye.
-      return;  // 🔹 `return` kar diya taaki neeche wala filter execute na ho.
-    }
-  
-    // ✅ Step 2: Search Query empty nahi hai, toh filter lagana hai.
-    const filterProduct = data.filter((product) => 
-      product.title.toLowerCase().includes(searchQuery.toLowerCase())  
-      // 🔹 `toLowerCase()` ka use kiya hai taaki case-insensitive search ho.
-      // 🔹 searchQuery me jo value hai usko lowercase me convert karke check karo ki product.title me hai ya nahi
-    );
-  
-    // ✅ Step 3: Filtered products ko state me update karo.
-    setFilteredProducts(filterProduct);  
-  
-  }, [data, searchQuery, setFilteredProducts]);  
-  // 🔹 Ye effect tab chalega jab `data`, `searchQuery`, ya `setFilteredProducts` change hoga.
+    const filteredProducts = selectedCategories.length
+      ? data.filter((item) => selectedCategories.includes(item.category))
+      : data; // Show all products if no category selected
+    setFilteredProducts(filteredProducts);
+  }, [selectedCategories, data, setFilteredProducts]);
+
+  function handleChange(e) {
+    const value = e.target.value;
+    setSelectedCategories((prevSelectedCategories) => {
+      if (prevSelectedCategories.includes(value)) {
+        // Remove category if already selected
+        return prevSelectedCategories.filter((item) => item !== value);
+      } else {
+        // Add category if not selected
+        return [...prevSelectedCategories, value];
+      }
+    });
+  }
+
   
 
+  return (
+    <div className="flex flex-col">
+      <h3>Filter by Category:</h3>
+      {categories.map((category) => (
+        <Input
+          key={category}
+          value={category}
+          handleChange={handleChange}
+          isSidebarOpen={isSidebarOpen}
+        />
+      ))}
+    </div>
+  );
+}
 
-
-//  /=================
-  // useEffect(() => {
-  //   // if(searchQuery.trim() ===""){
-  //   //   setFilteredProducts(data);
-  //   //   return
-  //   // }
-  //   // const filterData = data.filter((itme)=>(itme.title.toLowerCase().includes(searchQuery.toLowerCase())));
-  //   // setFilteredProducts(filterData);
-
-  //   const filterDat =
-  //     searchQuery.trim() === ""
-  //       ? data
-  //       : data.filter((item) =>
-  //           item.title.toLowerCase().includes(searchQuery.toLowerCase())
-  //         );
-  //   setFilteredProducts(filterDat);
-  // }, [data, searchQuery, setFilteredProducts]); 
+export default Category;

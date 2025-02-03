@@ -9,14 +9,59 @@ function SearchBar() {
   const [searchQuery, setSearchQuery] = useState("");
   const { data, setFilteredProducts } = useProductContext();
 
+  
+ //useEfect ke sath aisa filtering kart hai.
+//   useEffect(() => {
+//     // ✅ Step 1: Agar searchQuery empty ya sirf spaces hai, toh saare products dikhane chahiye.
+//     if (searchQuery.trim() === "") {  
+//       setFilteredProducts(data);  // 🔹 Search bar khali hai, toh saare products dikhaye.
+//       return;  // 🔹 `return` kar diya taaki neeche wala filter execute na ho.
+//     }
+  
+//     // ✅ Step 2: Search Query empty nahi hai, toh filter lagana hai.
+//     const filterProduct = data.filter((product) => 
+//       product.title.toLowerCase().includes(searchQuery.toLowerCase())  
+//       // 🔹 `toLowerCase()` ka use kiya hai taaki case-insensitive search ho.
+//       // 🔹 searchQuery me jo value hai usko lowercase me convert karke check karo ki product.title me hai ya nahi
+//     );
+  
+//     // ✅ Step 3: Filtered products ko state me update karo.
+//     setFilteredProducts(filterProduct);  
+  
+//   }, [data, searchQuery, setFilteredProducts]);  
+//   // 🔹 Ye effect tab chalega jab `data`, `searchQuery`, ya `setFilteredProducts` change hoga.
+  
   function handleChange (e){
-    const searchValue = e.target.value;
+    //dono tara se kar sakte hai.
+    // const searchValue = e.target.value;
+    // setSearchQuery(searchValue);
+
+    // if(searchValue.trim()=== "") { // ✅ Step 1: Agar searchQuery empty ya sirf spaces hai, toh saare products dikhane chahiye.
+    // setFilteredProducts(data);  // 🔹 Search bar khali hai, toh saare products dikhaye.
+    // return // 🔹 `return` kar diya taaki neeche wala filter execute na ho.
+    // }
+
+    // ✅ Step 2: Search Query empty nahi hai, toh filter lagana hai.
+    // const filterData = data.filter((item)=>item.title.toLowerCase().includes(searchValue));
+    // 🔹 `toLowerCase()` ka use kiya hai taaki case-insensitive search ho.
+    // 🔹 searchQuery me jo value hai usko lowercase me convert karke check karo ki product.title me hai ya nahi
+
+    // ✅ Step 3: Filtered products ko state me update karo.
+    // setFilteredProducts(filterData);
+
+       
+    const searchValue = e.target.value; 
     setSearchQuery(searchValue);
-
-
-    if(searchValue.trim()=== "") return setFilteredProducts(data);
-
-    const filterData = data.filter((item)=>item.title.toLowerCase().includes(searchValue));
+    // Agar searchQuery ka `trim()` empty string hai, iska matlab user ne kuch enter nahi kiya ya sirf spaces diye hain. Aise case me, hame saare products dikhane chahiye, isliye `data` ko directly set kar diya.
+    const filterData = searchQuery.trim() === ""
+      ? data // ✅ Search bar khali hai, toh saare products dikhaye.
+      : data.filter((item) =>
+        item.title.toLowerCase().includes(searchValue.toLowerCase())
+       // 🔹 `toLowerCase()` ka use kiya hai taaki case-insensitive search ho.
+      // 🔹 searchQuery me jo value hai usko lowercase me convert karke check karo ki product.title me hai ya nahi
+      );
+      
+    // ✅ Step 3: Filtered products ko state me update karo.
     setFilteredProducts(filterData);
 
    
@@ -30,7 +75,7 @@ function SearchBar() {
         className="w-full px-4 py-2 text-sm text-gray-800 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-label="Search"
         value={searchQuery}
-        // onChange={(e) => setSearchQuery(e.target.value)}
+        // onChange={(e) => setSearchQuery(e.target.value)} //useEffect ke sath use.
         onChange={handleChange}
       />
 
