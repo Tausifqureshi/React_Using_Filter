@@ -3,19 +3,19 @@ import Input from "../../Input"
 import { useProductContext } from "../../Context API/ProductProvider";
 
 function Category({isSidebarOpen}) {
-    const [isSelected, setIsSelected] = useState([]);
-    const produtsContex = useProductContext();
-    console.log("produtsContex",produtsContex);
+
+    const{data, filteredProducts} = useProductContext();
+    const [selectedCategories, setSelectedCategories] = useState([]);
+    const categories = [...new Set(data.map((product) => product.category))];
+
+
 
   return( 
  <div className="flex  flex-col">
-  <Input isSidebarOpen = {isSidebarOpen}/>
-  <Input isSidebarOpen = {isSidebarOpen}/>
-  <Input isSidebarOpen = {isSidebarOpen}/>
-  <Input isSidebarOpen = {isSidebarOpen}/>
-  <Input isSidebarOpen = {isSidebarOpen}/>
- 
- 
+   <h3>Filter by Category:</h3>
+      {categories.map((category) => (
+        <Input key={category} value={category} handleChange={setSelectedCategories} isSidebarOpen={isSidebarOpen} />
+      ))}
  </div>
   );
 }

@@ -15,7 +15,7 @@ function Input({ handleChange, value, name, className = "",category,isSidebarOpe
           {...props}
         />
         <label htmlFor={id} className="cursor-pointer" >
-          {isSidebarOpen && ` Title ${category}`}
+          {isSidebarOpen && `${value}`}
         </label>
       </li>
     </ul>
