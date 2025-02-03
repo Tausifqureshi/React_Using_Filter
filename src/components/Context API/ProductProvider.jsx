@@ -18,8 +18,10 @@ function ProductProvider({ children }) { //✅ Default value to children
   // console.log("PRODUCT DATA FROM REDUX",useProdutc);
 
   useEffect(() => {
+    console.log("useEffec Called");
     dispatch(fetchData());
     // fetchData();
+
   }, [dispatch]);
 
   const handleAddToCart = (product) => {
