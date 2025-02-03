@@ -5,6 +5,7 @@ import { useProductContext } from "../../Context API/ProductProvider";
 function Category({isSidebarOpen}) {
     const produtsContex = useProductContext();
     console.log("produtsContex",produtsContex);
+    
   return( 
  <div className="flex  flex-col">
   <Input isSidebarOpen = {isSidebarOpen}/>
