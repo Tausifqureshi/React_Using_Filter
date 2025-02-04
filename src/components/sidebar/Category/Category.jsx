@@ -7,8 +7,8 @@ function Category({isSidebarOpen}) {
     const [selectedCategories, setSelectedCategories] = useState([]);
     const categories = [...new Set(data.map((item)=>item.category))]
     function handleChange(e) {
-      const value = e.target.value;
-      console.log("value", value);
+      // const value = e.target.value;
+      // console.log("value", value);
       
       // selectedCategories.includes(value)
       //   ? setSelectedCategories((prevSelectedCategories) =>
@@ -31,12 +31,15 @@ function Category({isSidebarOpen}) {
     //  }
 
     
-     const isCategorySelected = selectedCategories.includes(value);
-      setSelectedCategories((prevSelectedCategories) =>
-        isCategorySelected
-          ? prevSelectedCategories.filter((c) => c !== value)
-          : [...prevSelectedCategories, value]
-      );
+    const valueSelected = e.target.value; // Jo category select ya deselect ho rahi hai, uska value
+    setSelectedCategories((prevSelectedCategories) => 
+      !prevSelectedCategories.includes(valueSelected)
+        ? [...prevSelectedCategories, valueSelected] // Agar category select nahi hai, toh add karo
+        : prevSelectedCategories.filter((c) => c !== valueSelected) // Agar already selected hai, toh remove karo
+    );
+
+
+   
 
     }
 
