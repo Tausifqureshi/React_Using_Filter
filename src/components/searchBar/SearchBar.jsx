@@ -30,9 +30,11 @@ function SearchBar() {
   
 //   }, [data, searchQuery, setFilteredProducts]);  
 //   // 🔹 Ye effect tab chalega jab `data`, `searchQuery`, ya `setFilteredProducts` change hoga.
-  
+
+
+// is me first data show agr search bar khali hai baad me filtering. dono me se jo hasn pade o kar sakte hai but real case me aisa hota hai ya jana zaruri hao
   function handleChange (e){
-    //dono tara se kar sakte hai.
+    //dono tara se kar sakte hai. indoono me first data show kar rehai.
     // const searchValue = e.target.value;
     // setSearchQuery(searchValue);
 
@@ -53,7 +55,7 @@ function SearchBar() {
     const searchValue = e.target.value; 
     setSearchQuery(searchValue);
     // Agar searchQuery ka `trim()` empty string hai, iska matlab user ne kuch enter nahi kiya ya sirf spaces diye hain. Aise case me, hame saare products dikhane chahiye, isliye `data` ko directly set kar diya.
-    const filterData = searchQuery.trim() === ""
+    const filterData = searchValue.trim() === ""
       ? data // ✅ Search bar khali hai, toh saare products dikhaye.
       : data.filter((item) =>
         item.title.toLowerCase().includes(searchValue.toLowerCase())
@@ -64,8 +66,37 @@ function SearchBar() {
     // ✅ Step 3: Filtered products ko state me update karo.
     setFilteredProducts(filterData);
 
-   
   }
+
+
+  // is me ham phele filter kar re baad me data show kar re 
+  // function handleChange(e){
+  //       // const searchValue = e.target.value;
+  //   // setSearchQuery(searchValue);
+  //   // const filterData = searchValue.trim().length > 0 ?
+  //   // data.filter((item) =>
+  //   //       item.title.toLowerCase().includes(searchValue.toLowerCase())
+  //   //     ) : data
+
+  //   //     setFilteredProducts(filterData)
+    
+
+
+  //   const searchValue = e.target.value; // ✅ Spelling fix
+  //   setSearchQuery(searchValue);
+    
+  //   if (searchValue.trim().length > 0) {
+  //     const filterData = data.filter((item) =>
+  //       item.title.toLowerCase().includes(searchValue.toLowerCase())
+  //     );
+  //     setFilteredProducts(filterData); // ✅ Filtered data ko set karna zaroori hai
+  //   } else {
+  //     setFilteredProducts(data); // ✅ Agar search empty hai, toh saara data dikhao
+  //   }
+  // }
+
+
+
  
   return (
     <div className="relative flex items-center bg-white rounded-full border border-gray-300 shadow-sm w-[26rem]">

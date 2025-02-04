@@ -29,7 +29,7 @@ function Category({ isSidebarOpen }) {
    
 
 
-  };
+  };    
 
   // Effect hook for filtering products whenever selectedCategories changes
   useEffect(() => {
