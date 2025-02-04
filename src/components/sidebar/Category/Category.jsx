@@ -19,21 +19,30 @@ function Category({isSidebarOpen}) {
       //       value,
       //     ]);
 
-     if(!selectedCategories.includes(value)){
-      setSelectedCategories((prevSelectedCategories) => [
-        ...prevSelectedCategories,  // Pura previous selectedCategories ko leke, naye category ko add karte hain
-        value,
-      ]);
-     }else{
-      setSelectedCategories((prevSelectedCategories) => prevSelectedCategories.filter((c) => c !== value));
 
-     }
+    //  if(!selectedCategories.includes(value)){
+    //   setSelectedCategories((prevSelectedCategories) => [
+    //     ...prevSelectedCategories,  // Pura previous selectedCategories ko leke, naye category ko add karte hain
+    //     value,
+    //   ]);
+    //  }else{
+    //   setSelectedCategories((prevSelectedCategories) => prevSelectedCategories.filter((c) => c !== value));
+
+    //  }
+
+    
+     const isCategorySelected = selectedCategories.includes(value);
+      setSelectedCategories((prevSelectedCategories) =>
+        isCategorySelected
+          ? prevSelectedCategories.filter((c) => c !== value)
+          : [...prevSelectedCategories, value]
+      );
 
     }
 
 
     useEffect(()=>{
-
+      // 1. agar selectedCategories empty nahi hai toh uska matlab user ne kuch select kiya hai.
       // if (selectedCategories.length > 0) {
       //   const filteredProducts = data.filter((product) =>
       //     selectedCategories.includes(product.category)
@@ -43,20 +52,19 @@ function Category({isSidebarOpen}) {
       //   setFilteredProducts(data); // Show all products if no category selected
       // }
 
-
         //  const filteredProducts = selectedCategories.length > 0
         //   ? data.filter((product) => selectedCategories.includes(product.category))
         //   : data;
         // setFilteredProducts(filteredProducts);
 
 
-        // First Data Render agar selectedCategories empty hai toh uska matlab user ne kuch select nahi kiya ya sirf spaces diye hain. Aise case me, hame saare products dikhane chahiye, isliye `data` ko directly set kar diya.
+        // 2. First Data Render agar selectedCategories empty hai toh uska matlab user ne kuch select nahi kiya ya sirf spaces diye hain. Aise case me, hame saare products dikhane chahiye, isliye `data` ko directly set kar diya.
         // const filteredProducts = selectedCategories.length === 0
         // ? data
         // : data.filter((product) => selectedCategories.includes(product.category));
         // setFilteredProducts(filteredProducts);
 
-        
+
         if(selectedCategories.length === 0){
           setFilteredProducts(data);
         }
