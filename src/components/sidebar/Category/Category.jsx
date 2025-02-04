@@ -1,25 +1,142 @@
-import React, { useState } from "react";
-import Input from "../../Input"
-import { useProductContext } from "../../Context API/ProductProvider";
+// import React, { useState } from "react";
+// import Input from "../../Input"
+// import { useProductContext } from "../../Context API/ProductProvider";
 
-function Category({isSidebarOpen}) {
-    const{data,  setFilteredProducts} = useProductContext();
-    const [selectedCategories, setSelectedCategories] = useState([]);
-    const categories = [...new Set(data.map((item)=>item.category))]
+// function Category({isSidebarOpen}) {
+//     const{data,  setFilteredProducts} = useProductContext();
+//     const [selectedCategories, setSelectedCategories] = useState([]);
+//     const categories = [...new Set(data.map((item)=>item.category))]
+//     function handleChange(e) {
+//       const value = e.target.value;
+//       console.log("value", value);
+      
+//       selectedCategories.includes(value)
+//         ? setSelectedCategories((prevSelectedCategories) =>
+//             prevSelectedCategories.filter((c) => c !== value)
+//           )
+//         : setSelectedCategories((prevSelectedCategories) => [
+//             ...prevSelectedCategories,
+//             value,
+//           ]);
+
+//       if (selectedCategories.length > 0) {
+//         const filteredProducts = data.filter((product) =>
+//           selectedCategories.includes(product.category)
+//         );
+//         setFilteredProducts(filteredProducts);
+//       } else {
+//         setFilteredProducts(data); // Show all products if no category selected
+//       }
+
+//     }
 
 
 
 
-  return( 
- <div className="flex  flex-col">
-   <h3>Filter by Category:</h3>
-      {categories.map((category) => (
-        <Input key={category} value={category} handleChange={handleChange} isSidebarOpen={isSidebarOpen} 
+
+
+//   return( 
+//  <div className="flex  flex-col">
+//    <h3>Filter by Category:</h3>
+//       {categories.map((category) => (
+//         <Input key={category} value={category} isSidebarOpen={isSidebarOpen}  
+//          handleChange={handleChange}
            
          
-         />
+//          />
+//       ))}
+//  </div>
+//   );
+// }
+
+// export default Category;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import React, { useState, useEffect } from "react";
+import Input from "../../Input";
+import { useProductContext } from "../../Context API/ProductProvider";
+
+function Category({ isSidebarOpen }) {
+  const { data, setFilteredProducts } = useProductContext();
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const categories = [...new Set(data.map((item) => item.category))];
+
+  function handleChange(e) {
+    // const value = e.target.value;
+    // setSelectedCategories((prevSelectedCategories) =>
+    //   prevSelectedCategories.includes(value)
+    //     ? prevSelectedCategories.filter((c) => c !== value)
+    //     : [...prevSelectedCategories, value]
+    // );
+
+
+    const value = e.target.value;
+    if (selectedCategories.includes(value)) {
+      setSelectedCategories((prevSelectedCategories) =>
+        prevSelectedCategories.filter((c) => c !== value)
+      );
+    } else {
+      setSelectedCategories((prevSelectedCategories) =>
+        [...prevSelectedCategories, value]
+      );
+    }
+  }
+
+  // Filtering logic ko useEffect ke andar rakho
+  useEffect(() => {
+    // if (selectedCategories.length > 0) {
+    //   const filteredProducts = data.filter((product) =>
+    //     selectedCategories.includes(product.category)
+    //   );
+    //   setFilteredProducts(filteredProducts);
+    // } else {
+    //   setFilteredProducts(data); // Show all products if no category selected
+    // }
+
+
+    const filteredProducts = 
+      selectedCategories.length > 0
+        ? data.filter((product) =>
+            selectedCategories.includes(product.category)
+          )
+        : data; // Show all products if no category selected
+
+    setFilteredProducts(filteredProducts);
+
+
+
+  }, [selectedCategories, data, setFilteredProducts]); // Dependencies: selectedCategories update hone pe run hoga
+
+  
+  return (
+    <div className="flex flex-col">
+      <h3>Filter by Category:</h3>
+      {categories.map((category) => (
+        <Input
+          key={category}
+          value={category}
+          isSidebarOpen={isSidebarOpen}
+          handleChange={handleChange}
+        />
       ))}
- </div>
+    </div>
   );
 }
 

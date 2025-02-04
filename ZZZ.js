@@ -11,21 +11,46 @@ function Category({ isSidebarOpen }) {
 
   // handleCategoryChange function for selecting/deselecting categories
   const handleCategoryChange = (category) => {
-    let updatedCategories = selectedCategories.includes(category)
-      ? selectedCategories.filter((c) => c !== category)
-      : [...selectedCategories, category];
+    // let updatedCategories = selectedCategories.includes(category)
+    //   ? selectedCategories.filter((c) => c !== category)
+    //   : [...selectedCategories, category];
 
-    setSelectedCategories(updatedCategories);
+    // setSelectedCategories(updatedCategories);
+
+    if (selectedCategories.includes(category)) {
+      setSelectedCategories((prevSelectedCategories) =>
+        prevSelectedCategories.filter((c) => c !== category)
+      );
+    } else {
+      setSelectedCategories((prevSelectedCategories) =>  
+        [...prevSelectedCategories, category]
+      );
+    }
+   
+
+
   };
 
   // Effect hook for filtering products whenever selectedCategories changes
   useEffect(() => {
-    const filteredProducts =
-      selectedCategories.length > 0
-        ? data.filter((product) => selectedCategories.includes(product.category))
-        : data; // Show all products if no category selected
+    // const filteredProducts =
+    //   selectedCategories.length > 0
+    //     ? data.filter((product) => selectedCategories.includes(product.category))
+    //     : data; // Show all products if no category selected
 
-    setFilteredProducts(filteredProducts); // Update the filtered products state
+    // setFilteredProducts(filteredProducts); // Update the filtered products state
+
+    if (selectedCategories.length > 0) {
+      const filteredProducts = data.filter((product) =>
+        selectedCategories.includes(product.category)
+      );
+      setFilteredProducts(filteredProducts);
+    } else {
+      setFilteredProducts(data); // Show all products if no category selected
+    }
+
+
+
   }, [selectedCategories, data, setFilteredProducts]);
 
 
@@ -72,23 +97,40 @@ function Category({ isSidebarOpen }) {
 
   // Filtering products whenever selectedCategories changes
   useEffect(() => {
-    const filteredProducts = selectedCategories.length
-      ? data.filter((item) => selectedCategories.includes(item.category))
-      : data; // Show all products if no category selected
-    setFilteredProducts(filteredProducts);
+    // const filteredProducts = selectedCategories.length
+    //   ? data.filter((item) => selectedCategories.includes(item.category))
+    //   : data; // Show all products if no category selected
+    // setFilteredProducts(filteredProducts);
+
+    if (selectedCategories.length > 0) {
+      const filteredProducts = data.filter((product) =>
+        selectedCategories.includes(product.category)
+      );
+      setFilteredProducts(filteredProducts);
+    } else {
+      setFilteredProducts(data); // Show all products if no category selected
+    }
   }, [selectedCategories, data, setFilteredProducts]);
 
   function handleChange(e) {
+    // const value = e.target.value;
+    // setSelectedCategories((prevSelectedCategories) => {
+    //   if (prevSelectedCategories.includes(value)) {
+    //     // Remove category if already selected
+    //     return prevSelectedCategories.filter((item) => item !== value);
+    //   } else {
+    //     // Add category if not selected
+    //     return [...prevSelectedCategories, value];
+    //   }
+    // });
+
     const value = e.target.value;
-    setSelectedCategories((prevSelectedCategories) => {
-      if (prevSelectedCategories.includes(value)) {
-        // Remove category if already selected
-        return prevSelectedCategories.filter((item) => item !== value);
-      } else {
-        // Add category if not selected
-        return [...prevSelectedCategories, value];
-      }
-    });
+    setSelectedCategories((prevSelectedCategories) =>
+      prevSelectedCategories.includes(value)
+        ? prevSelectedCategories.filter((item) => item !== value)
+        : [...prevSelectedCategories, value]
+    );
+
   }
 
   
@@ -108,4 +150,4 @@ function Category({ isSidebarOpen }) {
   );
 }
 
-export default Category;
+// export default Category;
