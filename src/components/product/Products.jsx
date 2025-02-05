@@ -9,12 +9,15 @@ const Products = () => {
   // const dispatch = useDispatch();
   // const fetched_Products_Data = useSelector((state) => state.product.data);  
   const { data, loading, error, filteredProducts} = useProductContext(); // Use context to get data, loading, error, and addToCart
+// console.log("Data from Redux:", data);
+// console.log("Filtered Products:", filteredProducts);
+
 
   // useEffect(() => {
   //   dispatch(fetchData());
   // }, [dispatch]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div> Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
   return (
@@ -35,6 +38,11 @@ const Products = () => {
         })
          :<p>No products found</p> 
          }
+
+         {/* {
+          data.map((item)=>{
+          return <Product key={item.id} {...item} />
+        })} */}
 
     </div>
   );

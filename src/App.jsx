@@ -35,7 +35,6 @@ function App() {
   return (
     // <div className="text-3xl text-center my-5">App
     <>
-   
      <Provider store={store}>
      <ProductProvider>
         <RouterProvider router={router} /> 

@@ -11,24 +11,24 @@ function SearchBar() {
 
   
 //useEfect ke sath aisa filtering kart hai.
-//   useEffect(() => {
-//     // ✅ Step 1: Agar searchQuery empty ya sirf spaces hai, toh saare products dikhane chahiye.
-//     if (searchQuery.trim() === "") {  
-//       setFilteredProducts(data);  // 🔹 Search bar khali hai, toh saare products dikhaye.
-//       return;  // 🔹 `return` kar diya taaki neeche wala filter execute na ho.
-//     }
+  // useEffect(() => {
+  //   // ✅ Step 1: Agar searchQuery empty ya sirf spaces hai, toh saare products dikhane chahiye.
+  //   if (searchQuery.trim() === "") {  
+  //     setFilteredProducts(data);  // 🔹 Search bar khali hai, toh saare products dikhaye.
+  //     return;  // 🔹 `return` kar diya taaki neeche wala filter execute na ho.
+  //   }
   
-//     // ✅ Step 2: Search Query empty nahi hai, toh filter lagana hai.
-//     const filterProduct = data.filter((product) => 
-//       product.title.toLowerCase().includes(searchQuery.toLowerCase())  
-//       // 🔹 `toLowerCase()` ka use kiya hai taaki case-insensitive search ho.
-//       // 🔹 searchQuery me jo value hai usko lowercase me convert karke check karo ki product.title me hai ya nahi
-//     );
+  //   // ✅ Step 2: Search Query empty nahi hai, toh filter lagana hai.
+  //   const filterProduct = data.filter((product) => 
+  //     product.title.toLowerCase().includes(searchQuery.toLowerCase())  
+  //     // 🔹 `toLowerCase()` ka use kiya hai taaki case-insensitive search ho.
+  //     // 🔹 searchQuery me jo value hai usko lowercase me convert karke check karo ki product.title me hai ya nahi
+  //   );
   
-//     // ✅ Step 3: Filtered products ko state me update karo.
-//     setFilteredProducts(filterProduct);  
+  //   // ✅ Step 3: Filtered products ko state me update karo.
+  //   setFilteredProducts(filterProduct);  
   
-//   }, [data, searchQuery, setFilteredProducts]);  
+  // }, [data, searchQuery, setFilteredProducts]);  
 //   // 🔹 Ye effect tab chalega jab `data`, `searchQuery`, ya `setFilteredProducts` change hoga.
 
 
@@ -55,7 +55,9 @@ function SearchBar() {
     // ✅ Step 3: Filtered products ko state me update karo.
     // setFilteredProducts(filterData);
 
-       
+         
+
+    //////////////////////////////
     const searchValue = e.target.value; 
     setSearchQuery(searchValue);
     // Agar searchQuery ka `trim()` empty string hai, iska matlab user ne kuch enter nahi kiya ya sirf spaces diye hain. Aise case me, hame saare products dikhane chahiye, isliye `data` ko directly set kar diya.
@@ -66,6 +68,8 @@ function SearchBar() {
        // 🔹 `toLowerCase()` ka use kiya hai taaki case-insensitive search ho.
       // 🔹 searchQuery me jo value hai usko lowercase me convert karke check karo ki product.title me hai ya nahi
       );
+      console.log("Search Query:", searchValue);  // ✅ Search bar ka value sahi ara hai ya nahi
+      console.log("Filtered Products:", filterData); // ✅ Filtered list sahi generate ho rahi hai ya nahi
       
     // ✅ Step 3: Filtered products ko state me update karo.
     setFilteredProducts(filterData);
