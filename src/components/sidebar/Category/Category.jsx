@@ -6,18 +6,33 @@ function Category({isSidebarOpen}) {
     const{data,  setFilteredProducts} = useProductContext();
     const [selectedCategories, setSelectedCategories] = useState([]);
     const categories = [...new Set(data.map((item)=>item.category))]
+
     function handleChange(e) {
-      // const value = e.target.value;
-      // console.log("value", value);
-      
-      // selectedCategories.includes(value)
+      // const value = e.target.value; // Jo category select ya deselect ho rahi hai, uska value millenge.
+      // selectedCategories.includes(value) // agar category pehle se selected hai, toh usko remove karte hain
       //   ? setSelectedCategories((prevSelectedCategories) =>
-      //       prevSelectedCategories.filter((c) => c !== value)
+      //       prevSelectedCategories.filter((c) => c !== value)// agar category pehle se selected hai, toh usko remove karte hain
       //     )
-      //   : setSelectedCategories((prevSelectedCategories) => [
+      //   : setSelectedCategories((prevSelectedCategories) => [ // agar category select nahi ki gayi, toh usko add karte hain
       //       ...prevSelectedCategories,
       //       value,
       //     ]);
+
+      
+      const value = e.target.value; // Jo category select ya deselect ho rahi hai, uska value millenge.
+      if (selectedCategories.includes(value)) {
+        setSelectedCategories((prevSelectedCategories) =>
+          prevSelectedCategories.filter((c) => c !== value) // agar category pehle se selected hai, toh usko remove karte hain
+        );
+      } else {
+        setSelectedCategories((prevSelectedCategories) => [
+          ...prevSelectedCategories, // agar category select nahi ki gayi, toh usko add karte hain
+          value,
+        ]);
+      }
+   
+
+
 
 
     //  if(!selectedCategories.includes(value)){
@@ -30,16 +45,14 @@ function Category({isSidebarOpen}) {
 
     //  }
 
-    
-    const valueSelected = e.target.value; // Jo category select ya deselect ho rahi hai, uska value
-    setSelectedCategories((prevSelectedCategories) => 
-      !prevSelectedCategories.includes(valueSelected)
-        ? [...prevSelectedCategories, valueSelected] // Agar category select nahi hai, toh add karo
-        : prevSelectedCategories.filter((c) => c !== valueSelected) // Agar already selected hai, toh remove karo
-    );
+    // const valueSelected = e.target.value; // Jo category select ya deselect ho rahi hai, uska value
+    // setSelectedCategories((prevSelectedCategories) => 
+    //   !prevSelectedCategories.includes(valueSelected)
+    //     ? [...prevSelectedCategories, valueSelected] // Agar category select nahi hai, toh add karo
+    //     : prevSelectedCategories.filter((c) => c !== valueSelected) // Agar already selected hai, toh remove karo
+    // );
 
 
-   
 
     }
 
