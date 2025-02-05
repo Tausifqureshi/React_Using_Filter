@@ -1,120 +1,65 @@
 import React, { useState, useEffect } from "react";
-import { LuScanSearch } from "react-icons/lu";
-import Button from "../Button";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchData } from "../../Redux/productSlice";
-import { useProductContext } from "../Context API/ProductProvider";
+import Input from "../../Input"; // Custom Input component
+import { useProductContext } from "../../Context API/ProductProvider"; // Context API for accessing product data
 
-function SearchBar() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const { data, setFilteredProducts } = useProductContext();
+function Category({ isSidebarOpen }) {
+  // 1. useState hook - To store the selected categories
+  const { data, setFilteredProducts } = useProductContext();  // Context se products aur setFilteredProducts ko access kar rahe hain
+  const [selectedCategories, setSelectedCategories] = useState([]);  // Initial state for selected categories, starts as empty array
 
-  
- //useEfect ke sath aisa filtering kart hai.
-//   useEffect(() => {
-//     // ✅ Step 1: Agar searchQuery empty ya sirf spaces hai, toh saare products dikhane chahiye.
-//     if (searchQuery.trim() === "") {  
-//       setFilteredProducts(data);  // 🔹 Search bar khali hai, toh saare products dikhaye.
-//       return;  // 🔹 `return` kar diya taaki neeche wala filter execute na ho.
-//     }
-  
-//     // ✅ Step 2: Search Query empty nahi hai, toh filter lagana hai.
-//     const filterProduct = data.filter((product) => 
-//       product.title.toLowerCase().includes(searchQuery.toLowerCase())  
-//       // 🔹 `toLowerCase()` ka use kiya hai taaki case-insensitive search ho.
-//       // 🔹 searchQuery me jo value hai usko lowercase me convert karke check karo ki product.title me hai ya nahi
-//     );
-  
-//     // ✅ Step 3: Filtered products ko state me update karo.
-//     setFilteredProducts(filterProduct);  
-  
-//   }, [data, searchQuery, setFilteredProducts]);  
-//   // 🔹 Ye effect tab chalega jab `data`, `searchQuery`, ya `setFilteredProducts` change hoga.
+  // 2. Extracting unique categories from the product data
+  const categories = [...new Set(data.map((item) => item.category))];  // Creating a list of unique categories
 
+  // 3. handleChange function - When user selects/deselects a category
+  function handleChange(e) {
+    const value = e.target.value; // The selected category value
+    setSelectedCategories((prevSelectedCategories) => 
+      prevSelectedCategories.includes(value)
+        ? prevSelectedCategories.filter((c) => c !== value) // If already selected, remove it
+        : [...prevSelectedCategories, value] // If not selected, add it
+    );
 
-// is me first data show agr search bar khali hai baad me filtering. dono me se jo hasn pade o kar sakte hai but real case me aisa hota hai ya jana zaruri hao
-  function handleChange (e){
-    //dono tara se kar sakte hai. indoono me first data show kar rehai.
-    // const searchValue = e.target.value;
-    // setSearchQuery(searchValue);
-
-    // if(searchValue.trim()=== "") { // ✅ Step 1: Agar searchQuery empty ya sirf spaces hai, toh saare products dikhane chahiye.
-    // setFilteredProducts(data);  // 🔹 Search bar khali hai, toh saare products dikhaye.
-    // return // 🔹 `return` kar diya taaki neeche wala filter execute na ho.
-    // }
-
-    // ✅ Step 2: Search Query empty nahi hai, toh filter lagana hai.
-    // const filterData = data.filter((item)=>item.title.toLowerCase().includes(searchValue));
-    // 🔹 `toLowerCase()` ka use kiya hai taaki case-insensitive search ho.
-    // 🔹 searchQuery me jo value hai usko lowercase me convert karke check karo ki product.title me hai ya nahi
-
-    // ✅ Step 3: Filtered products ko state me update karo.
-    // setFilteredProducts(filterData);
-
-       
-    const searchValue = e.target.value; 
-    setSearchQuery(searchValue);
-    // Agar searchQuery ka `trim()` empty string hai, iska matlab user ne kuch enter nahi kiya ya sirf spaces diye hain. Aise case me, hame saare products dikhane chahiye, isliye `data` ko directly set kar diya.
-    const filterData = searchValue.trim() === ""
-      ? data // ✅ Search bar khali hai, toh saare products dikhaye.
-      : data.filter((item) =>
-        item.title.toLowerCase().includes(searchValue.toLowerCase())
-       // 🔹 `toLowerCase()` ka use kiya hai taaki case-insensitive search ho.
-      // 🔹 searchQuery me jo value hai usko lowercase me convert karke check karo ki product.title me hai ya nahi
-      );
-      
-    // ✅ Step 3: Filtered products ko state me update karo.
-    setFilteredProducts(filterData);
-
+    // 🛑 Problem:
+    // Tumhare handleChange ke andar jo filter laga rahe ho wo **selectedCategories ke purane value** par ho raha hai.
+    // Jab tum **setSelectedCategories** call karte ho, state turant update nahi hoti.
+    // Matlab, **`selectedCategories`** state abhi update nahi hui hai aur tum purani state ko use kar rahe ho filter ke liye.
+    // React ka **`setState`** function asynchronous hota hai, isliye state turant update nahi hoti.
+    console.log("Selected Categories after change:", selectedCategories);  // Debugging log to check the old (not updated) value of selectedCategories
   }
 
+  // 4. useEffect hook - Handles filtering logic when selectedCategories changes
+  useEffect(() => {
+    // ✅ Solution:
+    // `useEffect` is used here because it runs **after** `selectedCategories` state has been updated.
+    // `useEffect` ko yaha use kar rahe hain taaki **state ka updated value** mil sake filter apply karte waqt.
 
-  // is me ham phele filter kar re baad me data show kar re 
-  // function handleChange(e){
-  //       // const searchValue = e.target.value;
-  //   // setSearchQuery(searchValue);
-  //   // const filterData = searchValue.trim().length > 0 ?
-  //   // data.filter((item) =>
-  //   //       item.title.toLowerCase().includes(searchValue.toLowerCase())
-  //   //     ) : data
+    // Now, selectedCategories will have the updated value after state change.
+    if (selectedCategories.length > 0) {
+      // 5. Filter products based on selected categories if any are selected
+      const filteredProducts = data.filter((product) =>
+        selectedCategories.includes(product.category)  // Check if product's category is in selectedCategories
+      );
+      setFilteredProducts(filteredProducts);  // Setting the filtered products to be displayed
+    } else {
+      // 6. If no categories are selected, show all products
+      setFilteredProducts(data);  // Display all products if no category is selected
+    }
+  }, [selectedCategories, data, setFilteredProducts]);  // Dependency array - This effect runs when selectedCategories or data changes
 
-  //   //     setFilteredProducts(filterData)
-    
-
-
-  //   const searchValue = e.target.value; // ✅ Spelling fix
-  //   setSearchQuery(searchValue);
-    
-  //   if (searchValue.trim().length > 0) {
-  //     const filterData = data.filter((item) =>
-  //       item.title.toLowerCase().includes(searchValue.toLowerCase())
-  //     );
-  //     setFilteredProducts(filterData); // ✅ Filtered data ko set karna zaroori hai
-  //   } else {
-  //     setFilteredProducts(data); // ✅ Agar search empty hai, toh saara data dikhao
-  //   }
-  // }
-
-
-
- 
   return (
-    <div className="relative flex items-center bg-white rounded-full border border-gray-300 shadow-sm w-[26rem]">
-      <input
-        type="text"
-        placeholder="Search..."
-        className="w-full px-4 py-2 text-sm text-gray-800 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-        aria-label="Search"
-        value={searchQuery}
-        // onChange={(e) => setSearchQuery(e.target.value)} //useEffect ke sath use.
-        onChange={handleChange}
-      />
-
-      <Button className="absolute right-2 flex items-center justify-center w-8 h-8 text-white bg-blue-500 rounded-full hover:bg-blue-600 transition-all">
-        <LuScanSearch />
-      </Button>
+    <div className="flex flex-col">
+      <h3>Filter by Category:</h3>
+      {/* 7. Rendering Input components for each category */}
+      {categories.map((category) => (
+        <Input
+          key={category}
+          value={category}
+          isSidebarOpen={isSidebarOpen}
+          handleChange={handleChange}  // Passing handleChange to update selected categories
+        />
+      ))}
     </div>
   );
 }
 
-export default SearchBar;
+export default Category;
