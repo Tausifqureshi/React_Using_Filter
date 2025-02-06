@@ -259,21 +259,3 @@ export default SearchBar;
 
 
 
-function handleChange(e) {
-    const value = e.target.value;
-
-    setSelectedCategories((prev) => {
-        const updatedCategories = prev.includes(value)
-            ? prev.filter((c) => c !== value) // ✅ Remove category
-            : [...prev, value]; // ✅ Add category
-
-        // ✅ Yaha prev latest state hai, to isi se filter kar sakte hain
-        setFilteredProducts(
-            updatedCategories.length === 0
-                ? data
-                : data.filter((product) => updatedCategories.includes(product.category))
-        );
-
-        return updatedCategories;
-    });
-}

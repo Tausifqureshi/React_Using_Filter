@@ -7,6 +7,8 @@ import {Home, About, Contact} from "./page/index";
 import { Provider } from "react-redux";
 import store from "./Redux/store";
 import ProductProvider from "./components/Context API/ProductProvider";
+import Header from "./components/Header/Header";
+import ProductList from "./components/header/ProductList";
 
 
 function App() {
@@ -28,6 +30,15 @@ function App() {
         {
           path: "/contact",
           element: <Contact />,
+        },
+
+        {
+          path: "/",
+          element: <Header />,
+        },
+        {
+          path: "/productsList/:category",
+          element: <ProductList />,
         },
       ],
     },

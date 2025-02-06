@@ -21,7 +21,8 @@ const Products = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 p-1">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 p-2 ">
+    {/* pb-3 pt-1 px-2 */}
 
       {/* {filteredProducts.length > 0 ? ( // Agar filteredProducts ka length 0 se zyada hai (> 0), toh iska matlab hai kuch products available hain, aur unko show karna hai.
           filteredProducts.map((product) => ( 

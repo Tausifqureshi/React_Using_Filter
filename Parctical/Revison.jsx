@@ -1,4 +1,4 @@
-// [1]. useLocation hook used to url path user kaha se ara hai is compornts ms logic yaha hai agar / root paga and /home page tohi hame side bar in dono compoents pe shiw karna haiu warna nhi bus kuch tode change ke baad routre me jage /home karn hoga fir navbar me bhi /home itna hi chnage aise or bhi jitne page pe check aise hi condition laga ke check kar sakte hai.
+// [1]. useLocation hook used to url path user kaha se ara hai is compornts ms logic yaha hai agar / root paga and /about page tohi hame side bar in dono compoents pe show karna hai warna nhi bus kuch tode change ke baad routre me jake /about page pe show karn hoga fir navbar me bhi /about itna hi chnage aise or bhi jitne page pe check aise hi condition laga ke check kar sakte hai.
 
 // import React from "react";
 // import { Outlet, useLocation } from "react-router-dom";
@@ -14,7 +14,7 @@
 
 //       {/* Main Layout */}
 //        <div className="flex h-screen">
-//         {(location.pathname === "/" ||location.pathname === "/home") && <Sidebar />}
+//         {(location.pathname === "/" ||location.pathname === "/about") && <Sidebar />}
        
 
 //         {/* Main Content */}

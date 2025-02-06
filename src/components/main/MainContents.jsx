@@ -34,27 +34,31 @@ import { Outlet, useLocation } from "react-router-dom";
 import Sidebar from "../sidebar/Sidebar";
 import NavBar from "../navbar/NavBar";
 import Footer from "../../page/Footer/Footer";
+import Header from "../header/Header";
+// import ProductList from "../header/ProductList";
+
 
 const MainContents = () => {
 
   const location = useLocation(); // Current URL path
-  const isHomePage = location.pathname === "/"; // Check if current path is "/"
+  const isHomePage = location.pathname === "/";// Check if current path is "/"
  
   return (
 
     <div className="flex flex-col min-h-screen">
       {/* Navbar */}
       <NavBar/>
+      <Header />
 
       {/* Main Content Layout */}
       {/* <div className="flex flex-1"> */}
-      <div className={`flex mt-3 mx-2 ${isHomePage ? "" : "h-[75vh]"}`}>
+      <div className={`flex mt-5 mx-2 ${isHomePage  ? "" : "min-h-fit"}`}>
         {/* Sidebar: Only show on / Page */}
-        {isHomePage && <Sidebar />}
+        {isHomePage  && <Sidebar />}
 
         {/* Main Content */}
         <div
-          className={`flex-1 pb-3 pt-1 px-2 text-gray-800 ${
+          className={`flex-1  text-gray-800 ${
             isHomePage ? "bg-gray-200" : "bg-white"
           }`}
         >
@@ -63,7 +67,7 @@ const MainContents = () => {
       </div>
 
       {/* Input: Always at the Bottom */}
-      <div className="border-t p-4 bg-gray-200 mt-5">
+      <div className="border-t py-4 px-2 first-line: bg-gray-200 mt-5">
         <Footer />
       </div>
     </div>
