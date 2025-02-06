@@ -15,8 +15,9 @@ function ProductProvider({ children }) { //✅ Default value to children
   const { data, cart, loading, error } = useSelector((state) => state.product);
   const useProdutc = useSelector((state) => state.product);
   const [ filteredProducts, setFilteredProducts] = useState(data); // Filtered products state
+   const [selectedCategories, setSelectedCategories] = useState([]);
   // console.log("PRODUCT DATA FROM REDUX",useProdutc);
-  
+    
   useEffect(() => {
     console.log("useEffec Called");
     dispatch(fetchData());
@@ -59,6 +60,9 @@ function ProductProvider({ children }) { //✅ Default value to children
         handleClearCart,
         filteredProducts,
         setFilteredProducts,
+        selectedCategories, 
+        setSelectedCategories,
+
         App: "product Fetching Data from Redux",
       }}
     >

@@ -3,8 +3,8 @@ import Input from "../../Input"
 import { useProductContext } from "../../Context API/ProductProvider";
 
 function Category({isSidebarOpen}) {
-    const{data,  setFilteredProducts} = useProductContext();
-    const [selectedCategories, setSelectedCategories] = useState([]);
+    const{data,  setFilteredProducts, selectedCategories, setSelectedCategories} = useProductContext();
+    // const [selectedCategories, setSelectedCategories] = useState([]);
     const categories = [...new Set(data.map((item)=>item.category))]
 
     function handleChange(e) {
@@ -116,6 +116,7 @@ function Category({isSidebarOpen}) {
    <h3>Filter by Category:</h3>
       {categories.map((category) => (
         <Input key={category} value={category} isSidebarOpen={isSidebarOpen}  
+         checked={selectedCategories.includes(category)}  // ✅ Checkbox ka control state ke haath me
          handleChange={handleChange}
            
          
