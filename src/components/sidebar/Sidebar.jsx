@@ -45,7 +45,7 @@ function Sidebar() {
           <FaBook className="w-6 h-6 mr-3" />
           {isSidebarOpen && "Library"}
         </li>
-
+                
         {/* Duplicate menu items */}
         <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
           <FaBook className="w-6 h-6 mr-3" />
@@ -54,7 +54,7 @@ function Sidebar() {
         </li>
 
        <Category isSidebarOpen={isSidebarOpen}/>
-      <Price isSidebarOpen={isSidebarOpen}/>
+       <Price isSidebarOpen={isSidebarOpen}/>
        <Clear />
 
         

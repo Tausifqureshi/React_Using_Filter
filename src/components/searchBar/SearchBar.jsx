@@ -74,6 +74,7 @@ function SearchBar() {
     // ✅ Step 3: Filtered products ko state me update karo.
     setFilteredProducts(filterData);
 
+
   }
 
 
@@ -101,7 +102,24 @@ function SearchBar() {
   //   } else {
   //     setFilteredProducts(data); // ✅ Agar search empty hai, toh saara data dikhao
   //   }
+
+
+  
+  // let searchValue = e.target.value; // Jo value search bar pe change ho rahi hai, uska value millenge.
+  // setSearchQuery(searchValue);
+  // if(searchValue.trim() !== ""){
+  //   const filterData = data.filter((item)=>{
+  //     return item.title.toLowerCase().includes(searchValue.toLowerCase())
+  //   })
+  //   setFilteredProducts(filterData)
   // }
+  // else{
+  //   setFilteredProducts(data)
+  // }
+  // }
+
+
+
 
 
 

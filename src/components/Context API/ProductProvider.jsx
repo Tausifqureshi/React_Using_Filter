@@ -15,7 +15,7 @@ function ProductProvider({ children }) { //✅ Default value to children
   const { data, cart, loading, error } = useSelector((state) => state.product);
   const useProdutc = useSelector((state) => state.product);
   // console.log("PRODUCT DATA FROM REDUX",useProdutc);
-  const [ filteredProducts, setFilteredProducts] = useState(data); // Filtered products state
+   const [ filteredProducts, setFilteredProducts] = useState(data); // Filtered products state
    const [selectedCategories, setSelectedCategories] = useState([]);
    const [selectedPriceRange, setSelectedPriceRange] = useState([]); // ✅ Price Range State
 
@@ -26,7 +26,7 @@ function ProductProvider({ children }) { //✅ Default value to children
     // fetchData();
          
   }, [dispatch]);
-
+   
 
   useEffect(() => {
     // ✅ Jab bhi `data` update hoga, `setFilteredProducts(data)` call hoga
