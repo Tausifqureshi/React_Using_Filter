@@ -2,6 +2,7 @@ import React, { useState } from "react";
 // Importing icons from react-icons
 import { FaHome, FaRegBell, FaRegListAlt, FaBook } from 'react-icons/fa';
 import Category from "./Category/Category";
+import Price from "./PriceFilter/Price";
 import Clear from "./ClearFilter/Clear";
 
 
@@ -53,6 +54,7 @@ function Sidebar() {
         </li>
 
        <Category isSidebarOpen={isSidebarOpen}/>
+      <Price isSidebarOpen={isSidebarOpen}/>
        <Clear />
 
         

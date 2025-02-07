@@ -14,9 +14,11 @@ function ProductProvider({ children }) { //✅ Default value to children
   // filteredProducts
   const { data, cart, loading, error } = useSelector((state) => state.product);
   const useProdutc = useSelector((state) => state.product);
+  // console.log("PRODUCT DATA FROM REDUX",useProdutc);
   const [ filteredProducts, setFilteredProducts] = useState(data); // Filtered products state
    const [selectedCategories, setSelectedCategories] = useState([]);
-  // console.log("PRODUCT DATA FROM REDUX",useProdutc);
+   const [selectedPriceRange, setSelectedPriceRange] = useState([]); // ✅ Price Range State
+
     
   useEffect(() => {
     console.log("useEffec Called");
@@ -62,6 +64,8 @@ function ProductProvider({ children }) { //✅ Default value to children
         setFilteredProducts,
         selectedCategories, 
         setSelectedCategories,
+        selectedPriceRange, 
+        setSelectedPriceRange,
 
         App: "product Fetching Data from Redux",
       }}
