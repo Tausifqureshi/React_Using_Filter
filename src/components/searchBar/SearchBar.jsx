@@ -55,8 +55,7 @@ function SearchBar() {
     // ✅ Step 3: Filtered products ko state me update karo.
     // setFilteredProducts(filterData);
 
-         
-
+      
     //////////////////////////////
     const searchValue = e.target.value; 
     setSearchQuery(searchValue);
@@ -73,8 +72,8 @@ function SearchBar() {
       
     // ✅ Step 3: Filtered products ko state me update karo.
     setFilteredProducts(filterData);
-
-
+    
+     
   }
 
 
