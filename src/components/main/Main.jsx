@@ -1,75 +1,3 @@
-// // import React from "react";
-// // import { Outlet, useLocation } from "react-router-dom";
-// // import Sidebar from "../sidebar/Sidebar";
-// // import NavBar from "../navbar/NavBar";
-// // import Input from "../Input";
-
-// // const Main = () => {
-// //   const location = useLocation(); // Current URL path
-// //   return (
-// //     <>
-// //       {/* Navbar */}
-// //       <NavBar />
-
-// //       {/* Main Layout */}
-// //        <div className="flex h-screen">
-// //         {/* Sidebar: Only show on / Page */}
-// //         {(location.pathname === "/") && <Sidebar />}
-
-// //         {/* Main Content */}
-// //         <div className="flex-1 bg-gray-100 p-6 text-gray-800" >
-// //           <Outlet />
-// //         </div>
-// //       </div>
-// //       <Input />
-// //     </>
-// //   );
-// // };
-
-// // export default Main;
-
-
-
-// import React from "react";
-// import { Outlet, useLocation } from "react-router-dom";
-// import Sidebar from "../sidebar/Sidebar";
-// import NavBar from "../navbar/NavBar";
-// import Input from "../Input";
-
-// const Main = () => {
-//   const location = useLocation(); // Current URL path
-//   const isHomePage = location.pathname === "/"; // Check if current path is "/"
-
-//   return (
-//     <>
-//       {/* Navbar */}
-//       <NavBar />
-
-//       {/* Main Layout */}
-//       <div className={`flex ${isHomePage ? "h-screen" : "h-auto"}`}>
-//         {/* Sidebar: Only show on / Page */}
-//         {isHomePage && <Sidebar />}
-
-//         {/* Main Content */}
-//         <div
-//           className={`flex-1 p-6 text-gray-800 ${
-//             isHomePage ? "bg-gray-100" : "bg-white"
-//           }`}
-//         >
-//           <Outlet />
-//         </div>
-//       </div>
-//       <Input />
-//     </>
-//   );
-// };
-
-// export default Main;
-
-
-
-
-
 
 // NavbarResponsive
 import React, { useState, useEffect } from "react";
@@ -185,32 +113,6 @@ export default Navbar;
 
 
 
-// Search bar component CODE
-import React from "react";
-import { LuScanSearch } from "react-icons/lu";
-
-function SearchBar() {
-  return (
-    <div className="relative flex items-center bg-white rounded-full border border-gray-300 shadow-sm w-80 max-w-full">
-      {/* Input Field */}
-      <input
-        type="text"
-        placeholder="Search for products more..."
-        className="w-full px-4 py-2 text-sm text-gray-800 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-      />
-      {/* Search Icon Button */}
-      <button
-        className="absolute right-2 flex items-center justify-center w-8 h-8 text-white bg-blue-500 rounded-full hover:bg-blue-600 transition-all"
-        aria-label="Search"
-      >
-        <LuScanSearch />
-      </button>
-    </div>
-  );
-}
-
-export default SearchBar;
-
 
 
 
@@ -299,4 +201,5 @@ function SearchBar() {
   );
 }
 
-export default SearchBar;
+// export default SearchBar;
+

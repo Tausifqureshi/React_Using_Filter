@@ -1,10 +1,3 @@
-// import React from "react";
-
-// function ProductList() {
-//   return <div>ProductList</div>;
-// }
-
-// export default ProductList;
 
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -41,3 +34,4 @@ function ProductList() {
 }
 
 export default ProductList;
+ 

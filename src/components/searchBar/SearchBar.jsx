@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { LuScanSearch } from "react-icons/lu";
 import Button from "../Button";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchData } from "../../Redux/productSlice";
 import { useProductContext } from "../Context API/ProductProvider";
 
 function SearchBar() {
   const [searchQuery, setSearchQuery] = useState("");
   const { data, setFilteredProducts } = useProductContext();
 
-  
 //useEfect ke sath aisa filtering kart hai.
   // useEffect(() => {
   //   // ✅ Step 1: Agar searchQuery empty ya sirf spaces hai, toh saare products dikhane chahiye.
@@ -30,11 +27,6 @@ function SearchBar() {
   
   // }, [data, searchQuery, setFilteredProducts]);  
 //   // 🔹 Ye effect tab chalega jab `data`, `searchQuery`, ya `setFilteredProducts` change hoga.
-
-
-
-
-
 
   function handleChange (e){
     // is me first data show agr search bar khali hai baad me filtering. dono me se jo hasn pade o kar sakte hai but real case me aisa hota hai ya jana zaruri hai.dono tara se kar sakte hai. indoono me first data show kar rehai.
@@ -76,7 +68,6 @@ function SearchBar() {
      
   }
 
-
   // is me ham phele filter kar re baad me data show kar re 
   // function handleChange(e){
   //       // const searchValue = e.target.value;
@@ -117,12 +108,6 @@ function SearchBar() {
   // }
   // }
 
-
-
-
-
-
- 
   return (
     <div className="relative flex items-center bg-white rounded-full border border-gray-300 shadow-sm w-[26rem]">
       <input
