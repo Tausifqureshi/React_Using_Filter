@@ -15,11 +15,11 @@ function ProductProvider({ children }) { //✅ Default value to children
   // const useProdutc = useSelector((state) => state.product);
   // console.log("PRODUCT DATA FROM REDUX",useProdutc);
    const [ filteredProducts, setFilteredProducts] = useState(data); // Filtered products state
+    const [searchQuery, setSearchQuery] = useState("");
    const [selectedCategories, setSelectedCategories] = useState([]);
+   const [BucketFiltering, setBucketFiltering] = useState("All Prices");
    const [selectedPriceRange, setSelectedPriceRange] = useState([]); // ✅ Price Range State
-   const [selectedRating, setSelectedRating] = useState(null); // ✅ Rating State
-   const [selectedSort, setSelectedSort] = useState(null); // ✅ Sort State
-    const [BucketFiltering, setBucketFiltering] = useState(priceRanges[0]);
+  
 
     
   useEffect(() => {
@@ -64,6 +64,8 @@ function ProductProvider({ children }) { //✅ Default value to children
         handleClearCart,
         filteredProducts,
         setFilteredProducts,
+        searchQuery, 
+        setSearchQuery,
         selectedCategories, 
         setSelectedCategories,
         BucketFiltering,
