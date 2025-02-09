@@ -59,13 +59,18 @@ function Navbar() {
           {navItem.map((item) => (
             <li key={item.URL} className="hover:bg-gray-500 cursor-pointer px-2 py-2">
               <NavLink
-                to={item.URL}
+                to={item.URL}   
                 className={({ isActive }) =>
                   isActive
                     ? "text-blue-500 no-underline border-b-2 border-blue-500"
-                    : isScrolled
+                     : isScrolled
                     ? "text-black hover:text-gray-700"
                     : "text-white hover:text-gray-300"
+    //                 `
+    // px-4 py-2 rounded-md transition-colors duration-200
+    // ${isActive ? "text-blue-500 border-b-2 border-blue-500 font-bold" : ""}
+    // ${isScrolled ? "text-black hover:text-gray-700" : "text-white hover:text-gray-300"}
+  // `
                 }
               >
                 {item.name}
