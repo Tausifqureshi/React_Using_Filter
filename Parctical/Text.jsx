@@ -7,6 +7,7 @@ const Price = () => {
 
   // Price ranges define kar rahe hain
   const priceRanges = [
+    { label: "All Prices", min: 0, max: Infinity },
     { label: "Under ₹500", min: 0, max: 500 },
     { label: "₹500 - ₹1000", min: 500, max: 1000 },
     { label: "₹1000 - ₹5000", min: 1000, max: 5000 },
