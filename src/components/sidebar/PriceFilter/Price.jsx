@@ -1,10 +1,17 @@
 import React from "react";
+import { useProductContext } from "../../Context API/ProductProvider";
 
 function Price() {
-  return (
-    <div>Price</div>
-  )
+  const { data,  setFilteredProducts, BucketFiltering, setBucketFiltering } = useProductContext();
+  
+
+
+
+  
+
+  
+         
+  return <div> Price </div>;
 }
 
 export default Price;
-
