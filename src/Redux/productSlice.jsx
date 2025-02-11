@@ -1,18 +1,15 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
- const fetchData = createAsyncThunk(
-  "product/fetchProducts",
-  async () => {
-    try {
-      const response = await axios.get("https://dummyjson.com/products");
-      console.log(" response", response.data.products);
-      return response.data.products;
-    } catch (error) {
-      console.log(error.message);
-    }
+const fetchData = createAsyncThunk("product/fetchProducts", async () => {
+  try {
+    const response = await axios.get("https://dummyjson.com/products");
+    console.log(" response", response.data.products);
+    return response.data.products;
+  } catch (error) {
+    console.log(error.message);
   }
-);
+});
 
 const productSlice = createSlice({
   name: "product",
@@ -30,11 +27,10 @@ const productSlice = createSlice({
 
     // },
 
-    
     // Add to cart
     addToCart: (state, action) => {
       // state.cart.push(action.payload);
-     // return [...state, action.payload]; // Add to cart mein jo bhi product aayega usko cart mein add karna.
+      // return [...state, action.payload]; // Add to cart mein jo bhi product aayega usko cart mein add karna.
 
       return {
         ...state, // Pura state ko copy karo
@@ -61,8 +57,6 @@ const productSlice = createSlice({
 
       state.cart = [];
     },
-
-
   },
 
   extraReducers: (builder) => {
@@ -88,7 +82,8 @@ const productSlice = createSlice({
   },
 });
 
-export const { fetchProducts, addToCart, removeFromCart, clearCart } = productSlice.actions;
+export const { fetchProducts, addToCart, removeFromCart, clearCart } =
+  productSlice.actions;
 export { fetchData }; // export fetchData thunk function aysnc
 console.log("productSlice", productSlice.actions);
 export default productSlice.reducer;
