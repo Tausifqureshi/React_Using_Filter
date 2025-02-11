@@ -6,8 +6,6 @@ import { useProductContext } from "../Context API/ProductProvider";
 function SearchBar() {
   const { data, setFilteredProducts, searchQuery, setSearchQuery} = useProductContext();
 
- 
-
 
 //useEfect ke sath aisa filtering kart hai.
   // useEffect(() => {
@@ -128,6 +126,7 @@ function handleChange (e){
       </Button>
     </div>
   );
+  
 }
 
 export default SearchBar;
