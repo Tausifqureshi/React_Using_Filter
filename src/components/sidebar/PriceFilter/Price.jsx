@@ -39,12 +39,12 @@ const Price = () => {
     setSelectedRange(selectedRange);
 
     // Filter products based on selected range
-    const filtered = data.filter((product) => 
+    const filteredProducts = data.filter((product) => 
       product.price >= selectedRange.min && product.price <= selectedRange.max
     );
 
     // Set filtered products
-    setFilteredProducts(filtered);
+    setFilteredProducts(filteredProducts);
   }
 
   return (

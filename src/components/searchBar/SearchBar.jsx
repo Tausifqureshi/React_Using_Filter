@@ -28,6 +28,7 @@ function SearchBar() {
   // }, [data, searchQuery, setFilteredProducts]);  
 //   // 🔹 Ye effect tab chalega jab `data`, `searchQuery`, ya `setFilteredProducts` change hoga.
 
+
 function handleChange (e){
   // is me first data show agr search bar khali hai baad me filtering. dono me se jo hasn pade o kar sakte hai but real case me aisa hota hai ya jana zaruri hai.dono tara se kar sakte hai. indoono me first data show kar rehai.
 
