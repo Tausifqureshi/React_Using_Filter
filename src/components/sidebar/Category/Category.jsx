@@ -25,7 +25,11 @@ function Category({ isSidebarOpen, }) {
   }, [selectedCategories, setFilteredProducts, data])
 
 
-  return <div>
+  function handleTagRemove(category){
+    setSelectedCategories((prev)=>prev.filter((c)=>c!==category))
+  }
+
+  return <div className="flex flex-col gap-3">
    <h1>Category</h1>
 
         {categories.map((category) => (
@@ -37,7 +41,20 @@ function Category({ isSidebarOpen, }) {
              checked={selectedCategories.includes(category)}
            />
          ))}
-         
+
+         {selectedCategories.length > 0 && (
+        <div className="flex flex-wrap mt-2">
+          {selectedCategories.map((category) => (
+            <span
+              key={category} 
+              onClick={() => handleTagRemove(category)}
+              className="px-2 py-1 m-1 bg-gray-200 text-black rounded cursor-pointer hover:bg-gray-300"
+            >
+              {category} ×
+            </span>
+          ))}
+        </div>
+      )}       
   </div>
   ;
 }
