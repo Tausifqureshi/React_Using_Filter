@@ -3,9 +3,10 @@ import { useProductContext } from "../../Context API/ProductProvider";
 import Button  from "../../Button"
 
 function Clear() {
-    const {data, setFilteredProducts, setSelectedCategories} = useProductContext();
+    const {data, setFilteredProducts, setSelectedCategories, setBucketFiltering} = useProductContext();
     function resetFilter(){
        setSelectedCategories([])
+       setBucketFiltering([])
        setFilteredProducts(data);  // ✅ Reset filtered products when clearing filter
     }
   return( 
