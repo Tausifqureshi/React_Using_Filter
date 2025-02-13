@@ -61,7 +61,7 @@ function Category({ isSidebarOpen }) {
   );
 }
 
-export default Category;
+// export default Category;
 
 
 
