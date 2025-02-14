@@ -38,8 +38,8 @@ function ProductProvider({ children }) { //✅ Default value to children
   }, [data]);  // ✅ Dependency array me `data` diya hai, iska matlab ye hai ki jab bhi `data` change hoga tabhi effect chalega.
   
   
-
-
+ 
+ 
 
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
