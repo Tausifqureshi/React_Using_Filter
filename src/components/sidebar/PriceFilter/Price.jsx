@@ -54,9 +54,9 @@
 //           checked=
 //           {bucketFiltering ? bucketFiltering.label === range.label : false}
 //           {/* // Agar bucketFiltering exist karta hai (null ya undefined nahi hai)
-//          // To check karega ki bucketFiltering.label ka value current range.label ke barabar hai ya nahi 
-//           // Agar barabar hai to radio button checked (selected) hoga 
-//           // Agar barabar nahi hai to radio button unchecked (deselect) rahega 
+//          // To check karega ki bucketFiltering.label ka value current range.label ke barabar hai ya nahi
+//           // Agar barabar hai to radio button checked (selected) hoga
+//           // Agar barabar nahi hai to radio button unchecked (deselect) rahega
 //           // Agar bucketFiltering null hai to default false return karega, taki error na aaye */}
 //           <label htmlFor={range.label}>{range.label}</label>
 //         </div>
@@ -67,21 +67,48 @@
 
 // export default Price;
 
-
-
-
-
-
-
-
-
 import React from "react";
-import useProductContext from "../context/productContext";
+import { useProductContext } from "../../Context API/ProductProvider";
 
 function Price() {
-  const { data, bucketFiltering, setBucketFiltering, setFilteredProducts, } = useProductContext();
+  const { data, bucketFiltering, setBucketFiltering, setFilteredProducts } =
+    useProductContext();
 
-  return <div> Price </div>;
+  const priceRanges = [
+    { label: "Under $25", min: 0, max: 25 },
+    { label: "$25 to $50", min: 25, max: 50 },
+    { label: "$50 to $100", min: 50, max: 100 },
+    { label: "$100 to $200", min: 100, max: 200 },
+    { label: "Over $200", min: 200, max: Infinity },
+  ];
+  const handlePriceChange = (range) => {
+    console.log("Price range selected: ", range);
+    setBucketFiltering(range);
+    const filtered = data.filter((product) => {
+      return product.price >= range.min && product.price <= range.max;
+    });
+    setFilteredProducts(filtered);
+  };
+  
+  return (
+    <div>  
+      <h3>Price</h3>
+      {priceRanges.map((range) => (
+        <div key={range.label}>
+          <input
+            type="radio"
+            id={range.label}
+            name="price"
+            value={range.label}
+            // checked={bucketFiltering.price?.label === range.label}
+            checked={bucketFiltering?.label === range.label}
+            onChange={() => handlePriceChange(range)}
+          />
+          <label htmlFor={range.label}>{range.label}</label>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export default Price;
