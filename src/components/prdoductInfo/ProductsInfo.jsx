@@ -4,7 +4,7 @@ useProductContext
 
 function ProductsInfo() {
   return (
-    <div>
+    <div className="text-center text-yellow-500 text-2xl font-bold">
       <h1> Products Info </h1>
     </div>
   );
