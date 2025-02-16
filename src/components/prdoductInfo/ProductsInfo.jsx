@@ -1,12 +1,11 @@
-import Rect from "rect"
 
-function ProductsInfo(){
+import React from "react";
 
-    return(
-        <div>
-            <h1>ProductsInfo</h1>
-        </div>
-    )
+function ProductsInfo() {
+  return <div> 
+     <h1> Products Info </h1>
+     
+   </div>;
 }
 
-export default ProductsInfo
+export default ProductsInfo;
