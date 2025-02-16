@@ -4,6 +4,7 @@ import { FaHome, FaRegBell, FaRegListAlt, FaBook } from 'react-icons/fa';
 import Category from "./Category/Category";
 import Price from "./PriceFilter/Price";
 import Clear from "./ClearFilter/Clear";
+import PriceSlider from "./sliderRange/PriceSlider";
 
 
 function Sidebar() {
@@ -55,6 +56,8 @@ function Sidebar() {
 
        <Category isSidebarOpen={isSidebarOpen}/>
        <Price isSidebarOpen={isSidebarOpen}/>
+       <PriceSlider isSidebarOpen={isSidebarOpen}/>
+
        <Clear />
 
         

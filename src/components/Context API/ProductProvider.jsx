@@ -18,6 +18,7 @@ function ProductProvider({ children }) { //✅ Default value to children
     const [searchQuery, setSearchQuery] = useState("");
    const [selectedCategories, setSelectedCategories] = useState([]);
    const [bucketFiltering, setBucketFiltering] = useState(null);
+   const [selectedPriceRange, setSelectedPriceRange] = useState([]);
 
   //  const [selectedPriceRange, setSelectedPriceRange] = useState([]); // ✅ Price Range State
   
@@ -71,8 +72,8 @@ function ProductProvider({ children }) { //✅ Default value to children
         setSelectedCategories,
         bucketFiltering,
         setBucketFiltering,
-        // selectedPriceRange, 
-        // setSelectedPriceRange,
+        selectedPriceRange, 
+        setSelectedPriceRange,
 
         App: "product Fetching Data from Redux",
       }}
