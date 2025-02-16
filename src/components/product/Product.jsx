@@ -1,18 +1,17 @@
 import React from "react";
 import Button from "../Button";
+import { useNavigate } from "react-router-dom";
 
-function Product({ images,title, price,}) {
+function Product({ images,title, price, id}) {
+  const navigate = useNavigate();
   return (  
       <div className="border rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 bg-white       overflow-hidden">
-        <div className="w-full bg-gray-100 " style={{ aspectRatio: "4/3" }}>
+        <div className="w-full bg-gray-100 cursor-pointer" style={{ aspectRatio: "4/3" }} 
+         onClick={() => navigate(`/productsInfo/${id}`)}>
           <img
             src={images[0]}
             alt={title}
-            className={`w-full h-full object-contain mix-blend-darken py-3 px-1
-            `
-            //  ${ isSidebarOpen ? "w-full" : "aspect-ratio: 6 / 3"}
-            }
-            
+            className={`w-full h-full object-contain mix-blend-darken py-3 px-1` }
           />
         </div>
  

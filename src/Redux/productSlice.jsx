@@ -21,12 +21,6 @@ const productSlice = createSlice({
   },
 
   reducers: {
-    // fetchProducts: (state, action) => {
-    //      console.log("fetchProducts reducer called");
-    //     //  state.products = action.payload;
-
-    // },
-
     // Add to cart
     addToCart: (state, action) => {
       // state.cart.push(action.payload);
