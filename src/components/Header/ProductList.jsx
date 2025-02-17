@@ -1,16 +1,16 @@
-
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 function ProductList() {
   const { category } = useParams(); // URL se category get karega
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`https://dummyjson.com/products/category/${category}`)
-      .then(response => response.json())
-      .then(data => setProducts(data.products))
-      .catch(error => console.error("Error fetching products:", error));
+      .then((response) => response.json())
+      .then((data) => setProducts(data.products))
+      .catch((error) => console.error("Error fetching products:", error));
   }, [category]);
 
   return (
@@ -20,9 +20,12 @@ function ProductList() {
         {products.length > 0 ? (
           products.map((product) => (
             <div key={product.id}>
+            <div className="cursor-pointer" onClick={() => navigate(`/productsInfo/${product.id}`)}>
+                <img src={product.images?.[0]} alt={product.title} width="250" />
+              </div>
               <h3>{product.title}</h3>
               <p>Price: ${product.price}</p>
-              <img src={product.thumbnail} alt={product.title} width="250" />
+              
             </div>
           ))
         ) : (
@@ -34,4 +37,3 @@ function ProductList() {
 }
 
 export default ProductList;
- 

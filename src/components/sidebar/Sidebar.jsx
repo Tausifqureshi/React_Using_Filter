@@ -57,7 +57,6 @@ function Sidebar() {
        <Category isSidebarOpen={isSidebarOpen}/>
        <Price isSidebarOpen={isSidebarOpen}/>
        <PriceSlider isSidebarOpen={isSidebarOpen}/>
-
        <Clear />
 
         
