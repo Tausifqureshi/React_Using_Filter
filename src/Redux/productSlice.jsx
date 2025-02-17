@@ -25,7 +25,7 @@ const productSlice = createSlice({
     addToCart: (state, action) => {
       // state.cart.push(action.payload);
       // return [...state, action.payload]; // Add to cart mein jo bhi product aayega usko cart mein add karna.
-
+      console.log("cart", action);
       return {
         ...state, // Pura state ko copy karo
         cart: [...state.cart, action.payload], // Purane cart ko copy karke naye product ko add karo

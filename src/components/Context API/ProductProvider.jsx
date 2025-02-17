@@ -21,6 +21,7 @@ function ProductProvider({ children }) { //✅ Default value to children
    const [selectedPriceRange, setSelectedPriceRange] = useState(0);
 
   
+  //  Fetch data from API
   useEffect(() => {
     console.log("useEffec Called");
     dispatch(fetchData());
@@ -29,6 +30,7 @@ function ProductProvider({ children }) { //✅ Default value to children
   }, [dispatch]);
    
 
+  // ✅ Jab bhi `data` update hoga, `setFilteredProducts(data)` call hoga
   useEffect(() => {
     // ✅ Jab bhi `data` update hoga, `setFilteredProducts(data)` call hoga
     // ✅ Yani `filteredProducts` automatically update ho jayega bina kisi manual trigger ke.
@@ -36,9 +38,6 @@ function ProductProvider({ children }) { //✅ Default value to children
   }, [data]);  // ✅ Dependency array me `data` diya hai, iska matlab ye hai ki jab bhi `data` change hoga tabhi effect chalega.
   
   
- 
- 
-
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
   };
