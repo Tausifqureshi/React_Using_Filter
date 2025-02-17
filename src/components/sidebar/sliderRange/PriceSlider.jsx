@@ -5,7 +5,7 @@ import { useProductContext } from "../../Context API/ProductProvider";
 function PriceSlider() {
   const { setFilteredProducts, data, selectedPriceRange, setSelectedPriceRange } = useProductContext();
 
-  const pricrChange = () => {
+  const pricrChange = (value) => {
     const filtered = data.filter((product) => product.price >= selectedPriceRange);
     setFilteredProducts(filtered);
   };
