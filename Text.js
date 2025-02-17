@@ -86,7 +86,7 @@ function Category({ isSidebarOpen }) {
 
 
 
-
+       
 
 
 
@@ -117,7 +117,7 @@ function PriceSlider() {
 
   </div>;
 }
-
+                     
 export default PriceSlider;
 
 
