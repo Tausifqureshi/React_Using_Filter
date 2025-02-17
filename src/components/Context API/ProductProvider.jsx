@@ -14,16 +14,13 @@ function ProductProvider({ children }) { //✅ Default value to children
   const { data, cart, loading, error } = useSelector((state) => state.product);
   // const useProdutc = useSelector((state) => state.product);
   // console.log("PRODUCT DATA FROM REDUX",useProdutc);
-   const [ filteredProducts, setFilteredProducts] = useState(data); // Filtered products state
+   const [ filteredProducts, setFilteredProducts] = useState(data || []); // Filtered products state
     const [searchQuery, setSearchQuery] = useState("");
    const [selectedCategories, setSelectedCategories] = useState([]);
    const [bucketFiltering, setBucketFiltering] = useState(null);
-   const [selectedPriceRange, setSelectedPriceRange] = useState([]);
+   const [selectedPriceRange, setSelectedPriceRange] = useState(0);
 
-  //  const [selectedPriceRange, setSelectedPriceRange] = useState([]); // ✅ Price Range State
   
-
-    
   useEffect(() => {
     console.log("useEffec Called");
     dispatch(fetchData());
