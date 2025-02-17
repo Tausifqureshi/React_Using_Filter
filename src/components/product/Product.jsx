@@ -26,16 +26,16 @@ function Product({ images,title, price, id,
           </h3>
 
           <p className="text-xl font-bold text-green-600 mt-2">${price}</p>
-          {/* <p className="text-xl font-bold text-green-600 mt-2">{availabilityStatus}</p> */}
-          <h4 className="text-xl font-bold text-green-600 mt-2">{stock}</h4>
+          <p className="text-xl font-bold text-green-600 mt-2">{availabilityStatus}</p>
+          <h4 className="text-xl font-bold text-green-600 mt-2"> Availabal {stock}</h4>
           {/* <p className="text-xl font-bold text-green-600 mt-2">{shippingInformation }</p> */}
           {/* <p className="text-xl font-bold text-green-600 mt-2">{returnPolicy}</p> */}
-          <p className="text-xl font-bold text-green-600 mt-2">{brand}</p>
-          <img
+          {/* <p className="text-xl font-bold text-green-600 mt-2">{brand}</p> */}
+          {/* <img
             src={meta.qrCode}
             alt={title}
             className={`w-full h-full object-contain mix-blend-darken py-3 px-1` }
-          />
+          /> */}
 
          
 

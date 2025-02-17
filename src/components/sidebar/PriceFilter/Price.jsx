@@ -46,7 +46,7 @@ const Price = () => {
 
   return (
     <div>
-      <h3>Price ke hisab se filter karein</h3>
+      <h3>Price filter </h3>
       {priceRanges.map((range, index) => (
         <div key={index}>
           <input
