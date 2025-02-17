@@ -22,9 +22,7 @@ function Product({ images,title, price, id}) {
 
           <p className="text-xl font-bold text-green-600 mt-2">${price}</p>
 
-          {/* <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-medium px-6 py-2 rounded-full mt-4 w-full transition-all duration-300">
-            Add to Cart
-          </button> */}
+         
 
         <Button className="bg-yellow-500 hover:bg-yellow-600 text-white font-medium px-6 py-2 rounded-full mt-4 w-full transition-all duration-300"
           onClick={() => console.log("Add to Cart")}

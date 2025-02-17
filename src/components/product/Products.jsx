@@ -1,29 +1,16 @@
-import React, { useEffect } from "react";
-import {fetchData } from "../../Redux/productSlice";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import Product from "./Product";
 import { useProductContext } from '../Context API/ProductProvider';
 
   
 const Products = () => {
-  // const dispatch = useDispatch();
-  // const fetched_Products_Data = useSelector((state) => state.product.data);  
-  const { data, loading, error, filteredProducts} = useProductContext(); // Use context to get data, loading, error, and addToCart
-// console.log("Data from Redux:", data);
-// console.log("Filtered Products:", filteredProducts);
-
-
-  // useEffect(() => {
-  //   dispatch(fetchData());
-  // }, [dispatch]);
-
+  const {loading, error, filteredProducts} = useProductContext(); // Use context to get data, loading, error, 
+  
   if (loading) return <div> Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 p-2 ">
-    {/* pb-3 pt-1 px-2 */}
-
       {/* {filteredProducts.length > 0 ? ( // Agar filteredProducts ka length 0 se zyada hai (> 0), toh iska matlab hai kuch products available hain, aur unko show karna hai.
           filteredProducts.map((product) => ( 
             <Product key={product.id} {...product} /> // filteredProducts me jo bhi products hain unko show karna hai.
@@ -39,11 +26,6 @@ const Products = () => {
         })
          :<p>No products found</p> 
          }
-
-         {/* {
-          data.map((item)=>{
-          return <Product key={item.id} {...item} />
-        })} */}
 
     </div>
   );
