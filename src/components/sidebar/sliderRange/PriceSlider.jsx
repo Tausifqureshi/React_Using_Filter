@@ -9,6 +9,7 @@ function PriceSlider() {
   function inputHandlerChange(e){
     setSelectedPriceRange (Number(e.target.value));
   }
+
  function priceChange(){
   console.log("appiy");
   const maxPrice = 1000;
@@ -17,8 +18,8 @@ function PriceSlider() {
  
  }
   
-
-  return <div>
+  return (
+   <div>
     <h2>Price</h2>
     <p className="my-2">Selected Price Range: {selectedPriceRange}</p>
     <input className="cursor-pointer" type="range" min="0" max="1000" value={selectedPriceRange} 
@@ -26,7 +27,8 @@ function PriceSlider() {
     />
    <button onClick={priceChange} className="border-2 border-white rounded-full px-3 py-1 mx-3 hover:bg-white hover:text-black transition duration-300 ease-in-out hover:scale-110"> Go </button>
 
-  </div>;
+   </div>
+  );
 }
 
 export default PriceSlider;
