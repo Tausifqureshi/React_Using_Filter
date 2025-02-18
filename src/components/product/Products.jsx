@@ -4,7 +4,7 @@ import { useProductContext } from '../Context API/ProductProvider';
 
   
 const Products = () => {
-  const {loading, error, filteredProducts, handleAddToCart,} = useProductContext(); // Use context to get data, loading, error, 
+  const {loading, error, filteredProducts, handleAddToCart,cart} = useProductContext(); // Use context to get data, loading, error, 
   
   if (loading) return <div> Loading...</div>;
   if (error) return <div>Error: {error}</div>;
@@ -22,7 +22,7 @@ const Products = () => {
          {/* is tara se bhi likh sakte ho */}
         {filteredProducts.length > 0 ?
         filteredProducts.map((item)=>{
-          return <Product key={item.id} {...item}  handleAddToCart={handleAddToCart}/>
+          return <Product key={item.id} {...item}  handleAddToCart={handleAddToCart} cart={cart}/>
         })
          :<p>No products found</p> 
          }

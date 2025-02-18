@@ -11,7 +11,6 @@ import Header from "./components/header/Header";
 import ProductList from "./components/header/ProductList";
 import ProductInfo from "./components/prdoductInfo/ProductsInfo";
 
-
 function App() {
   const router = createBrowserRouter([
     {

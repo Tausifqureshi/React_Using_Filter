@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink,Link } from "react-router-dom";
 import SearchBar from "../searchBar/SearchBar";
 
 function Navbar() {
@@ -49,9 +49,13 @@ function Navbar() {
       `}
     >
       <nav className="flex justify-between items-center">
-        <div>
-          <h1 className={isScrolled ? "text-black" : "text-white"}>Logo</h1>
+       <div className={isScrolled ? "text-black" : "text-white"}>
+            <h1>
+              <Link to="/">Logo</Link>
+            </h1>
         </div>
+
+
         <div>
           <SearchBar />
         </div>
