@@ -18,6 +18,7 @@ function Product({
 }) {
   const navigate = useNavigate();
   const addToCartHandler = () => {
+    
     const productToAdd = {
       id,
       images,

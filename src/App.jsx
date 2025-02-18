@@ -3,7 +3,7 @@ import React from "react";
 // import Sidebar from "./components/sidebar/Sidebar";
 import MainContents from "./components/main/MainContents";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Home, About, Contact } from "./page/index";
+import { Home, About, Contact, Cart } from "./page/index";
 import { Provider } from "react-redux";
 import store from "./Redux/store";
 import ProductProvider from "./components/Context API/ProductProvider";
@@ -30,6 +30,11 @@ function App() {
         {
           path: "/contact",
           element: <Contact />,
+        },
+
+        {
+          path: "/cart",
+          element: <Cart />,
         },
 
         {
@@ -61,46 +66,3 @@ function App() {
 }
 
 export default App;
-
-// import React from "react";
-// import MainContents from "./components/main/MainContents";
-// import { createBrowserRouter, RouterProvider } from "react-router-dom";
-// import { Home, About, Contact } from "./page/index";
-// import { Provider } from "react-redux";
-// import store from "./Redux/store";
-// import ProductProvider from "./components/Context API/ProductProvider"; // Import ProductProvider
-
-// const router = createBrowserRouter([
-
-//   {
-//           path: "/",
-//           element: <MainContents />,
-
-//           children: [
-//             {
-//               path: "/",
-//               element: <Home />,
-//             },
-//             {
-//               path: "/about",
-//               element: <About />,
-//             },
-//             {
-//               path: "/contact",
-//               element: <Contact />,
-//             },
-//           ],
-//         },
-// ]);
-
-// function App() {
-//   return (
-//     <Provider store={store}>
-//       <ProductProvider> {/* ✅ Ensure this is wrapping RouterProvider */}
-//         <RouterProvider router={router} />
-//       </ProductProvider>
-//     </Provider>
-//   );
-// }
-
-// export default App;

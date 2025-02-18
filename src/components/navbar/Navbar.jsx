@@ -32,7 +32,7 @@ function Navbar() {
   }, [lastScrollY]);
 
   const navItem = [
-    { name: "Home", URL: "/" },
+    { name: "Home", URL: "/" }, 
     { name: "About", URL: "/about" },
     { name: "Contact", URL: "/contact" },
     { name: "Signup", URL: "/signup" },
