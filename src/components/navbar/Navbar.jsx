@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink,Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import SearchBar from "../searchBar/SearchBar";
 
 function Navbar() {
@@ -32,7 +32,7 @@ function Navbar() {
   }, [lastScrollY]);
 
   const navItem = [
-    { name: "Home", URL: "/" }, 
+    { name: "Home", URL: "/" },
     { name: "About", URL: "/about" },
     { name: "Contact", URL: "/contact" },
     { name: "Signup", URL: "/signup" },
@@ -49,32 +49,35 @@ function Navbar() {
       `}
     >
       <nav className="flex justify-between items-center">
-       <div className={isScrolled ? "text-black" : "text-white"}>
-            <h1>
-              <Link to="/">Logo</Link>
-            </h1>
+        <div className={isScrolled ? "text-black" : "text-white"}>
+          <h1>
+            <Link to="/">Logo</Link>
+          </h1>
         </div>
-
 
         <div>
           <SearchBar />
         </div>
         <ul className="flex gap-4 items-center">
           {navItem.map((item) => (
-            <li key={item.URL} className="hover:bg-gray-500 cursor-pointer px-2 py-2">
+            <li
+              key={item.URL}
+              className="hover:bg-gray-500 cursor-pointer px-2 py-2"
+            >
               <NavLink
-                to={item.URL}   
-                className={({ isActive }) =>
-                  isActive
-                    ? "text-blue-500 no-underline border-b-2 border-blue-500"
-                     : isScrolled
-                    ? "text-black hover:text-gray-700"
-                    : "text-white hover:text-gray-300"
-    //                 `
-    // px-4 py-2 rounded-md transition-colors duration-200
-    // ${isActive ? "text-blue-500 border-b-2 border-blue-500 font-bold" : ""}
-    // ${isScrolled ? "text-black hover:text-gray-700" : "text-white hover:text-gray-300"}
-  // `
+                to={item.URL}
+                className={
+                  ({ isActive }) =>
+                    isActive
+                      ? "text-blue-500 no-underline border-b-2 border-blue-500"
+                      : isScrolled
+                      ? "text-black hover:text-gray-700"
+                      : "text-white hover:text-gray-300"
+                  //                 `
+                  // px-4 py-2 rounded-md transition-colors duration-200
+                  // ${isActive ? "text-blue-500 border-b-2 border-blue-500 font-bold" : ""}
+                  // ${isScrolled ? "text-black hover:text-gray-700" : "text-white hover:text-gray-300"}
+                  // `
                 }
               >
                 {item.name}

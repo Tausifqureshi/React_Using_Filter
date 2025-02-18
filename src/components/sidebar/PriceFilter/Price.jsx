@@ -3,7 +3,8 @@ import { useProductContext } from "../../Context API/ProductProvider";
 
 const Price = () => {
   // Context se product data aur filtering functions ko access kar rahe hain
-  const { setFilteredProducts, data, bucketFiltering, setBucketFiltering } = useProductContext();
+  const { setFilteredProducts, data, bucketFiltering, setBucketFiltering } =
+    useProductContext();
 
   // Price ranges define kar rahe hain jise user select kar sakta hai
   const priceRanges = [
@@ -23,7 +24,9 @@ const Price = () => {
     const selectedLabel = e.target.value;
 
     // priceRanges mein se uss value ko find kar rahe hai jo user na selectedLabel me diya hai. agar value match hoti hai  setBucketFiltering ke ander setBucketFiltering(selectedRange) value set kar dege.
-    const selectedRange = priceRanges.find((range) => range.label === selectedLabel);
+    const selectedRange = priceRanges.find(
+      (range) => range.label === selectedLabel
+    );
 
     // Agar matching range nahi mili, to saare products dikhaye aur filtering reset karein
     if (!selectedRange) {
@@ -37,7 +40,8 @@ const Price = () => {
 
     // Data ko filter kar rahe hain taaki keval selected price range ke products dikhen
     const filteredProducts = data.filter(
-      (product) => product.price >= selectedRange.min && product.price <= selectedRange.max
+      (product) =>
+        product.price >= selectedRange.min && product.price <= selectedRange.max
     );
 
     // Filtered products ko update kar rahe hain
@@ -55,9 +59,11 @@ const Price = () => {
             name="price"
             value={range.label}
             onChange={handleSelection}
-            checked={bucketFiltering ? bucketFiltering.label === range.label : false}
+            checked={
+              bucketFiltering ? bucketFiltering.label === range.label : false
+            }
           />
-           {/*  Agar bucketFiltering exist karta hai (null ya undefined nahi hai)
+          {/*  Agar bucketFiltering exist karta hai (null ya undefined nahi hai)
               To check karega ki bucketFiltering.label ka value current range.label ke barabar hai ya nahi
             Agar barabar hai to radio button checked (selected) hoga
             Agar barabar nahi hai to radio button unchecked (deselect) rahega
@@ -71,13 +77,6 @@ const Price = () => {
 };
 
 export default Price;
-
-
-
-
-
-
-
 
 // Is me ham direct parameter ka use kar ke kar re hai matlab ham is me direct priceRange hi dere parameter me user se e.target.value se nhi le re hai, is liye hamne e.target.value ko use nahi kiya hai.
 // import React from "react";

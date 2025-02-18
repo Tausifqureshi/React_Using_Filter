@@ -9,16 +9,14 @@ function Button({
   ...props
 }) {
   return (
-    
-      <button
-        onClick={onClick}
-        type={type}
-        className={` font-medium ${className}`}
-        {...props}
-      >
-         {children || label}
-      </button>
-    
+    <button
+      onClick={onClick}
+      type={type}
+      className={` font-medium ${className}`}
+      {...props}
+    >
+      {children || label}
+    </button>
   );
 }
 

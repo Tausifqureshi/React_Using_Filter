@@ -1,4 +1,3 @@
-
 // NavbarResponsive
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
@@ -48,7 +47,7 @@ function Navbar() {
         <div className="hidden md:flex items-center space-x-4">
           <SearchBar />
         </div>
-   
+
         {/* Hamburger Menu Icon */}
         <div className="md:hidden flex items-center">
           <button
@@ -66,9 +65,13 @@ function Navbar() {
               <NavLink
                 to={item.URL}
                 className={({ isActive }) =>
-                `
+                  `
                   px-4 py-2 rounded-md transition-colors duration-200
-                  ${isActive ? "text-blue-500 border-b-2 border-blue-500":"hover:text-gray-700"}`
+                  ${
+                    isActive
+                      ? "text-blue-500 border-b-2 border-blue-500"
+                      : "hover:text-gray-700"
+                  }`
                 }
               >
                 {item.name}
@@ -100,21 +103,12 @@ function Navbar() {
             ))}
           </ul>
         </div>
-        
       </nav>
     </div>
   );
 }
 
 export default Navbar;
-
-
-
-
-
-
-
-
 
 // Search Bar Logic Code
 import React, { useState } from "react";
@@ -126,7 +120,7 @@ function SearchBar() {
   const [search, setSearch] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]); // ✅ Local state for search results
   const [isInputFocused, setIsInputFocused] = useState(false); // ✅ Track if input is focused
-  
+
   const products = useSelector((state) => state.product.data); // ✅ Redux se products le rahe hain
 
   function searchFilter(e) {
@@ -202,4 +196,3 @@ function SearchBar() {
 }
 
 // export default SearchBar;
-

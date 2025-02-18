@@ -12,6 +12,7 @@ import ProductList from "./components/header/ProductList";
 import ProductInfo from "./components/prdoductInfo/ProductsInfo";
 
 function App() {
+  const firsName = "Tausif"
   const router = createBrowserRouter([
     {
       path: "/",

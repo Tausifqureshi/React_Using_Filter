@@ -9,13 +9,13 @@ import {
 
 const ProductContext = createContext();
 
-function ProductProvider({ children }) { 
+function ProductProvider({ children }) {
   //✅ Default value to children
   const dispatch = useDispatch();
   const { data, cart, loading, error } = useSelector((state) => state.product);
   // const useProdutc = useSelector((state) => state.product);
   // console.log("PRODUCT DATA FROM REDUX",useProdutc);
-  
+
   const [filteredProducts, setFilteredProducts] = useState(data || []); // Filtered products state
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -40,14 +40,13 @@ function ProductProvider({ children }) {
     dispatch(addToCart(product));
   };
 
-  const handleRemoveFromCart = (productId) => { 
-    dispatch(removeFromCart(productId)); 
+  const handleRemoveFromCart = (productId) => {
+    dispatch(removeFromCart(productId));
   };
 
   const handleClearCart = () => {
     dispatch(clearCart());
-  }; 
-   
+  };
 
   return (
     <ProductContext.Provider

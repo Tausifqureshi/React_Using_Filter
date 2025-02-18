@@ -20,12 +20,18 @@ function ProductList() {
         {products.length > 0 ? (
           products.map((product) => (
             <div key={product.id}>
-            <div className="cursor-pointer" onClick={() => navigate(`/productsInfo/${product.id}`)}>
-                <img src={product.images?.[0]} alt={product.title} width="250" />
+              <div
+                className="cursor-pointer"
+                onClick={() => navigate(`/productsInfo/${product.id}`)}
+              >
+                <img
+                  src={product.images?.[0]}
+                  alt={product.title}
+                  width="250"
+                />
               </div>
               <h3>{product.title}</h3>
               <p>Price: ${product.price}</p>
-              
             </div>
           ))
         ) : (

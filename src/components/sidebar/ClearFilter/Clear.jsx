@@ -10,7 +10,8 @@ function Clear() {
     setBucketFiltering,
     setSelectedPriceRange,
   } = useProductContext();
-  function resetFilter() { // ✅ Reset filtered products when clearing filter
+  function resetFilter() {
+    // ✅ Reset filtered products when clearing filter
     setSelectedCategories([]); // ✅ Saari categories hata do
     setBucketFiltering(null); // ✅ Filtering reset karne ke liye null set karo
     setSelectedPriceRange(0); // ✅ Price range ko reset karne ke liye 0 set karo

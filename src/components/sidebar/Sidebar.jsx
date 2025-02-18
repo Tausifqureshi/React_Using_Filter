@@ -1,24 +1,23 @@
 import React, { useState } from "react";
 // Importing icons from react-icons
-import { FaHome, FaRegBell, FaRegListAlt, FaBook } from 'react-icons/fa';
+import { FaHome, FaRegBell, FaRegListAlt, FaBook } from "react-icons/fa";
 import Category from "./Category/Category";
 import Price from "./PriceFilter/Price";
 import Clear from "./ClearFilter/Clear";
 import PriceSlider from "./sliderRange/PriceSlider";
 
-
 function Sidebar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen); 
+    setIsSidebarOpen(!isSidebarOpen);
   };
 
   return (
     <div
-      className={ `h-screen bg-gray-900 overflow-auto text-white transition-all duration-300 ease-in-out  scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-800 scrollbar-thumb-rounded-full scrollbar-track-rounded-full hover:scrollbar-thumb-gray-500 ${
-      isSidebarOpen ? "w-64" : "w-17"
-      }`}   
+      className={`h-screen bg-gray-900 overflow-auto text-white transition-all duration-300 ease-in-out  scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-800 scrollbar-thumb-rounded-full scrollbar-track-rounded-full hover:scrollbar-thumb-gray-500 ${
+        isSidebarOpen ? "w-64" : "w-17"
+      }`}
     >
       {/* Toggle Button */}
       <button
@@ -30,7 +29,10 @@ function Sidebar() {
 
       {/* Menu Items */}
       <ul className="mt-4 space-y-2">
-        <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer" title="Home">
+        <li
+          className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer"
+          title="Home"
+        >
           <FaHome className="w-6 h-6 mr-3" />
           {isSidebarOpen && "Home"}
         </li>
@@ -46,7 +48,7 @@ function Sidebar() {
           <FaBook className="w-6 h-6 mr-3" />
           {isSidebarOpen && "Library"}
         </li>
-                
+
         {/* Duplicate menu items */}
         <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
           <FaBook className="w-6 h-6 mr-3" />
@@ -54,21 +56,13 @@ function Sidebar() {
           Library
         </li>
 
-       <Category isSidebarOpen={isSidebarOpen}/>
-       <Price isSidebarOpen={isSidebarOpen}/>
-       <PriceSlider isSidebarOpen={isSidebarOpen}/>
-       <Clear />
-
-        
+        <Category isSidebarOpen={isSidebarOpen} />
+        <Price isSidebarOpen={isSidebarOpen} />
+        <PriceSlider isSidebarOpen={isSidebarOpen} />
+        <Clear />
       </ul>
-    
     </div>
   );
 }
 
 export default Sidebar;
-  
-
-
-
-

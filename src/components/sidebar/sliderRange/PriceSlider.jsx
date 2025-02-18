@@ -2,17 +2,23 @@ import React from "react";
 import { useProductContext } from "../../Context API/ProductProvider";
 
 function PriceSlider() {
-  const { setFilteredProducts, data, selectedPriceRange, setSelectedPriceRange } = useProductContext();
+  const {
+    setFilteredProducts,
+    data,
+    selectedPriceRange,
+    setSelectedPriceRange,
+  } = useProductContext();
 
   function inputHandlerChange(e) {
     setSelectedPriceRange(Number(e.target.value)); // String value ko number me convert kar rahe hain
   }
 
   function priceChange() {
-    const maxPrice = 1000;  // 🔽 Maximum price limit define ki gayi hai. Default maximum price
+    const maxPrice = 1000; // 🔽 Maximum price limit define ki gayi hai. Default maximum price
     // 🔽 Yeh filtering logic hai, jo sirf un products ko dikhayega jo selectedPriceRange ke andar aate hain
     const filterdRange = data.filter(
-      (product) => product.price >= selectedPriceRange && product.price <= maxPrice
+      (product) =>
+        product.price >= selectedPriceRange && product.price <= maxPrice
     );
     setFilteredProducts(filterdRange); // Filtered products ko update kar rahe hain
   }

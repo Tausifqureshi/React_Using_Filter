@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -17,9 +16,15 @@ function Header() {
 
   return (
     <div className="bg-green-500 p-4 text-white">
-      <h2 className="mb-2 text-lg font-bold">Selected Category: {selectedCategory || "None"}</h2> 
+      <h2 className="mb-2 text-lg font-bold">
+        Selected Category: {selectedCategory || "None"}
+      </h2>
       <label>Select Category: </label>
-      <select value={selectedCategory} onChange={handleCategoryChange} className="text-black">
+      <select
+        value={selectedCategory}
+        onChange={handleCategoryChange}
+        className="text-black"
+      >
         <option value="">Select Category</option>
         {categories.map((category) => (
           <option key={category} value={category}>

@@ -13,13 +13,14 @@
   //   //   scrollbar: ['rounded'], // Enables rounded scrollbars
   //   // },
   // }
-
+  
   
   // tailwind.config.js        
  export default {
   content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'], // Adjust this to your file structure
   theme: {
     extend: {
+      
       mixBlendMode: {
         normal: 'normal',
         multiply: 'multiply',

@@ -15,7 +15,6 @@
 //       {/* Main Layout */}
 //        <div className="flex h-screen">
 //         {(location.pathname === "/" ||location.pathname === "/about") && <Sidebar />}
-       
 
 //         {/* Main Content */}
 //         <div className={`flex-1 bg-gray-100 p-6 text-gray-800 `}>

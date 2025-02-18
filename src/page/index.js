@@ -5,5 +5,4 @@ import Contact from "./Contact";
 // import Login from "./Login";
 import Cart from "./cart/Cart";
 
-
 export { Home, About, Contact, Cart };

@@ -1,6 +1,14 @@
-import React,{useId} from "react";
+import React, { useId } from "react";
 
-function Input({ handleChange, value, name, className = "",category,isSidebarOpen, ...props }) {
+function Input({
+  handleChange,
+  value,
+  name,
+  className = "",
+  category,
+  isSidebarOpen,
+  ...props
+}) {
   const id = useId();
   return (
     <ul className="space-y-2">
@@ -14,7 +22,7 @@ function Input({ handleChange, value, name, className = "",category,isSidebarOpe
           className={`w-6 h-6 ${className}`}
           {...props}
         />
-        <label htmlFor={id} className="cursor-pointer" >
+        <label htmlFor={id} className="cursor-pointer">
           {isSidebarOpen && `${value}`}
         </label>
       </li>
