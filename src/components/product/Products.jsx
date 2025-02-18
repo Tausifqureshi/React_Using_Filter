@@ -1,11 +1,11 @@
 import React from "react";
 import Product from "./Product";
-import { useProductContext } from '../Context API/ProductProvider';
+import { useProductContext } from "../Context API/ProductProvider";
 
-  
 const Products = () => {
-  const {loading, error, filteredProducts, handleAddToCart,cart} = useProductContext(); // Use context to get data, loading, error, 
-  
+  const { loading, error, filteredProducts, handleAddToCart, cart } =
+    useProductContext(); // Use context to get data, loading, error,
+
   if (loading) return <div> Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
@@ -18,25 +18,24 @@ const Products = () => {
         ) : (
           <p>No products found</p> // Agar filteredProducts ka length 0 hai, toh koi product nahi mila, isliye "No products found" show karna hai.
         )} */}
-        
-         {/* is tara se bhi likh sakte ho */}
-        {filteredProducts.length > 0 ?
-        filteredProducts.map((item)=>{
-          return <Product key={item.id} {...item}  handleAddToCart={handleAddToCart} cart={cart}/>
-        })
-         :<p>No products found</p> 
-         }
 
+      {/* is tara se bhi likh sakte ho */}
+      {filteredProducts.length > 0 ? (
+        filteredProducts.map((item) => {
+          return (
+            <Product
+              key={item.id}
+              {...item}
+              handleAddToCart={handleAddToCart}
+              cart={cart}
+            />
+          );
+        })
+      ) : (
+        <p>No products found</p>
+      )}
     </div>
   );
-
-
-
-  
 };
 
 export default Products;
-
-
-
-

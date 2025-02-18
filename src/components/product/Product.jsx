@@ -22,9 +22,7 @@ function Product({
     const existingProduct = cart.find((item) => item.id === id);
     if (existingProduct) {
       return alert("Product already in cart");
-
-    }else{
-      
+    } else {
       const productToAdd = {
         id,
         images,
@@ -40,8 +38,6 @@ function Product({
       };
       handleAddToCart(productToAdd);
     }
-    
-   
   };
 
   return (

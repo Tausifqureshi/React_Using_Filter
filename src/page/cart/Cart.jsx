@@ -22,6 +22,8 @@ const Cart = () => {
   return (
     <div>
       <h2>Cart Length: {cart.length}</h2>
+      {/*  */}
+
       <button onClick={() => dispatch(clearCart())}>Clear Cart</button>
     </div>
   );

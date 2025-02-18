@@ -40,13 +40,14 @@ function ProductProvider({ children }) {
     dispatch(addToCart(product));
   };
 
-  const handleRemoveFromCart = (productId) => {
-    dispatch(removeFromCart(productId));
+  const handleRemoveFromCart = (productId) => { 
+    dispatch(removeFromCart(productId)); 
   };
 
   const handleClearCart = () => {
     dispatch(clearCart());
-  };
+  }; 
+   
 
   return (
     <ProductContext.Provider

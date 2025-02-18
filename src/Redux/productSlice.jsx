@@ -12,16 +12,16 @@ const fetchData = createAsyncThunk("product/fetchProducts", async () => {
 });
 
 const initialState = {
-    data: [],
-    cart: JSON.parse(localStorage.getItem("cart")) || [], //✅ Refresh hone ke baad bhi cart save rahega
-    loading: false,
-    error: null,
-  }
+  data: [],
+  cart: JSON.parse(localStorage.getItem("cart")) || [], //✅ Refresh hone ke baad bhi cart save rahega
+  loading: false,
+  error: null,
+};
 
 const productSlice = createSlice({
   name: "product",
 
-  initialState : initialState, //
+  initialState: initialState, //
 
   reducers: {
     // Add to cart
@@ -110,9 +110,6 @@ export const { fetchProducts, addToCart, removeFromCart, clearCart } =
 export { fetchData }; // export fetchData thunk function aysnc
 console.log("productSlice", productSlice.actions);
 export default productSlice.reducer;
-
-
-
 
 // import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 // import axios from "axios";
