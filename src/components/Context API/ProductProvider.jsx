@@ -5,11 +5,13 @@ import {
   addToCart,
   removeFromCart,
   clearCart,
-} from "../../Redux/productSlice";
+} from "../../Redux/productSlice"; 
 
 const ProductContext = createContext();
 
 function ProductProvider({ children }) {
+  console.log("Product-provider Component Rendered");
+
   //✅ Default value to children
   const dispatch = useDispatch();
   const { data, cart, loading, error } = useSelector((state) => state.product);

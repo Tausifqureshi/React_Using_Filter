@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Header() {
+  console.log("Header Component Rendered");
+
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState(""); // Track selected category
   const categories = ["beauty", "fragrances", "furniture", "groceries"];

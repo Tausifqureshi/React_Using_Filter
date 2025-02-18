@@ -1,27 +1,36 @@
 import React from "react";
 import Button from "../Button";
 import { useNavigate } from "react-router-dom";
-import { addToCart } from "../../Redux/productSlice";
+import { toast } from "react-toastify";
 
-function Product({
-  images,
-  title,
-  price,
-  id,
-  availabilityStatus,
-  meta,
-  stock,
-  shippingInformation,
-  returnPolicy,
-  brand,
-  handleAddToCart,
-  cart,
-}) {
+function Product({ images, title, price,id,availabilityStatus,meta,stock,shippingInformation,returnPolicy,brand,handleAddToCart, cart,}) {
+  console.log("Product Component Rendered!")
+  
   const navigate = useNavigate();
   const addToCartHandler = () => {
     const existingProduct = cart.find((item) => item.id === id);
     if (existingProduct) {
-      return alert("Product already in cart");
+      toast.info("Product already added", {
+        autoClose: 1500, // 300ms me close ho jayega
+        position: "top-right",
+        hideProgressBar: false, // Progress bar chhupane ke liye
+        pauseOnHover: true,
+        theme: "light",
+        style: {
+          background: "#333",
+          color: "#fff",
+          borderRadius: "5px",
+          fontSize: "14px",
+          fontWeight: "bold",
+          textAlign: "center",
+          padding: "10px",
+          marginTop: "10px",
+          marginRight: "10px",
+          boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
+        },
+      });
+      
+
     } else {
       const productToAdd = {
         id,

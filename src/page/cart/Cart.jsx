@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import { addToCart, removeFromCart, clearCart } from "../../Redux/productSlice";
 
 const Cart = () => {
+  console.log("Cart Component Rendered");
   const cart = useSelector((state) => state.product.cart);
   const dispatch = useDispatch();
 
@@ -30,3 +31,4 @@ const Cart = () => {
 };
 
 export default Cart;
+// SyncCartWithLocalStorage

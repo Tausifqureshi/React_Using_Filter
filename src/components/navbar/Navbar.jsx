@@ -3,6 +3,8 @@ import { NavLink, Link } from "react-router-dom";
 import SearchBar from "../searchBar/SearchBar";
 
 function Navbar() {
+  console.log("Navbar Component Rendered");
+  
   const [isVisible, setIsVisible] = useState(true); // Navbar dikh raha hai ya nahi
   const [isScrolled, setIsScrolled] = useState(false); // Scroll hone par color change hoga
   const [lastScrollY, setLastScrollY] = useState(0); // Pichla scroll position store karega
@@ -30,7 +32,7 @@ function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [lastScrollY]);
-
+ 
   const navItem = [
     { name: "Home", URL: "/" },
     { name: "About", URL: "/about" },

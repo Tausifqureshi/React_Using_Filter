@@ -3,6 +3,8 @@ import { useProductContext } from "../../Context API/ProductProvider";
 import Input from "../../Input";
 
 function Category({ isSidebarOpen }) {
+  console.log("Category Component Rendered");
+
   const {
     data,
     setFilteredProducts,

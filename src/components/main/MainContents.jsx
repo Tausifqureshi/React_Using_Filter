@@ -6,13 +6,15 @@ import Footer from "../../page/Footer/Footer";
 import Header from "../header/Header";
 
 const MainContents = () => {
+  console.log("MainContents Component Rendered");
+
   const location = useLocation(); // Current URL path
   const isHomePage = location.pathname === "/"; // Check if current path is "/"
 
   return (
     <div className="flex flex-col min-h-screen">
       {/* Navbar */}
-      <NavBar />
+      <NavBar /> 
       <Header />
 
       {/* Main Content Layout */}

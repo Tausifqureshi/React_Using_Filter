@@ -8,6 +8,8 @@ function Button({
   className = "",
   ...props
 }) {
+  console.log("Button Component Rendered");
+
   return (
     <button
       onClick={onClick}

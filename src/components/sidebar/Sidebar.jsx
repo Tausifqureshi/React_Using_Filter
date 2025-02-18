@@ -7,6 +7,8 @@ import Clear from "./ClearFilter/Clear";
 import PriceSlider from "./sliderRange/PriceSlider";
 
 function Sidebar() {
+  console.log(" Sidebar Component Rendered");
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const toggleSidebar = () => {

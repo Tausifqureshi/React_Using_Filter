@@ -9,6 +9,8 @@ function Input({
   isSidebarOpen,
   ...props
 }) {
+  console.log("Input Component Rendered");
+
   const id = useId();
   return (
     <ul className="space-y-2">

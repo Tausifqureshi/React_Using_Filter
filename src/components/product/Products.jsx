@@ -3,6 +3,7 @@ import Product from "./Product";
 import { useProductContext } from "../Context API/ProductProvider";
 
 const Products = () => {
+  console.log("Products Component Rendered!")
   const { loading, error, filteredProducts, handleAddToCart, cart } =
     useProductContext(); // Use context to get data, loading, error,
 

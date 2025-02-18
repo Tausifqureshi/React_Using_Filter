@@ -4,6 +4,8 @@ import Button from "../Button";
 import { useProductContext } from "../Context API/ProductProvider";
 
 function SearchBar() {
+  console.log("SearchBar Component Rendered");
+
   const { data, setFilteredProducts, searchQuery, setSearchQuery } =
     useProductContext();
 

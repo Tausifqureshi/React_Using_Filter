@@ -2,6 +2,8 @@ import React from "react";
 import { useProductContext } from "../../Context API/ProductProvider";
 
 const Price = () => {
+  console.log("Price Component Rendered");
+
   // Context se product data aur filtering functions ko access kar rahe hain
   const { setFilteredProducts, data, bucketFiltering, setBucketFiltering } =
     useProductContext();

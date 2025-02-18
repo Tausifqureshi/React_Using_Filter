@@ -3,6 +3,8 @@ import { useProductContext } from "../../Context API/ProductProvider";
 import Button from "../../Button";
 
 function Clear() {
+  console.log("Clear Component Rendered");
+
   const {
     data,
     setFilteredProducts,

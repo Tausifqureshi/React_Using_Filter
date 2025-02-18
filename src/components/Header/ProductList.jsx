@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 function ProductList() {
+  console.log("ProductList Component Rendered");
+
   const { category } = useParams(); // URL se category get karega
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();

@@ -1,6 +1,8 @@
 import React from "react";
 import { useProductContext } from "../components/Context API/ProductProvider";
 function About() {
+  console.log("About Component Rendered");
+   
   const { key } = useProductContext(); // ✅ Ensure context is used properly
 
   return (

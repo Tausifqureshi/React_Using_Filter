@@ -2,6 +2,8 @@ import React from "react";
 import { useProductContext } from "../../Context API/ProductProvider";
 
 function PriceSlider() {
+  console.log("PriceSlider Component Rendered");
+
   const {
     setFilteredProducts,
     data,

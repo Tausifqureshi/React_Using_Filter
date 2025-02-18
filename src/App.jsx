@@ -10,9 +10,11 @@ import ProductProvider from "./components/Context API/ProductProvider";
 import Header from "./components/header/Header";
 import ProductList from "./components/header/ProductList";
 import ProductInfo from "./components/prdoductInfo/ProductsInfo";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-  const firsName = "Tausif"
+  console.log("App Component");
   const router = createBrowserRouter([
     {
       path: "/",
@@ -60,6 +62,7 @@ function App() {
         <ProductProvider>
           <RouterProvider router={router} />
         </ProductProvider>
+        <ToastContainer />
       </Provider>
     </>
   );
