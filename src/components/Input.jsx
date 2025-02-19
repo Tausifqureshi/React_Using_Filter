@@ -1,4 +1,4 @@
-import React, { useId } from "react";
+import React, { useId, memo } from "react";
 
 function Input({
   handleChange,
@@ -32,4 +32,4 @@ function Input({
   );
 }
 
-export default Input;
+export default memo(Input);

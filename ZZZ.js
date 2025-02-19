@@ -1,4 +1,5 @@
     // Increment quantity
+
     // incrementQuantity: (state, action) => {
     //   // return {
     //   //   ...state,    // Pura state ko copy karo
@@ -17,3 +18,6 @@
     //     return item; // Agar item ka id action.payload ke barabar nahi hai toh us item ko as it is return karo
     //   });
     // },
+
+
+

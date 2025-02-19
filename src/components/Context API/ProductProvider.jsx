@@ -88,10 +88,97 @@
 
 
 
+// import React, { createContext, useContext, useEffect, useState, useMemo, useCallback } from "react";
+// import { useDispatch, useSelector } from "react-redux";
+// import { fetchData, addToCart, removeFromCart, clearCart } from "../../Redux/productSlice";
+
+// const ProductContext = createContext();
+
+// function ProductProvider({ children }) {
+//   const dispatch = useDispatch();
+//   const { data, cart, loading, error } = useSelector((state) => state.product);
+
+//   const [filteredProducts, setFilteredProducts] = useState(data || []);
+//   const [searchQuery, setSearchQuery] = useState("");
+//   const [selectedCategories, setSelectedCategories] = useState([]);
+//   const [bucketFiltering, setBucketFiltering] = useState(null);
+//   const [selectedPriceRange, setSelectedPriceRange] = useState(0);
+
+//   useEffect(() => {
+//     dispatch(fetchData());
+//   }, [dispatch]);
+
+//   useEffect(() => {
+//     setFilteredProducts(data);
+//   }, [data]);
+
+//   // ✅ Optimize Dispatch Functions using useCallback
+//   const handleAddToCart = useCallback((product) => {
+//     dispatch(addToCart(product));
+//   }, [dispatch]);
+
+//   const handleRemoveFromCart = useCallback((productId) => {
+//     dispatch(removeFromCart(productId));
+//   }, [dispatch]);
+
+//   const handleClearCart = useCallback(() => {
+//     dispatch(clearCart());
+//   }, [dispatch]);
+
+//   // ✅ Optimize Context Value using useMemo 
+//   const contextValue = useMemo(() => ({
+//     data,
+//     cart,
+//     loading,
+//     error,
+//     handleAddToCart,
+//     handleRemoveFromCart,
+//     handleClearCart,
+//     filteredProducts,
+//     setFilteredProducts,
+//     searchQuery,
+//     setSearchQuery,
+//     selectedCategories,
+//     setSelectedCategories,
+//     bucketFiltering,
+//     setBucketFiltering,
+//     selectedPriceRange,
+//     setSelectedPriceRange,
+//   }), [
+//     data,
+//     cart,
+//     loading,
+//     error,
+//     filteredProducts,
+//     searchQuery,
+//     selectedCategories,
+//     bucketFiltering,
+//     selectedPriceRange,
+//     handleAddToCart,
+//     handleRemoveFromCart,
+//     handleClearCart
+//   ]);
+
+//   return (
+//     <ProductContext.Provider value={contextValue}>
+//       {children}
+//     </ProductContext.Provider>
+//   );
+// }
+
+// export const useProductContext = () => useContext(ProductContext);
+// export default ProductProvider;
+   
+
+
+
+
+
+
+
 import React, { createContext, useContext, useEffect, useState, useMemo, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchData, addToCart, removeFromCart, clearCart } from "../../Redux/productSlice";
-
 const ProductContext = createContext();
 
 function ProductProvider({ children }) {
@@ -112,7 +199,6 @@ function ProductProvider({ children }) {
     setFilteredProducts(data);
   }, [data]);
 
-  // ✅ Optimize Dispatch Functions using useCallback
   const handleAddToCart = useCallback((product) => {
     dispatch(addToCart(product));
   }, [dispatch]);
@@ -125,7 +211,6 @@ function ProductProvider({ children }) {
     dispatch(clearCart());
   }, [dispatch]);
 
-  // ✅ Optimize Context Value using useMemo 
   const contextValue = useMemo(() => ({
     data,
     cart,
@@ -168,4 +253,3 @@ function ProductProvider({ children }) {
 
 export const useProductContext = () => useContext(ProductContext);
 export default ProductProvider;
-   
