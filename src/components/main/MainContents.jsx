@@ -1,3 +1,4 @@
+// Process completed successfully.
 import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Sidebar from "../sidebar/Sidebar";
