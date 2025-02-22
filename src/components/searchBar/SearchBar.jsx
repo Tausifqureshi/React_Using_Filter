@@ -177,3 +177,4 @@ const SearchBar = React.memo(() => {
 });
 
 export default SearchBar;
+
