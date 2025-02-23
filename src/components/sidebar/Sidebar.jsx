@@ -79,6 +79,7 @@ import Category from "./Category/Category";
 import Price from "./PriceFilter/Price";
 import Clear from "./ClearFilter/Clear";
 import PriceSlider from "./sliderRange/PriceSlider";
+import RatingFilter from "./ratingFilter/RatingFilter";
 
 const Sidebar = () => {
   console.log("Sidebar Component Rendered");
@@ -113,18 +114,22 @@ const Sidebar = () => {
           <FaHome className="w-6 h-6 mr-3" />
           {isSidebarOpen && "Home"}
         </li>
+
         <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
           <FaRegBell className="w-6 h-6 mr-3" />
           {isSidebarOpen && "Subscriptions"}
         </li>
+
         <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
           <FaRegListAlt className="w-6 h-6 mr-3" />
           {isSidebarOpen && "Trending"}
         </li>
+
         <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
           <FaBook className="w-6 h-6 mr-3" />
           {isSidebarOpen && "Library"}
         </li>
+
         {/* Duplicate menu item */}
         <li className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-lg cursor-pointer">
           <FaBook className="w-6 h-6 mr-3" />
@@ -135,7 +140,8 @@ const Sidebar = () => {
         <Category isSidebarOpen={isSidebarOpen} />
         <Price isSidebarOpen={isSidebarOpen} />
         <PriceSlider isSidebarOpen={isSidebarOpen} />
-        <Clear />
+        <RatingFilter isSidebarOpen={isSidebarOpen} />
+        <Clear  isSidebarOpen={isSidebarOpen}/>
       </ul>
     </div>
   );
