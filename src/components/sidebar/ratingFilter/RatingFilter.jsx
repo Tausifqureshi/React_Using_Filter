@@ -2,8 +2,7 @@ import Recat,{useMemo} from "react";
 import { useProductContext } from "../../Context API/ProductProvider";
 
 function RatingFilter() {
-  const { ratingFilter, setRatingFilter, data, setFilteredProducts } =
-    useProductContext();
+  const { ratingFilter, setRatingFilter, data, setFilteredProducts } = useProductContext();
 
   const ratingRanges = useMemo(
     () => [
@@ -16,7 +15,7 @@ function RatingFilter() {
     []
   );
 
-  
+
   return (
     <div>
       <h1>Rating</h1>
@@ -29,7 +28,6 @@ function RatingFilter() {
             value={rating.label}
             // checked={ratingFilter.includes(rating)}
           />
-          {/* returnPolicy : "30 days return policy" reviews */}
           <label htmlFor={rating.label}>{rating.label}</label>
         </div>
       ))}
