@@ -65,7 +65,7 @@ function RatingFilter() {
   const ratingRanges = useMemo(() => [
     { label: "4★ & above", min: 4 },
     { label: "3★ & above", min: 3 },
-    { label: "2★ & above", min: 2 },
+    { label: "2★ & above", min: 2 },   
     { label: "1★ & above", min: 1 },
   ], []);
 
