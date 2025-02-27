@@ -69,6 +69,7 @@ function RatingFilter() {
     { label: "1★ & above", min: 1 },
   ], []);
 
+  
   // Handle click-based selection (Amazon-style)
   const handleSelection = useCallback((selectedRating) => {
     if (ratingFilter?.min === selectedRating.min) {
