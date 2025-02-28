@@ -103,8 +103,8 @@ function RatingFilter() {
           }}
         >
           <span style={{ fontSize: "16px" }}>
-            {/* {"★".repeat(rating.min)} & above */}
-            {rating.label}
+            {"★".repeat(rating.min)} & above
+            {/* {rating.label} */}
            
           </span>
         </div>
