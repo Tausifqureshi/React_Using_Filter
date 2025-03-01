@@ -80,6 +80,7 @@ import Price from "./PriceFilter/Price";
 import Clear from "./ClearFilter/Clear";
 import PriceSlider from "./sliderRange/PriceSlider";
 import RatingFilter from "./ratingFilter/RatingFilter";
+import BrandFilter from "./Brand/BrandFilter";
 
 const Sidebar = () => {
   console.log("Sidebar Component Rendered");
@@ -142,6 +143,7 @@ const Sidebar = () => {
         <PriceSlider isSidebarOpen={isSidebarOpen} />
         <RatingFilter isSidebarOpen={isSidebarOpen} />
         <Clear  isSidebarOpen={isSidebarOpen}/>
+        <BrandFilter isSidebarOpen={isSidebarOpen}/>
       </ul>
     </div>
   );

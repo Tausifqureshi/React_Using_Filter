@@ -213,3 +213,4 @@ const Category = React.memo(({ isSidebarOpen }) => {
 });
 
 export default Category;
+ 
