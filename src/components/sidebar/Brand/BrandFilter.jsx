@@ -29,4 +29,4 @@ function BrandFilter({ isSidebarOpen }) {
 }
 
 export default BrandFilter;
-   
+        
