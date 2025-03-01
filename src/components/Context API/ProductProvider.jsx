@@ -111,6 +111,7 @@ function ProductProvider({ children }) {
   const [bucketFiltering, setBucketFiltering] = useState(null);
   const [selectedPriceRange, setSelectedPriceRange] = useState(0);
   const [ratingFilter, setRatingFilter] = useState(0);
+  const [selectedBrand, setSelectedBrand] = useState([]);
 
   useEffect(() => {
     dispatch(fetchData());
@@ -163,6 +164,8 @@ function ProductProvider({ children }) {
     bucketFiltering,
     selectedPriceRange,
     ratingFilter,
+    selectedBrand, 
+    setSelectedBrand,
     handleAddToCart,
     handleRemoveFromCart,
     handleClearCart
