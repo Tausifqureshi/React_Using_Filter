@@ -25,8 +25,8 @@ function Input({
           {...props}
         />
         <label htmlFor={id} className="cursor-pointer">
-          {/* {isSidebarOpen && `${value}`} */}
-          {isSidebarOpen ? value : null}
+          {isSidebarOpen && `${value}`}
+          {/* {isSidebarOpen ? value : null} */}
         </label>
       </li>
     </ul>
