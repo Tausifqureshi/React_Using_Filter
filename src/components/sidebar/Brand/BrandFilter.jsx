@@ -16,7 +16,7 @@ function BrandFilter({ isSidebarOpen }) {
       setSelectedBrand((prev) => [...prev, targetValue]);
     }
   };
-
+      
   useEffect(() => {
     const filteredProducts =
       selectedBrand.length === 0
