@@ -153,6 +153,8 @@ function ProductProvider({ children }) {
     setSelectedPriceRange,
     ratingFilter,
    setRatingFilter,
+   selectedBrand,  // ✅ Fix: Add this
+   setSelectedBrand // ✅ Fix: Add this
   }), [
     data,
     cart,
@@ -168,7 +170,8 @@ function ProductProvider({ children }) {
     setSelectedBrand,
     handleAddToCart,
     handleRemoveFromCart,
-    handleClearCart
+    handleClearCart,
+   
   ]);
 
   return (
