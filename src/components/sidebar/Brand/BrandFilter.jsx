@@ -12,7 +12,7 @@ function BrandFilter({ isSidebarOpen }) {
     // console.log(e.target.value);
     const targetValue = e.target.value;
     selectedBrand.includes(targetValue)
-    ?setSelectedBrand((prev)=>prev.filter((item)=>item!==targetValue))
+    ?setSelectedBrand(selectedBrand.filter((item)=>item!==targetValue))
     :setSelectedBrand((prev)=>[...prev,targetValue]);
   };
   useEffect(()=>{
@@ -33,7 +33,7 @@ function BrandFilter({ isSidebarOpen }) {
           value={value}
           isSidebarOpen={isSidebarOpen}
           handleChange={handleChange}
-          // checked={selectedBrand.includes(value)}
+          checked={selectedBrand.includes(value)}
         />
       ))}
     </div>
