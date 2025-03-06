@@ -8,6 +8,7 @@ function BrandFilter({ isSidebarOpen }) {
   console.log(selectedBrand, "selectedBrand");
 
   const brand = [...new Set(data.map((item) => item.brand))];
+
   const handleChange = (e) => {
     // console.log(e.target.value);
     const targetValue = e.target.value;

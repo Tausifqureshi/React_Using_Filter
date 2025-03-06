@@ -81,6 +81,8 @@ import Clear from "./ClearFilter/Clear";
 import PriceSlider from "./sliderRange/PriceSlider";
 import RatingFilter from "./ratingFilter/RatingFilter";
 import BrandFilter from "./Brand/BrandFilter";
+import Dynamic from "./Dynamic";
+
 
 const Sidebar = () => {
   console.log("Sidebar Component Rendered");
@@ -144,6 +146,8 @@ const Sidebar = () => {
         <RatingFilter isSidebarOpen={isSidebarOpen} />
         <Clear  isSidebarOpen={isSidebarOpen}/>
         <BrandFilter isSidebarOpen={isSidebarOpen}/>
+        <Dynamic />
+
       </ul>
     </div>
   );
