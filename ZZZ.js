@@ -74,4 +74,5 @@
    
   //  export default BrandFilter;
     
-  
+  //   const dynamicFilter = [...new Set(data.flatMap((item) => item.reviews.map((review) => review.rating)))];
+  //   const dynamicFilter = [...new Set(data.flatMap((item) => item.reviews.comment))];
