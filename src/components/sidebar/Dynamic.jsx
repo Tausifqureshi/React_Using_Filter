@@ -25,4 +25,5 @@ function Dynamic() {
 
 export default Dynamic;
 
+// Error Create this components 
 // Objects are not valid as a React child (found: object with keys {rating, comment, date, reviewerName, reviewerEmail}). If you meant to render a collection of children, use an array instead.Objects are not valid as a React child (found: object with keys {rating, comment, date, reviewerName, reviewerEmail}). If you meant to render a collection of children, use an array instead.
