@@ -19,7 +19,7 @@ const MainContents = () => {
       <Header />
 
       {/* Main Content Layout */}
-      <div className={`flex mt-5 mx-2 ${isHomePage ? "" : "min-h-fit"}`}>
+      <div className={`flex mt-5 mx-2 ${isHomePage ? "" : "min-h-screen"}`}>
         {/* Sidebar: Only show on / Page */}
         {isHomePage && <Sidebar />}
 

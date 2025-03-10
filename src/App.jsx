@@ -10,6 +10,8 @@ import ProductProvider from "./components/Context API/ProductProvider";
 import Header from "./components/header/Header";
 import ProductList from "./components/header/ProductList";
 import ProductInfo from "./components/prdoductInfo/ProductsInfo";
+import Signup from "./components/ragistration/Signup";
+import Loging from "./components/ragistration/Loging";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -37,6 +39,14 @@ function App() {
         {
           path: "/cart",
           element: <Cart />,
+        },
+        {
+          path: "/signup",
+          element: <Signup />,
+        },
+        {
+          path: "/login",
+          element: <Loging />,
         },
 
         {
