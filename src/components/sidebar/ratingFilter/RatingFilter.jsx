@@ -21,7 +21,7 @@ function RatingFilter() {
       setFilteredProducts(data);
       return;
     }
-
+  
     // ✅ Apply new rating filter
     setRatingFilter(selectedRating);
     const filteredData = data.filter((product) => product.rating >= selectedRating.min);
