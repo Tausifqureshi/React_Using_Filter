@@ -3,7 +3,7 @@ import craeteSlice from "@reduxjs/toolkit";
 
 const formSlice = craeteSlice({
   name: "form",
-  initialState: {
+  initialState: {       
    user: null
   },
   reducers: {
