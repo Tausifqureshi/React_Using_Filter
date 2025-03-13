@@ -9,10 +9,22 @@ const formSlice = createSlice({
   },
   reducers: {
     signup: (state, action) => {
-      // const user = action.payload;
-      // state.user.push(user);
-      // localStorage.setItem("user", JSON.stringify(state.user));
-      return [...state, action.payload];
+      // const updatedUsers = [...state.user, action.payload]; // Naya user array me add karo
+      // localStorage.setItem("user", JSON.stringify(updatedUsers)); // ✅ LocalStorage me save karo
+
+      // return {
+      //   ...state, // Baaki state properties ko same rakho
+      //   user: updatedUsers, // User array ko update karo
+      // };
+
+      const user = action.payload;
+      state.user.push(user);
+      localStorage.setItem("user", JSON.stringify(state.user));
+
+      // return {
+      //   ...state, // Pure object ko copy karo
+      //   user: [...state.user, action.payload], // User array ko update karo
+      // };
     },
   },
 });
