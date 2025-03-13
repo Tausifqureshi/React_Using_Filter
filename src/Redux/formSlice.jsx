@@ -6,12 +6,12 @@ const formSlice = createSlice({
   initialState: {          
    user: null
   },
-  reducers: {
-
+  reducers: { 
+    
     signup: (state, action) => {
       state.user = action.payload;
     },
-                                          
+                                     
     loging: (state, action) => {
       state.user = action.payload;
     },
@@ -23,4 +23,3 @@ const formSlice = createSlice({
 });
 
 export default formSlice.reducer;
-// export default productSlice.reducer;

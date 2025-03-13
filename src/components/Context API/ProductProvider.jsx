@@ -100,7 +100,7 @@ import React, { createContext, useContext, useEffect, useState, useMemo, useCall
 import { useDispatch, useSelector } from "react-redux";
 import { fetchData, addToCart, removeFromCart, clearCart } from "../../Redux/productSlice";
 const ProductContext = createContext();
-
+ 
 function ProductProvider({ children }) {
   const dispatch = useDispatch();
   const { data, cart, loading, error } = useSelector((state) => state.product);
