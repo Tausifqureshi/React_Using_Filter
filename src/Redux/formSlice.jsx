@@ -26,7 +26,40 @@ const formSlice = createSlice({
       //   user: [...state.user, action.payload], // User array ko update karo
       // };
     },
+
+    login: (state, action) => {
+      // return {
+      //   ...state,
+      //   currentUser: action.payload,
+      // };
+
+      const firstUser = (state.currentUser = action.payload);
+      localStorage.setItem("currentUser", JSON.stringify(firstUser));
+
+      //  const firstUser = state.currentUser = action.payload;
+      //   localStorage.setItem("currentUser", JSON.stringify(firstUser));
+
+      //   return {
+      //     ...state,
+      //     currentUser: firstUser,
+      //   }
+    },
+
+    logout: (state) => {
+      localStorage.removeItem("currentUser");
+      return {
+        ...state,
+        currentUser: null,
+      };
+
+      // return {
+      //   ...state,
+      //   currentUser: null,
+      // };
+    },
   },
 });
+
+export const { signup, login, logout } = formSlice.actions;
 
 export default formSlice.reducer;
