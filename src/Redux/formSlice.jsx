@@ -11,7 +11,7 @@ const formSlice = craeteSlice({
     signup: (state, action) => {
       state.user = action.payload;
     },
-
+         
     loging: (state, action) => {
       state.user = action.payload;
     },
