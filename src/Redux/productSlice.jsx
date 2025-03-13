@@ -30,8 +30,17 @@ const productSlice = createSlice({
       console.log("Cart Updated (After Add):", [...state.cart]);
 
       // return {
-      // ...state, // Pura state ko copy karo
-      //   cart: [...state.cart, action.payload], // Purane cart ko copy karke naye product ko add kar
+      //   ...state, //Pura state copy karo (data, cart, loading, error sab kuch)
+      //     cart: [...state.cart, action.payload], // Purane cart ko copy karke naye product ko add kar
+
+      //   };
+
+      // const updatedCart = [...state.cart, action.payload]; // Purane cart me naye product ko add kar rahe hain
+      // localStorage.setItem("cart", JSON.stringify(updatedCart)); // ✅ Local storage ko update kar rahe hain
+
+      // return {
+      //   ...state, // Pura state ko copy kar rahe hain
+      //   cart: updatedCart, // Naya cart update kar rahe hain
       // };
     },
 
@@ -45,13 +54,22 @@ const productSlice = createSlice({
       state.cart = state.cart.filter((item) => item.id !== action.payload);
       localStorage.setItem("cart", JSON.stringify(state.cart)); // ✅ Local storage update karo
       console.log("Cart Updated (After Remove):", state.cart);
+
+      // const updatedCart = state.cart.filter((item) => item.id !== action.payload); // 🗑️ Selected item hatao
+      // localStorage.setItem("cart", JSON.stringify(updatedCart)); // ✅ LocalStorage update karo
+
+      // return {
+      //   ...state, // Pure state ko copy karo
+      //   cart: updatedCart, // Cart update karo
+      // };
     },
 
     // Clear cart
     clearCart: (state) => {
+      // localStorage.removeItem("cart"); // ✅ Pura cart localStorage se hatao
       // return {
-      //   ...state,
-      //   cart: [],
+      //   ...state, // Pure state ko copy karo
+      //   cart: [], // Cart ko empty karo
       // };
 
       state.cart = [];

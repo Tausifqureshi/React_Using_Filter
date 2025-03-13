@@ -3,13 +3,17 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const formSlice = createSlice({
   name: "form",
-  initialState: {          
-  user: JSON.parse(localStorage.getItem("user")) || [],
-  currentUser: JSON.parse(localStorage.getItem("currentUser")) || null,
+  initialState: {
+    user: JSON.parse(localStorage.getItem("user")) || [],
+    currentUser: JSON.parse(localStorage.getItem("currentUser")) || null,
   },
-  reducers: { 
-    
- 
+  reducers: {
+    signup: (state, action) => {
+      // const user = action.payload;
+      // state.user.push(user);
+      // localStorage.setItem("user", JSON.stringify(state.user));
+      return [...state, action.payload];
+    },
   },
 });
 
