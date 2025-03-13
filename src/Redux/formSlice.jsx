@@ -58,7 +58,8 @@ const formSlice = createSlice({
       // };
     },
   },
-});
+});  
+
 
 export const { signup, login, logout } = formSlice.actions;
 
