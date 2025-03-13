@@ -1,7 +1,7 @@
 import React from "react";
-import craeteSlice from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
-const formSlice = craeteSlice({
+const formSlice = createSlice({
   name: "form",
   initialState: {          
    user: null
@@ -23,3 +23,4 @@ const formSlice = craeteSlice({
 });
 
 export default formSlice.reducer;
+// export default productSlice.reducer;
