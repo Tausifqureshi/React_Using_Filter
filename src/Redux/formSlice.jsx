@@ -4,21 +4,12 @@ import { createSlice } from "@reduxjs/toolkit";
 const formSlice = createSlice({
   name: "form",
   initialState: {          
-   user: null
+  user: JSON.parse(localStorage.getItem("user")) || [],
+  currentUser: JSON.parse(localStorage.getItem("currentUser")) || null,
   },
   reducers: { 
     
-    signup: (state, action) => {
-      state.user = action.payload;
-    },
-                                     
-    loging: (state, action) => {
-      state.user = action.payload;
-    },
-
-    logout: (state) => {
-      state.user = null
-    }
+ 
   },
 });
 
