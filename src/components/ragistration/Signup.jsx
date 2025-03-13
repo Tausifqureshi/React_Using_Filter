@@ -5,7 +5,7 @@ function Signup() {
     <>
       <h1> Signup </h1>
       <p> Signup </p>   
-            
+             
     </>
   );        
 }
