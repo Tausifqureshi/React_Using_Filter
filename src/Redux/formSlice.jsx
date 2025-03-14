@@ -33,7 +33,7 @@ const formSlice = createSlice({
       //   currentUser: action.payload,
       // };
 
-      const firstUser = (state.currentUser = action.payload);
+      const firstUser = (state.currentUser = action.payload);       
       localStorage.setItem("currentUser", JSON.stringify(firstUser));
 
       //  const firstUser = state.currentUser = action.payload;
