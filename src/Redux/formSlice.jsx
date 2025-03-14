@@ -43,7 +43,7 @@ const formSlice = createSlice({
       //     ...state,
       //     currentUser: firstUser,
       //   }
-    },
+    },  
 
     logout: (state) => {
       localStorage.removeItem("currentUser");
