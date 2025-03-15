@@ -31,10 +31,18 @@ const formSlice = createSlice({
       // return {
       //   ...state,
       //   currentUser: action.payload,
-      // };
+      // };  // 🔹 Purane state ko copy karke, sirf currentUser update kar raha tha
 
-      const firstUser = (state.currentUser = action.payload);       
+
+      const firstUser = state.currentUser = action.payload;      
+     // 🔹 action.payload me jo user ka data aaya, usko state.currentUser me daal diya
+    // 🔹 Wahi data firstUser variable me bhi store kar diya (Ek hi line me dono kaam ho gaye)
+
       localStorage.setItem("currentUser", JSON.stringify(firstUser));
+    // 🔹 firstUser ko JSON format me convert karke localStorage me store kiya
+    // 🔹 Taaki page refresh hone ke baad bhi user login rahe
+
+
 
       //  const firstUser = state.currentUser = action.payload;
       //   localStorage.setItem("currentUser", JSON.stringify(firstUser));
