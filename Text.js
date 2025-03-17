@@ -102,7 +102,7 @@ const Auth = () => {
       const updatedUsers = [...users, formData];
       dispatch(setUsers(updatedUsers));
       alert("Signup successful! You can now login.");
-      setIsSignup(false);
+      setIsSignup(false);  
     } else {
       // 🔥 Login Logic in Component
       const user = users.find(
