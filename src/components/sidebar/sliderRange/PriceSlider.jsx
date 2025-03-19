@@ -69,7 +69,7 @@ const PriceSlider = React.memo(() => {
   const inputHandlerChange = useCallback((e) => {
     setSelectedPriceRange(Number(e.target.value));
   }, [setSelectedPriceRange]);
-
+                    
   // Memoize the priceChange function
   const priceChange = useCallback(() => {
     const maxPrice = 1000; // Maximum price limit
