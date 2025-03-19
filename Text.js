@@ -73,14 +73,87 @@ function Category({ isSidebarOpen }) {
 
 
 
+// import { useState } from "react";
+// import { useDispatch, useSelector } from "react-redux";
+// import { setUsers, setCurrentUser } from "./authSlice";
+// import { useNavigate } from "react-router-dom";
+
+// const Auth = () => {
+//   const [formData, setFormData] = useState({ email: "", password: "" });
+//   const [isSignup, setIsSignup] = useState(true);
+//   const dispatch = useDispatch();
+//   const navigate = useNavigate();
+//   const users = useSelector((state) => state.auth.users);
+
+//   const handleChange = (e) => {
+//     setFormData({ ...formData, [e.target.name]: e.target.value });
+//   };
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+
+//     if (isSignup) {
+//       // 🔥 Signup Logic in Component
+//       if (users.find((u) => u.email === formData.email)) {
+//         alert("User already exists!");
+//         return;
+//       }
+
+//       const updatedUsers = [...users, formData];
+//       dispatch(setUsers(updatedUsers));
+//       alert("Signup successful! You can now login.");
+//       setIsSignup(false);          
+//     } else {
+//       // 🔥 Login Logic in Component
+//       const user = users.find(
+//         (u) => u.email === formData.email && u.password === formData.password
+//       );
+
+//       if (user) {
+//         dispatch(setCurrentUser(user));
+//         navigate("/dashboard");
+//       } else {
+//         alert("Invalid email or password!");
+//       }
+//     }
+//   };
+
+//   return (
+//     <div>
+//       <h2>{isSignup ? "Signup" : "Login"}</h2>
+//       <form onSubmit={handleSubmit}>
+//         <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
+//         <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
+//         <button type="submit">{isSignup ? "Signup" : "Login"}</button>
+//       </form>
+//       <button onClick={() => setIsSignup(!isSignup)}>
+//         {isSignup ? "Already have an account? Login" : "Don't have an account? Signup"}
+//       </button>
+//     </div>
+//   );
+// };
+
+// export default Auth;
+
+
+
+
+
+
+
+
+
+
+
+
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setUsers, setCurrentUser } from "./authSlice";
+import { setUsers } from "./authSlice";
 import { useNavigate } from "react-router-dom";
+import { isValidEmail, isValidPassword } from "./utils"; // ✅ Import utilities
 
-const Auth = () => {
+const Signup = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
-  const [isSignup, setIsSignup] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const users = useSelector((state) => state.auth.users);
@@ -92,45 +165,50 @@ const Auth = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (isSignup) {
-      // 🔥 Signup Logic in Component
-      if (users.find((u) => u.email === formData.email)) {
-        alert("User already exists!");
-        return;
-      }
-
-      const updatedUsers = [...users, formData];
-      dispatch(setUsers(updatedUsers));
-      alert("Signup successful! You can now login.");
-      setIsSignup(false);          
-    } else {
-      // 🔥 Login Logic in Component
-      const user = users.find(
-        (u) => u.email === formData.email && u.password === formData.password
-      );
-
-      if (user) {
-        dispatch(setCurrentUser(user));
-        navigate("/dashboard");
-      } else {
-        alert("Invalid email or password!");
-      }
+    // ✅ Validate Email & Password
+    if (!isValidEmail(formData.email)) {
+      alert("Invalid email format!");
+      return;
     }
+    if (!isValidPassword(formData.password)) {
+      alert("Password must be at least 6 characters long!");
+      return;
+    }
+
+    // ✅ Check if user already exists
+    if (users.find((user) => user.email === formData.email)) {
+      alert("User already exists!");
+      return;
+    }
+
+    // ✅ Save new user
+    dispatch(setUsers(formData));
+    alert("Signup successful! Please login.");
+    navigate("/login");
   };
 
   return (
     <div>
-      <h2>{isSignup ? "Signup" : "Login"}</h2>
+      <h2>Signup</h2>
       <form onSubmit={handleSubmit}>
-        <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
-        <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
-        <button type="submit">{isSignup ? "Signup" : "Login"}</button>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          onChange={handleChange}
+          required
+        />
+        <button type="submit">Signup</button>
       </form>
-      <button onClick={() => setIsSignup(!isSignup)}>
-        {isSignup ? "Already have an account? Login" : "Don't have an account? Signup"}
-      </button>
     </div>
   );
 };
 
-export default Auth;
+export default Signup;
