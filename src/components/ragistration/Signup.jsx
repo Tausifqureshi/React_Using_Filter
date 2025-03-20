@@ -106,7 +106,7 @@ function Signup() {
         )} */}
         <h1 className='text-center text-gray-800 text-2xl mb-4 font-extrabold'>Create Your Account</h1>
         <form onSubmit={handleSubmit} action=''>
-          <div className='mb-4'>
+          <div className='mb-4'>    
             <input
               type="text"
               value={formData.fullName}
