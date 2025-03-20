@@ -6,7 +6,7 @@ const formSlice = createSlice({
   initialState: {
     user: JSON.parse(localStorage.getItem("user")) || [],
     currentUser: JSON.parse(localStorage.getItem("currentUser")) || null,
-  },      
+  },          
   reducers: {
     signup: (state, action) => {    
       // const updatedUsers = [...state.user, action.payload]; // Naya user array me add karo
