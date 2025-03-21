@@ -146,69 +146,179 @@ function Category({ isSidebarOpen }) {
 
 
 
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setUsers } from "./authSlice";
-import { useNavigate } from "react-router-dom";
-import { isValidEmail, isValidPassword } from "./utils"; // ✅ Import utilities
+// import { useState } from "react";
+// import { useDispatch, useSelector } from "react-redux";
+// import { setUsers } from "./authSlice";
+// import { useNavigate } from "react-router-dom";
+// import { isValidEmail, isValidPassword } from "./utils"; // ✅ Import utilities
 
-const Signup = () => {
-  const [formData, setFormData] = useState({ email: "", password: "" });
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const users = useSelector((state) => state.auth.users);
+// const Signup = () => {
+//   const [formData, setFormData] = useState({ email: "", password: "" });
+//   const dispatch = useDispatch();
+//   const navigate = useNavigate();
+//   const users = useSelector((state) => state.auth.users);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+//   const handleChange = (e) => {
+//     setFormData({ ...formData, [e.target.name]: e.target.value });
+//   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
 
-    // ✅ Validate Email & Password
-    if (!isValidEmail(formData.email)) {
-      alert("Invalid email format!");
-      return;
-    }
-    if (!isValidPassword(formData.password)) {
-      alert("Password must be at least 6 characters long!");
-      return;
-    }
+//     // ✅ Validate Email & Password
+//     if (!isValidEmail(formData.email)) {
+//       alert("Invalid email format!");
+//       return;
+//     }
+//     if (!isValidPassword(formData.password)) {
+//       alert("Password must be at least 6 characters long!");
+//       return;
+//     }
 
-    // ✅ Check if user already exists
-    if (users.find((user) => user.email === formData.email)) {
-      alert("User already exists!");
-      return;
-    }
+//     // ✅ Check if user already exists
+//     if (users.find((user) => user.email === formData.email)) {
+//       alert("User already exists!");
+//       return;
+//     }
 
-    // ✅ Save new user
-    dispatch(setUsers(formData));
-    alert("Signup successful! Please login.");
-    navigate("/login");
-  };
+//     // ✅ Save new user
+//     dispatch(setUsers(formData));
+//     alert("Signup successful! Please login.");
+//     navigate("/login");
+//   };
+
+//   return (
+//     <div>
+//       <h2>Signup</h2>
+//       <form onSubmit={handleSubmit}>
+//         <input
+//           type="email"
+//           name="email"
+//           placeholder="Email"
+//           onChange={handleChange}
+//           required
+//         />
+//         <input
+//           type="password"
+//           name="password"
+//           placeholder="Password"
+//           onChange={handleChange}
+//           required
+//         />
+//         <button type="submit">Signup</button>
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default Signup;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   return (
-    <div>
-      <h2>Signup</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">Signup</button>
-      </form>
+    <div className='flex justify-center items-center h-5/6 bg-gradient-to-b from-gray-100 to-gray-300'>
+      <div className='bg-white shadow-lg rounded-lg max-w-md w-full p-6 relative'>
+        {/* {loading && (
+          <div className='fixed inset-0 flex items-center justify-center bg-gray-50 opacity-75 z-50'>
+            <Loader />
+          </div>
+        )} */}
+        <h1 className='text-center text-gray-800 text-2xl mb-4 font-extrabold'>Create Your Account</h1>
+        <form onSubmit={handleSubmit} action=''>
+          <div className='mb-4'>
+            <input
+              type="text"
+              value={formData.fullName}
+              name='fullName'
+              className={`border px-4 py-3 w-full rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 ${errors.fullName ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-black'}`}
+              placeholder='Full Name'
+              onChange={handleChange}
+            />
+            {errors.fullName && <p className='text-red-500 text-sm mt-2'>{errors.fullName}</p>}
+          </div>
+          
+          <div className='mb-4'>
+            <input
+              type="email"
+              value={formData.email}
+              name='email'
+              className={`border px-4 py-3 w-full rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 ${errors.email ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-black'}`}
+              placeholder='Email'
+              onChange={handleChange}
+            />
+            {errors.email && <p className='text-red-500 text-sm mt-2'>{errors.email}</p>}
+          </div>
+          <div className='mb-4 relative'>
+            <input
+              type={showPassword ? "text" : "password"}
+              value={formData.password}
+              name='password'
+              className={`border px-4 py-3 w-full pr-12 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 ${errors.password ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-black'}`}
+              placeholder='Password'
+              onChange={handleChange}
+            />
+            <button
+              type="button"
+              onClick={handlePasswordToggle}
+              className='absolute top-3 right-4 flex items-center text-gray-500'
+            >
+              {showPassword ? '🙈' : '👁️'}
+            </button>
+            {errors.password && <p className='text-red-500 text-sm mt-2'>{errors.password}</p>}
+          </div>
+          <div className='mb-4 flex items-center'>
+            <input
+              type="checkbox"
+              checked={termsAccepted}
+              onChange={handleTermsChange}
+              className={`mr-2 ${errors.terms ? 'border-red-500' : ''}`}
+            />
+            <label className={`text-gray-600 ${errors.terms ? 'text-red-500' : ''}`}>
+              I agree to the <a href="#" className='text-blue-600 font-semibold hover:underline'>terms and conditions</a>
+            </label>
+          </div>
+          {errors.terms && <p className='text-red-500 text-sm mb-4'>{errors.terms}</p>}
+          <div className='flex justify-center mb-4'>
+            <button
+              type='submit'
+              className='bg-blue-600 w-full text-white font-bold py-3 rounded-lg hover:bg-blue-500 transition'
+              disabled={loading}
+            >
+              Sign Up
+            </button>
+          </div>
+        </form>
+        <div className='text-center'>
+          <h2 className='text-gray-600'>
+            Already have an account? 
+            <Link className='text-blue-600 font-semibold hover:underline' to={'/login'}> Log In</Link>
+          </h2>
+        </div>
+      </div>
     </div>
   );
-};
-
-export default Signup;
+    

@@ -10,7 +10,8 @@ const MainContents = () => {
   console.log("MainContents Component Rendered");
 
   const location = useLocation(); // Current URL path
-  const isHomePage = location.pathname === "/"; // Check if current path is "/"
+  // const isHomePage = location.pathname === "/" ||location.pathname === "/about"; // Check if current path is "/"
+  const isHomePage = location.pathname === "/" // Check if current path is "/"
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -19,13 +20,14 @@ const MainContents = () => {
       <Header />
 
       {/* Main Content Layout */}
-      <div className={`flex mt-5 mx-2 ${isHomePage ? "" : "min-h-screen"}`}>
+      <div className={`flex mt-5 mx-2 ${isHomePage ? "" : "h-auto"}`}>
         {/* Sidebar: Only show on / Page */}
         {isHomePage && <Sidebar />}
+        {/* {(location.pathname === "/" ||location.pathname === "/about") && <Sidebar />} */}
 
         {/* Main Content */}
         <div
-          className={`flex-1  text-gray-800 ${
+          className={`flex-1  text-gray-800  ${
             isHomePage ? "bg-gray-200" : "bg-white"
           }`}
         >
