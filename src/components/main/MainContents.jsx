@@ -51,7 +51,7 @@ const MainContents = () => {
       
     </div>
   );
-};
-
+};            
+                  
 export default MainContents;
  
