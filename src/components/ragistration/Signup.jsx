@@ -289,7 +289,7 @@ function Signup() {
               onChange={handleChange}
               className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
             />
-            {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+            {errors.email && <p className="text-red-500 text-sm ">{errors.email}</p>}
           </div>
           <div>
             <input
