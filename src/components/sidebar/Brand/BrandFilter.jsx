@@ -15,7 +15,7 @@ function BrandFilter({ isSidebarOpen }) {
     selectedBrand.includes(targetValue)
     ?setSelectedBrand(selectedBrand.filter((item)=>item!==targetValue))
     :setSelectedBrand((prev)=>[...prev,targetValue]);
-  };
+  };  
   useEffect(()=>{
     const filteredProducts = selectedBrand.length === 0
     ? data

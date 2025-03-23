@@ -56,7 +56,7 @@
 //     //     ? [...prevSelectedCategories, valueSelected] // Agar category select nahi hai, toh add karo
 //     //     : prevSelectedCategories.filter((c) => c !== valueSelected) // Agar already selected hai, toh remove karo
 //     // );
-//   }
+//   } 
 
 //   useEffect(() => {
 //     // 1. agar selectedCategories empty nahi hai toh uska matlab user ne kuch select kiya hai.
