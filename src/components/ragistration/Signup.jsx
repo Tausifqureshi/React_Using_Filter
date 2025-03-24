@@ -283,7 +283,7 @@ function Signup() {
           <div>
             <input
               type="email"
-              name="email"
+              name="email"          
               placeholder="Email"
               value={formData.email}   
               onChange={handleChange}
