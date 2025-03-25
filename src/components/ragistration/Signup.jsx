@@ -25,30 +25,29 @@ function Signup() {
   function handleSubmit(event) {
     event.preventDefault();
     let newErrors = {};
-    // let newErrors = {};
-    //    if (formData.fullName.trim() === "" || formData.email.trim() === "" || formData.password.trim() === "" ) {
-    //     newErrors.fullName = "Please fill in all the fields.";
-    //     newErrors.email = "Please fill in all the fields.";
-    //     newErrors.password = "Please fill in all the fields.";
-    //     setErrors(newErrors);
-    //    } 
+       if (formData.fullName.trim() === "" || formData.email.trim() === "" || formData.password.trim() === "" ) {
+        newErrors.fullName = "Please fill in all the fields.";
+        newErrors.email = "Please fill in all the fields.";
+        newErrors.password = "Please fill in all the fields.";
+        setErrors(newErrors);
+       } 
 
-    if (!formData.fullName.trim()) {
-      newErrors.fullName = "Full name is required.";
-    }
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required.";
-    } else {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(formData.email)) {
-        newErrors.email = "Invalid email format.";
-      }
-    }
-    if (!formData.password.trim()) {
-      newErrors.password = "Password is required.";
-    } else if (formData.password.length < 6) {
-      newErrors.password = "Password must be at least 6 characters long.";
-    }
+    // if (!formData.fullName.trim()) {
+    //   newErrors.fullName = "Full name is required.";
+    // }
+    // if (!formData.email.trim()) {
+    //   newErrors.email = "Email is required.";
+    // } else {
+    //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    //   if (!emailRegex.test(formData.email)) {
+    //     newErrors.email = "Invalid email format.";
+    //   }
+    // }
+    // if (!formData.password.trim()) {
+    //   newErrors.password = "Password is required.";
+    // } else if (formData.password.length < 6) {
+    //   newErrors.password = "Password must be at least 6 characters long.";
+    // }
 
     setErrors(newErrors);
     
