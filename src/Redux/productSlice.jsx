@@ -13,7 +13,7 @@ const fetchData = createAsyncThunk("product/fetchProducts", async () => {
 
 const productSlice = createSlice({
   name: "product",
-
+  
   initialState: {
     data: [],
     cart: JSON.parse(localStorage.getItem("cart")) || [], //✅ Refresh hone ke baad bhi cart save rahega

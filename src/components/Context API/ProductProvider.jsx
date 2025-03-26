@@ -106,7 +106,7 @@ function ProductProvider({ children }) {
   const { data, cart, loading, error } = useSelector((state) => state.product);
 
   const useProdutc = useSelector((state) => state.product);  
-  // console.log("PRODUCT DATA FROM REDUX",useProdutc);
+  console.log("PRODUCT DATA FROM REDUX",useProdutc);
 
   const [filteredProducts, setFilteredProducts] = useState(data || []);
   const [searchQuery, setSearchQuery] = useState("");
