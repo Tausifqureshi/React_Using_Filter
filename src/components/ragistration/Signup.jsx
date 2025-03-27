@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { isValidEmail, isValidPassword } from "./utils"; // ✅ Import utilities
+import { validateEmail, validatePassword } from "./utils"; // ✅ Import utilities
 import { signup } from "../../Redux/formSlice";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -8,6 +8,9 @@ import { Link } from "react-router-dom";
 
 
 function Signup() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.auth);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -38,30 +41,30 @@ function Signup() {
         setErrors(newErrors);
        } 
 
-    // if (!formData.fullName.trim()) {
-    //   newErrors.fullName = "Full name is required.";
-    // }
-    // if (!formData.email.trim()) {
-    //   newErrors.email = "Email is required.";
-    // } else {
-    //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    //   if (!emailRegex.test(formData.email)) {
-    //     newErrors.email = "Invalid email format.";
-    //   }
-    // }
-    // if (!formData.password.trim()) {
-    //   newErrors.password = "Password is required.";
-    // } else if (formData.password.length < 6) {
-    //   newErrors.password = "Password must be at least 6 characters long.";
-    // }
+    if (!validateEmail(formData.email)) {
+      newErrors.email = "Invalid email format.";
+    }
 
-    setErrors(newErrors);
-    
-    if (Object.keys(newErrors).length === 0) { //koi error nai hoi to signup hoga.
+    if (!validatePassword(formData.password)) {
+      newErrors.password = "Password must be at least 8 characters long.";
+    }
+
+   
+    if(user.find((user) => user.email === formData.email)){
+      newErrors.email = "User already exists!";
+
+    }
+
+    if (Object.keys(newErrors).length > 0) { // koi error hau tu function yahi ruke dega.
+      setErrors(newErrors);
+      return;
+    }
+    else{
       setLoading(true);
       setTimeout(() => {
         setLoading(false);
-        alert("Signup successful!");
+        dispatch(signup(formData));
+        navigate("/login");
         setFormData({
           fullName: "",
           email: "",
@@ -69,6 +72,23 @@ function Signup() {
         })
       }, 1000);
     }
+
+
+    setErrors(newErrors);
+    
+    // if (Object.keys(newErrors).length === 0) { //koi error nai hoi to signup hoga.
+    //   setLoading(true);
+    //   setTimeout(() => {
+    //     setLoading(false);
+    //     dispatch(signup(formData));
+    //     navigate("/login");
+    //     setFormData({
+    //       fullName: "",
+    //       email: "",
+    //       password: "",
+    //     })
+    //   }, 1000);
+    // }
   }
 
   return (
