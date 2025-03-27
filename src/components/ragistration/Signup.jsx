@@ -10,7 +10,10 @@ import { Link } from "react-router-dom";
 function Signup() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const user = useSelector((state) => state.auth);
+  // const user = useSelector((state) => state.auth.user);
+  const user = useSelector((state) => state.auth.user);  // ✅ Yeh sirf user array ko fetch karega
+
+  console.log(user,"user");
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
