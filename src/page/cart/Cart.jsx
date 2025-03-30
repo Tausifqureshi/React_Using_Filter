@@ -1,11 +1,3 @@
-// import React from "react";
-
-// function Cart() {
-//   return <div>Card</div>;
-// }
-
-// export default Cart;
-
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { addToCart, removeFromCart, clearCart } from "../../Redux/productSlice";
@@ -23,8 +15,6 @@ const Cart = () => {
   return (
     <div>
       <h2>Cart Length: {cart.length}</h2>
-      {/*  */}
-
       <button onClick={() => dispatch(clearCart())}>Clear Cart</button>
     </div>
   );

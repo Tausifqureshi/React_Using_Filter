@@ -20,7 +20,7 @@ const productSlice = createSlice({
     loading: false,
     error: null,
   },
-
+                      
   reducers: {
     // Add to cart
     addToCart: (state, action) => {

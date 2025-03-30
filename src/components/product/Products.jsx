@@ -13,13 +13,13 @@
 //   return (
 //     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 p-2 ">
 //       {/* {filteredProducts.length > 0 ? ( // Agar filteredProducts ka length 0 se zyada hai (> 0), toh iska matlab hai kuch products available hain, aur unko show karna hai.
-//           filteredProducts.map((product) => ( 
+//           filteredProducts.map((product) => (
 //             <Product key={product.id} {...product} /> // filteredProducts me jo bhi products hain unko show karna hai.
 //           ))
 //         ) : (
 //           <p>No products found</p> // Agar filteredProducts ka length 0 hai, toh koi product nahi mila, isliye "No products found" show karna hai.
 //         )} */}
-   
+
 //       {/* is tara se bhi likh sakte ho */}
 //       {filteredProducts.length > 0 ? (
 //         filteredProducts.map((item) => {
@@ -41,11 +41,6 @@
 
 // export default Products;
 
-
-
-
-
-
 // Process completed successfully.
 import React, { useState } from "react";
 import Product from "./Product";
@@ -53,7 +48,8 @@ import { useProductContext } from "../Context API/ProductProvider";
 
 const Products = React.memo(() => {
   console.log("Products Component Rendered!");
-  const { loading, error, filteredProducts, handleAddToCart, cart } = useProductContext();
+  const { loading, error, filteredProducts, handleAddToCart, cart } =
+    useProductContext();
   const [visibleProducts, setVisibleProducts] = useState(8); // Start with 8 products
 
   const loadMoreProducts = () => {
@@ -66,14 +62,23 @@ const Products = React.memo(() => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 p-2">
       {filteredProducts.length > 0 ? (
-        filteredProducts.slice(0, visibleProducts).map((item) => (
-          <Product key={item.id} item={item} handleAddToCart={handleAddToCart} cart={cart} />
-        ))
+        filteredProducts
+          .slice(0, visibleProducts)
+          .map((item) => (
+            <Product
+              key={item.id}
+              item={item}
+              handleAddToCart={handleAddToCart}
+              cart={cart}
+            />
+          ))
       ) : (
         <p>No products found</p>
       )}
 
       {visibleProducts < filteredProducts.length && (
+        // Agar visibleProducts, filteredProducts.length se chhota hai
+        // To "Load More" button dikhayega, warna nahi dikhayega
         <div className="flex justify-center mt-6">
           <button
             className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out"
