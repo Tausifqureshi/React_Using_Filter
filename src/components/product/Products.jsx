@@ -51,9 +51,19 @@ const Products = React.memo(() => {
   const { loading, error, filteredProducts, handleAddToCart, cart } =
     useProductContext();
   const [visibleProducts, setVisibleProducts] = useState(8); // Start with 8 products
+  const [isLoading, setIsLoading] = useState(false); // Loading state
 
+  // const loadMoreProducts = () => {
+  //   setVisibleProducts((prev) => prev + 4); // Load 4 more products on click
+  // };
+ 
   const loadMoreProducts = () => {
-    setVisibleProducts((prev) => prev + 4); // Load 4 more products on click
+    setIsLoading(true); // 🔄 Loading start
+
+    setTimeout(() => {
+      setVisibleProducts((prev) => prev + 4); // 4 aur products load karega
+      setIsLoading(false); // ✅ Loading complete
+    }, 1500); // 1.5 sec ka delay (API call jaisa effect)
   };
 
   if (loading) return <div>Loading...</div>;
@@ -76,18 +86,26 @@ const Products = React.memo(() => {
         <p>No products found</p>
       )}
 
+    
+
       {visibleProducts < filteredProducts.length && (
         // Agar visibleProducts, filteredProducts.length se chhota hai
         // To "Load More" button dikhayega, warna nahi dikhayega
         <div className="flex justify-center mt-6">
-          <button
-            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out"
-            onClick={loadMoreProducts}
-          >
-            Load more
-          </button>
+          {isLoading ? (
+            <p className="text-blue-600 font-semibold">Loading...</p> // 🔄 Loading Text
+          ) : (
+            <button
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out"
+              onClick={loadMoreProducts}
+            >
+              Load more
+            </button>
+          )}
         </div>
       )}
+
+
     </div>
   );
 });
