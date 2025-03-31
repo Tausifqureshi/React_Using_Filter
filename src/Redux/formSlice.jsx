@@ -16,9 +16,9 @@ const formSlice = createSlice({
       //   ...state, // Baaki state properties ko same rakho
       //   user: updatedUsers, // User array ko update karo
       // };
-
-      const user = action.payload;
-      state.user.push(user);
+  
+      const users = action.payload;
+      state.user.push(users);
       localStorage.setItem("user", JSON.stringify(state.user));
 
       // return {

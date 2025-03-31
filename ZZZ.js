@@ -63,13 +63,33 @@
 
 
 
+      
+      // const updatedCart = state.cart.map((item) => {
+      //   if (item.id === action.payload) {
+      //     return { ...item, quantity: item.quantity + 1 };
+      //   }
+      //   return item;
+      // });
+
+      // localStorage.setItem("cart", JSON.stringify(updatedCart)); // ✅ LocalStorage update karo
+
+      // return {
+      //   ...state, // Pure state ko copy karo
+      //   cart: updatedCart, // Cart update karo
+      // };
 
 
 
+      decrementQuantity: (state, action) => {
+      const item = state.cart.find((item) => item.id === action.payload);
+      if (item && item.quantity > 1) {
+        item.quantity -= 1; // ✅ Directly modify kar sakte ho Redux Toolkit me (Immer use karta hai)
+        localStorage.setItem("cart", JSON.stringify(state.cart)); // ✅ Sirf cart save ho
+      
+      }
 
-
-
-
+     
+    },
 
 
 

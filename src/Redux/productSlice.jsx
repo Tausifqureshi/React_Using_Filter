@@ -13,14 +13,14 @@ const fetchData = createAsyncThunk("product/fetchProducts", async () => {
 
 const productSlice = createSlice({
   name: "product",
-  
+
   initialState: {
     data: [],
     cart: JSON.parse(localStorage.getItem("cart")) || [], //✅ Refresh hone ke baad bhi cart save rahega
     loading: false,
     error: null,
   },
-                      
+
   reducers: {
     // Add to cart
     addToCart: (state, action) => {
@@ -56,6 +56,44 @@ const productSlice = createSlice({
       console.log("Cart Updated (After Remove):", state.cart);
 
       // const updatedCart = state.cart.filter((item) => item.id !== action.payload); // 🗑️ Selected item hatao
+      // localStorage.setItem("cart", JSON.stringify(updatedCart)); // ✅ LocalStorage update karo
+
+      // return {
+      //   ...state, // Pure state ko copy karo
+      //   cart: updatedCart, // Cart update karo
+      // };
+    },
+
+    // incrementQuantity
+    incrementQuantity: (state, action) => {
+      // mutable code but map use
+      //   state.cart = state.cart.map((item) =>
+      // // 🔹 Pehla `state.cart` (Right Side) → OLD cart le raha hai aur `map()` function chala raha hai
+      // // 🔹 Doosra `state.cart` (Left Side) → NEW updated cart ko wapas state me save kar raha hai
+      //     // ✅ Agar item ka ID match karta hai, toh quantity +1 karo
+      //     item.id === action.payload
+      //       ? { ...item, quantity: item.quantity + 1 } // 🆕 Naya object banaya jisme quantity update kar diya
+      //       : item // ❌ Jo match nahi karta, usko same rakh do
+      //   );
+
+      //   localStorage.setItem("cart", JSON.stringify(state.cart)); //Yeh NEW updated cart hai, jo ab localStorage me save hoga
+      //   console.log("Cart Updated (After Increment):", state.cart); // ✅ Debug ke liye
+
+      // mutable code but find use
+      const item = state.cart.find((item) => item.id === action.payload);
+      if (item) {
+        item.quantity += 1; // ✅ Directly modify kar sakte ho Redux Toolkit me (Immer use karta hai)
+        localStorage.setItem("cart", JSON.stringify(state.cart)); // ✅ Sirf cart save ho
+      }
+      console.log("Cart Updated (After Increment):", state.cart);
+
+      // imutable code
+      // const updatedCart = state.cart.map((item) => {
+      //   if (item.id === action.payload) {
+      //     return { ...item, quantity: item.quantity + 1 };
+      //   }
+      //   return item;
+      // });
       // localStorage.setItem("cart", JSON.stringify(updatedCart)); // ✅ LocalStorage update karo
 
       // return {
@@ -101,8 +139,13 @@ const productSlice = createSlice({
   },
 });
 
-export const { fetchProducts, addToCart, removeFromCart, clearCart } =
-  productSlice.actions;
+export const {
+  fetchProducts,
+  addToCart,
+  removeFromCart,
+  clearCart,
+  incrementQuantity,
+} = productSlice.actions;
 export { fetchData }; // export fetchData thunk function aysnc
 console.log("productSlice", productSlice.actions);
 export default productSlice.reducer;
