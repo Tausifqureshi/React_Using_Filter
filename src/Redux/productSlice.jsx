@@ -102,6 +102,40 @@ const productSlice = createSlice({
       // };
     },
 
+    // decrementQuantity
+    decrementQuantity: (state, action) => {
+      // mutable code map use
+      //   state.cart = state.cart.map((item) =>
+      //     item.id === action.payload && item.quantity > 1
+      //       ? { ...item, quantity: item.quantity - 1 }
+      //       : item
+      //   );
+      //   localStorage.setItem("cart", JSON.stringify(state.cart)); // ✅ LocalStorage update karo
+      //   console.log("Cart Updated (After Decrement):", state.cart);
+
+      // mutable code but find use
+      const item = state.cart.find((item) => item.id === action.payload);
+      if (item && item.quantity > 1) {
+        item.quantity -= 1; // ✅ Directly modify kar sakte ho Redux Toolkit me (Immer use karta hai)
+        localStorage.setItem("cart", JSON.stringify(state.cart)); // ✅ Sirf cart save ho
+      }
+      console.log("Cart Updated (After Decrement):", state.cart);
+
+      // immutable code
+      // const updatedCart = state.cart.map((item) => {
+      //   if (item.id === action.payload && item.quantity > 1) {
+      //     return { ...item, quantity: item.quantity - 1 };
+      //   }
+      //   return item;
+      // });
+      // localStorage.setItem("cart", JSON.stringify(updatedCart)); // ✅ LocalStorage update karo
+
+      // return {
+      //   ...state, // Pure state ko copy karo
+      //   cart: updatedCart, // Cart update karo
+      // };
+    },
+
     // Clear cart
     clearCart: (state) => {
       // localStorage.removeItem("cart"); // ✅ Pura cart localStorage se hatao
@@ -145,6 +179,7 @@ export const {
   removeFromCart,
   clearCart,
   incrementQuantity,
+  decrementQuantity,
 } = productSlice.actions;
 export { fetchData }; // export fetchData thunk function aysnc
 console.log("productSlice", productSlice.actions);

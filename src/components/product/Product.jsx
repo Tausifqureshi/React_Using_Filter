@@ -46,6 +46,7 @@
 //         quantity: 1,
 //       };
 //       handleAddToCart(productToAdd);
+      
 //     }
 //   };
 
@@ -117,7 +118,7 @@ const Product = React.memo(({
   
   const navigate = useNavigate();
   const addToCartHandler = () => {
-    const existingProduct = cart.find((item) => item.id === id);
+    const existingProduct = cart.find((cartItem) => cartItem.id === item.id);
     if (existingProduct) {
       toast.info("Product already added", {
         autoClose: 1500,
@@ -140,19 +141,39 @@ const Product = React.memo(({
       });
     } else {
       const productToAdd = {
-        id,
-        images,
-        title,
-        price,
-        availabilityStatus,
-        meta,
-        stock,
-        shippingInformation,
-        returnPolicy,
-        brand,
+        // id,
+        // images,
+        // title,
+        // price,
+        // availabilityStatus,
+        // meta,
+        // stock,
+        // shippingInformation,
+        // returnPolicy,
+        // brand,
+        ...item,
         quantity: 1,
       };
       handleAddToCart(productToAdd);
+      toast.success("Product added to cart", {
+        autoClose: 1500,
+        position: "top-right",
+        hideProgressBar: false,
+        pauseOnHover: true,
+        theme: "light",
+        style: {
+          background: "#333",
+          color: "#fff",
+          borderRadius: "5px",
+          fontSize: "14px",
+          fontWeight: "bold",
+          textAlign: "center",
+          padding: "10px",
+          marginTop: "10px",
+          marginRight: "10px",
+          boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
+        },
+      });
     }
   };
   
