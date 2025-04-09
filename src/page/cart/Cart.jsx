@@ -42,7 +42,7 @@
 // };
 
 // export default Cart;
-// // SyncCartWithLocalStorage
+
 
 
 
