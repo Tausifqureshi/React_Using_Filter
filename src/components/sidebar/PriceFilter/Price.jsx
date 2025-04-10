@@ -24,7 +24,7 @@
 //   const handleSelection = (e) => {
 //     // Radio button se select hua label value nikal rahe hain
 //     const selectedLabel = e.target.value;
-
+  
 //     // priceRanges mein se uss value ko find kar rahe hai jo user na selectedLabel me diya hai. agar value match hoti hai  setBucketFiltering ke ander setBucketFiltering(selectedRange) value set kar dege.
 //     const selectedRange = priceRanges.find(
 //       (range) => range.label === selectedLabel
