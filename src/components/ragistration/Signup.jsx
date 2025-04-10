@@ -75,7 +75,7 @@ function Signup() {
       }, 1000);
     }
 
-
+                            
     setErrors(newErrors);
     
     // if (Object.keys(newErrors).length === 0) { //koi error nai hoi to signup hoga.
