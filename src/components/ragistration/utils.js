@@ -6,3 +6,5 @@ export const validatePassword = (password) => {
   // return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(password);
   return password.length >= 8; // Password minimum 8 characters ka hona chahiye
 };
+     
+
