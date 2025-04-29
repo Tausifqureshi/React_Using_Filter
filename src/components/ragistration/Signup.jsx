@@ -57,7 +57,7 @@ function Signup() {
 
     }
 
-    if (Object.keys(newErrors).length > 0) { // koi error hau tu function yahi ruke dega.
+    if (Object.keys(newErrors).length > 0) { // koi error hai tu function yahi ruke dega form submit nhi hoga.
       setErrors(newErrors);
       return;
     }
@@ -78,7 +78,7 @@ function Signup() {
                             
     setErrors(newErrors);
     
-    // if (Object.keys(newErrors).length === 0) { //koi error nai hoi to signup hoga.
+    // if (Object.keys(newErrors).length === 0) { // agar koi error nhi hoi to signup hoga.
     //   setLoading(true);
     //   setTimeout(() => {
     //     setLoading(false);
