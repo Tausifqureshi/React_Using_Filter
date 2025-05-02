@@ -85,7 +85,7 @@ const Products = React.memo(() => {
       ) : (
         <p>No products found</p>
       )}
-
+      {/* <h1>Product List</h1> Added heading for the product list */}
     
 
       {visibleProducts < filteredProducts.length && (
