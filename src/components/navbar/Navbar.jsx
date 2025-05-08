@@ -42,7 +42,7 @@ function Navbar() {
     { name: "Cart", URL: "/cart" },
   ];
 
-  return (
+  return ( 
     <div
       className={`
         p-4 sticky top-0 z-50 transition-all duration-300
