@@ -5,11 +5,13 @@ function ProductList() {
   console.log("ProductList Component Rendered");   
 
   const { category } = useParams(); // URL se category get karega
+  console.log("Category from URL:", category); // Check karega ki category sahi aa rahi hai
   const [products, setProducts] = useState([]);
-  const navigate = useNavigate();
+  const navigate = useNavigate();    
 
   useEffect(() => {
     fetch(`https://dummyjson.com/products/category/${category}`)
+
       .then((response) => response.json())
       .then((data) => setProducts(data.products))
       .catch((error) => console.error("Error fetching products:", error));

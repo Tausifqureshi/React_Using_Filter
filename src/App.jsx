@@ -53,7 +53,7 @@ function App() {
           path: "/",
           element: <Header />,
         },
-        {
+        {  
           path: "/productsList/:category",
           element: <ProductList />,
         },

@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 
 function ProductsInfo() {
   console.log("ProductsInfo Component Rendered");
- 
+  
   const { data, loading } = useProductContext();
   const { id } = useParams();
 

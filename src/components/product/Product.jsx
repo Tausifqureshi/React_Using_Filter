@@ -187,7 +187,7 @@ const Product = React.memo(({
       <div
         className="w-full bg-gray-100 cursor-pointer"
         style={{ aspectRatio: "4/3" }}
-        onClick={() => navigate(`/productsInfo/${id}`)}
+        onClick={() => navigate(`/productsInfo/${item.id}`)}
       >
         <img
           src={ item.images[0]}
