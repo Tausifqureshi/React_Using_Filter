@@ -17,10 +17,12 @@ const formSlice = createSlice({
       //   user: updatedUsers, // User array ko update karo
       // };
   
+      // mutable code
       const users = action.payload;
       state.user.push(users);
       localStorage.setItem("user", JSON.stringify(state.user));
 
+      // imutable code
       // return {
       //   ...state, // Pure object ko copy karo
       //   user: [...state.user, action.payload], // User array ko update karo
@@ -28,12 +30,14 @@ const formSlice = createSlice({
     },
 
     login: (state, action) => {
+      // imutable code
       // return {
       //   ...state,
       //   currentUser: action.payload,
       // };  // 🔹 Purane state ko copy karke, sirf currentUser update kar raha tha
 
 
+      // mutable code
       const firstUser = state.currentUser = action.payload;      
      // 🔹 action.payload me jo user ka data aaya, usko state.currentUser me daal diya
     // 🔹 Wahi data firstUser variable me bhi store kar diya (Ek hi line me dono kaam ho gaye)
@@ -43,7 +47,7 @@ const formSlice = createSlice({
     // 🔹 Taaki page refresh hone ke baad bhi user login rahe
 
 
-
+// imutable code
       //  const firstUser = state.currentUser = action.payload;
       //   localStorage.setItem("currentUser", JSON.stringify(firstUser));
 
@@ -54,11 +58,17 @@ const formSlice = createSlice({
     },  
 
     logout: (state) => {
+      // imutable code
       localStorage.removeItem("currentUser");
       return {
         ...state,
         currentUser: null,
       };
+
+      // mutable code
+      // state.currentUser = null; // currentUser ko null kar diya
+      // localStorage.removeItem("currentUser"); // LocalStorage se currentUser ko hata diya
+      // console.log("User logged out");
 
       // return {
       //   ...state,

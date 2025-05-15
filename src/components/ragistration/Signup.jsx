@@ -76,7 +76,7 @@ function Signup() {
     }
 
                             
-    setErrors(newErrors);
+    // setErrors(newErrors);
     
     // if (Object.keys(newErrors).length === 0) { // agar koi error nhi hoi to signup hoga.
     //   setLoading(true);

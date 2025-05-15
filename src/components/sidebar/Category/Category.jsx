@@ -162,11 +162,19 @@ const Category = React.memo(({ isSidebarOpen }) => {
   // useCallback for stable function reference
   const handleCheckbox = useCallback((e) => {
     const value = e.target.value;
+    // if (selectedCategories.includes(value)) {
+    //   setSelectedCategories((prev) => prev.filter((c) => c !== value));
+    // } else {
+    //   setSelectedCategories((prev) => [...prev, value]);
+    // }
     if (selectedCategories.includes(value)) {
-      setSelectedCategories((prev) => prev.filter((c) => c !== value));
+      setSelectedCategories(selectedCategories.filter((c) => c !== value));
     } else {
-      setSelectedCategories((prev) => [...prev, value]);
+      setSelectedCategories(selectedCategories => [...selectedCategories, value]);
     }
+
+
+    
   }, [selectedCategories, setSelectedCategories]);
 
   // useCallback for stable function reference

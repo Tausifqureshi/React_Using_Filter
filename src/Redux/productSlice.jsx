@@ -21,20 +21,23 @@ const productSlice = createSlice({
     error: null,
   },
 
-  reducers: {
-    // Add to cart
+  reducers: { 
+    // Add to cart. mutate code
     addToCart: (state, action) => {
+      // mutable code
       state.cart.push(action.payload);
       console.log("cart", action.payload);
       localStorage.setItem("cart", JSON.stringify(state.cart)); //✅ Cart ko local storage mein save kar re hain.
       console.log("Cart Updated (After Add):", [...state.cart]);
 
+      // immutable code
       // return {
       //   ...state, //Pura state copy karo (data, cart, loading, error sab kuch)
       //     cart: [...state.cart, action.payload], // Purane cart ko copy karke naye product ko add kar
 
       //   };
 
+      // immutable code
       // const updatedCart = [...state.cart, action.payload]; // Purane cart me naye product ko add kar rahe hain
       // localStorage.setItem("cart", JSON.stringify(updatedCart)); // ✅ Local storage ko update kar rahe hain
 
@@ -46,15 +49,19 @@ const productSlice = createSlice({
 
     // Remove from cart
     removeFromCart: (state, action) => {
+      // mutable code
       // return {
       //   ...state,
       //   cart: state.cart.filter((item) => item.id !== action.payload),
       // };
 
+      // mutable code
       state.cart = state.cart.filter((item) => item.id !== action.payload);
       localStorage.setItem("cart", JSON.stringify(state.cart)); // ✅ Local storage update karo
       console.log("Cart Updated (After Remove):", state.cart);
 
+      
+      // immutable code
       // const updatedCart = state.cart.filter((item) => item.id !== action.payload); // 🗑️ Selected item hatao
       // localStorage.setItem("cart", JSON.stringify(updatedCart)); // ✅ LocalStorage update karo
 
@@ -138,15 +145,19 @@ const productSlice = createSlice({
 
     // Clear cart
     clearCart: (state) => {
-      // localStorage.removeItem("cart"); // ✅ Pura cart localStorage se hatao
-      // return {
-      //   ...state, // Pure state ko copy karo
-      //   cart: [], // Cart ko empty karo
-      // };
+  // ✅ Immutable code
+  // state ko directly mutate nahi karte
+  // localStorage.removeItem("cart"); // ✅ Pura cart localStorage se hatao
+  // return {
+  //   ...state,         // ✅ Pure state ko copy karte hain (spread operator se)
+  //   cart: [],         // ✅ Cart ko naya empty array assign karte hain
+  // };
 
-      state.cart = [];
-      localStorage.removeItem("cart"); // ✅ Local storage se bhi clear karo
-      console.log("Cart Updated (After Remove):", state.cart);
+  // ✅ Mutable code
+  // state.cart ko directly mutate karte hain
+  state.cart = []; // ❌ state ke andar cart ko directly mutate kiya
+  localStorage.removeItem("cart"); // ✅ Local storage se bhi clear karo
+  console.log("Cart Updated (After Remove):", state.cart);
     },
   },
 

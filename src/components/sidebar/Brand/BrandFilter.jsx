@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useProductContext } from "../../Context API/ProductProvider";
 import Input from "../../Input";
 
-function BrandFilter({ isSidebarOpen }) {
+function BrandFilter({ isSidebarOpen }) { 
   const { data, selectedBrand, setSelectedBrand, setFilteredProducts } =
     useProductContext();
   console.log(selectedBrand, "selectedBrand");

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { validateEmail, validatePassword } from "./utils"; // ✅ Import utilities
-import { signup } from "../../Redux/formSlice";
+import { signup,  login } from "../../Redux/formSlice";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -56,7 +56,7 @@ function Loging() {
     const users = user.find(
       (u) => u.email === formData.email && u.password === formData.password
     );
-
+ 
     if (!users) {
       newErrors.email = "Invalid email or password!";
       // return;
@@ -69,8 +69,8 @@ function Loging() {
       setLoading(true);
       setTimeout(() => {
         setLoading(false);
-        dispatch(signup(formData));
-        navigate("/login");
+        dispatch(login(formData));
+        navigate("/");
         setFormData({
           fullName: "",
           email: "",
@@ -84,7 +84,7 @@ function Loging() {
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md bg-white p-6 rounded-2xl shadow-lg">
         <h2 className="text-2xl font-semibold text-center text-gray-800 mb-4">
-          Signup
+          Login
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -100,6 +100,7 @@ function Loging() {
               <p className="text-red-500 text-sm">{errors.fullName}</p>
             )}
           </div>
+
           <div>
             <input
               type="email"
@@ -139,10 +140,10 @@ function Loging() {
             Already have an account?
             <Link
               className="text-blue-600 font-semibold hover:underline"
-              to={"/login"}
+              to={"/signup"}
             >
               {" "}
-              Log In
+              Sign Up
             </Link>
           </h2>
         </div>
