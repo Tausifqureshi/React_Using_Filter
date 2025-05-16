@@ -147,7 +147,7 @@ const SearchBar = React.memo(() => {
 
   const handleChange = useCallback((e) => {
     const searchValue = e.target.value;
-    setSearchQuery(searchValue);
+    setSearchQuery(searchValue);  
     const filterData =
       searchValue.trim() === ""
         ? data

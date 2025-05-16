@@ -6,7 +6,7 @@ const store = configureStore({
   reducer: {
     product: productSlice,
     auth: formSlice,
-  },
-});
+  }, 
+}); 
 
 export default store;

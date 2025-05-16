@@ -7,4 +7,4 @@ export const validatePassword = (password) => {
   return password.length >= 8; // Password minimum 8 characters ka hona chahiye
 };
      
-
+  
