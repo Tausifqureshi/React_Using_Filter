@@ -115,7 +115,7 @@ function ProductProvider({ children }) {
   const [selectedPriceRange, setSelectedPriceRange] = useState(0);
   const [ratingFilter, setRatingFilter] = useState(0);
   const [selectedBrand, setSelectedBrand] = useState([]);
-
+ 
   useEffect(() => {
     dispatch(fetchData());
   }, [dispatch]);
