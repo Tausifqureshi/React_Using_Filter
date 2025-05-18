@@ -53,11 +53,11 @@
 
 
 
-
+  
 
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { addToCart, removeFromCart, clearCart, incrementQuantity, decrementQuantity } from "../../Redux/productSlice";
+import {  removeFromCart, clearCart, incrementQuantity, decrementQuantity } from "../../Redux/productSlice";
 
 const Cart = () => {
   console.log("Cart Component Rendered");
