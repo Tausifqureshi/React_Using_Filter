@@ -87,6 +87,9 @@ const productSlice = createSlice({
       //   console.log("Cart Updated (After Increment):", state.cart); // ✅ Debug ke liye
 
       // mutable code but find use
+      console.log("Increment Quantity Action:", action);
+      console.log("Increment Quantity Action Payload:", action.payload);
+
       const item = state.cart.find((item) => item.id === action.payload);
       if (item) {
         item.quantity += 1; // ✅ Directly modify kar sakte ho Redux Toolkit me (Immer use karta hai)
