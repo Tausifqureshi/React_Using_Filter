@@ -13,7 +13,7 @@ const fetchData = createAsyncThunk("product/fetchProducts", async () => {
 
 const productSlice = createSlice({
   name: "product",
-
+         
   initialState: {
     data: [],
     cart: JSON.parse(localStorage.getItem("cart")) || [], //✅ Refresh hone ke baad bhi cart save rahega
@@ -70,8 +70,8 @@ const productSlice = createSlice({
       //   cart: updatedCart, // Cart update karo
       // };
     },
-
-    // incrementQuantity
+                                                             
+    // incrementQuantity 
     incrementQuantity: (state, action) => {
       // mutable code but map use
       //   state.cart = state.cart.map((item) =>
