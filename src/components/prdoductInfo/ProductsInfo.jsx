@@ -17,7 +17,7 @@ function ProductsInfo() {
 
   if (!data || data.length === 0) {
     return <h1 className="text-center text-red-500">Data is not available!</h1>;
-  }
+  } 
 
   const product = data.find((product) => product.id === Number(id));
 

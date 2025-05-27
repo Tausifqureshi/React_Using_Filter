@@ -10,9 +10,11 @@ function Header() {
 
   const handleCategoryChange = (e) => {
     const category = e.target.value;
+    console.log("Selected Category:", category); // Check karega ki category sahi aa rahi hai
     setSelectedCategory(category); // State update ho rahi hai
     if (category) {
       navigate(`/productsList/${category}`);
+      console.log("Navigating to:", `/productsList/${category}`); // Check karega ki navigate sahi ho raha hai
     }
   };
        

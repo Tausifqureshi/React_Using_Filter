@@ -49,7 +49,7 @@ const productSlice = createSlice({
 
     // Remove from cart
     removeFromCart: (state, action) => {
-      // mutable code
+      // imutable code
       // return {
       //   ...state,
       //   cart: state.cart.filter((item) => item.id !== action.payload),
@@ -59,8 +59,11 @@ const productSlice = createSlice({
       state.cart = state.cart.filter((item) => item.id !== action.payload);
       localStorage.setItem("cart", JSON.stringify(state.cart)); // ✅ Local storage update karo
       console.log("Cart Updated (After Remove):", state.cart);
-//    Right side: state.cart.filter(...) → yeh existing cart ko filter karke ek naya array banata hai (jisme wo item nahi hota jiska id === action.payload).
-// Left side: state.cart = → yeh naya array wapis state.cart me assign kar raha hai.
+
+     //  state.cart = ← left side ka matlab: cart property ko update karo.
+    // ➡️ state.cart.filter(...) ← right side ka matlab: purane cart me se filtered cart nikal ke do.
+
+
 
       
       // immutable code

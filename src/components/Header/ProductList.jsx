@@ -8,8 +8,8 @@ function ProductList() {
   console.log("Category from URL:", category); // Check karega ki category sahi aa rahi hai
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();    
-
-  useEffect(() => {
+  
+  useEffect(() => { 
     fetch(`https://dummyjson.com/products/category/${category}`)
 
       .then((response) => response.json())
