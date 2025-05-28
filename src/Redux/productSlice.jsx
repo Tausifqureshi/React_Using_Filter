@@ -11,7 +11,7 @@ const fetchData = createAsyncThunk("product/fetchProducts", async () => {
   }
 });
 
-const productSlice = createSlice({
+const productSlice = createSlice({  
   name: "product",
          
   initialState: {
