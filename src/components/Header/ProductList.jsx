@@ -19,7 +19,7 @@ function ProductList() {
 
   return (
     <div className="h-full bg-yellow-200 p-2">
-      <h2>Products in "{category}"</h2>
+      <h2>Products in {category}</h2>
       <div className="flex flex-wrap">
         {products.length > 0 ? (
           products.map((product) => (

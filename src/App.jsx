@@ -17,6 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   console.log("App Component");
+  const num = "Tausif";
   const router = createBrowserRouter([
     {
       path: "/",
@@ -80,3 +81,18 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+// import React from "react";
+
+// function App(){
+//   return(
+//   <h1>
+//    Produc</h1>
+//   )
+// }
+
+// export default App
