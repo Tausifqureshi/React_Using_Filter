@@ -105,4 +105,30 @@
 
 
 
+return (
+  <div className="flex flex-col min-h-screen"> 
+    {!hideLayout && <NavBar />}
+    {!hideLayout && <Header />}
+
+    {/* ✅ Give this flex-1 to push Footer down */}
+    <div className={`flex flex-1 mt-5 mx-2 ${isHomePage ? "" : "h-auto"}`}>
+      {isHomePage && <Sidebar />}
+
+      {/* Main Content */}
+      <div
+        className={`flex-1 text-gray-800 ${
+          isHomePage ? "bg-gray-200" : "bg-white"
+        }`}
+      >
+        <Outlet />
+      </div>
+    </div>
+
+    {!hideLayout && (
+      <footer className="bg-gray-200 py-4 px-2">
+        <Footer />
+      </footer>
+    )}
+  </div>
+);
 

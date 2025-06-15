@@ -3,7 +3,7 @@ import React from "react";
 // import Sidebar from "./components/sidebar/Sidebar";
 import MainContents from "./components/main/MainContents";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Home, About, Contact, Cart } from "./page/index";
+import { Home, About, Contact, Cart, HomeBanner } from "./page/index";
 import { Provider } from "react-redux";
 import store from "./Redux/store";
 import ProductProvider from "./components/Context API/ProductProvider";
@@ -17,7 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   console.log("App Component");
-  const num = "Tausif";
+  // const num = "Tausif";
   const router = createBrowserRouter([
     {
       path: "/",
@@ -25,36 +25,42 @@ function App() {
 
       children: [
         {
-          path: "/",
+          index: true, // ✅ default child route for parent "/"
+          element: <HomeBanner />, // ✅ ye tab chalega jab URL ho "/"
+        },
+
+        {
+          path: "home",
           element: <Home />,
         },
         {
-          path: "/about",
+          path: "about",
           element: <About />,
         },
         {
-          path: "/contact",  
+          path: "contact",
           element: <Contact />,
         },
 
         {
-          path: "/cart",
+          path: "cart",
           element: <Cart />,
         },
         {
-          path: "/signup",
+          path: "signup",
           element: <Signup />,
         },
         {
-          path: "/login",
+          path: "login",
           element: <Loging />,
         },
 
+        // {
+        //   path: "/",
+        //   element: <Header />,
+        // },
+
         {
-          path: "/",
-          element: <Header />,
-        },
-        {  
           path: "/productsList/:category",
           element: <ProductList />,
         },
@@ -76,15 +82,10 @@ function App() {
         <ToastContainer />
       </Provider>
     </>
-  );                                         
-  
+  );
 }
 
 export default App;
-
-
-
-
 
 // import React from "react";
 

@@ -5,7 +5,7 @@ import Products from "../components/product/Products";
 function Home() {
   console.log("Home Component Rendered");
   return (
-    <div>
+    <div >
       {/* Home */}
 
       <Products />

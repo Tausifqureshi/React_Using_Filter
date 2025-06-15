@@ -71,6 +71,7 @@ const Products = React.memo(() => {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 p-2">
+    {/* <h1> Tausif</h1> */}
       {filteredProducts.length > 0 ? (
         filteredProducts
           .slice(0, visibleProducts)

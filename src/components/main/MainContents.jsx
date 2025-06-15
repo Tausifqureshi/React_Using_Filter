@@ -11,7 +11,7 @@ const MainContents = () => {
 
   const location = useLocation(); // Current URL path
   // const isHomePage = location.pathname === "/" ||location.pathname === "/about"; // Check if current path is "/"
-  const isHomePage = location.pathname === "/" // Check if current path is "/"
+  const isHomePage = location.pathname === "/home" // Check if current path is "/"
   const hideLayout = ["/signup", "/login"].includes(location.pathname); // Hide on Login & Signup
 
 
@@ -24,8 +24,9 @@ const MainContents = () => {
       {!hideLayout && <Header />}
 
       {/* Main Content Layout */}
-      <div className={`flex mt-5 mx-2 ${isHomePage ? "" : "h-auto"}`}>
+      <div className={`flex flex-1 mt-5 mx-2 ${isHomePage ? "" : "h-auto"}`}>
         {/* Sidebar: Only show on / Page */}
+        {/* <h1>hellpo</h1> */}
         {isHomePage && <Sidebar />}
         {/* {(location.pathname === "/" ||location.pathname === "/about") && <Sidebar />} */}
 
@@ -35,22 +36,24 @@ const MainContents = () => {
             isHomePage ? "bg-gray-200" : "bg-white"
           }`}
         >
+      
           <Outlet />
         </div>
       </div>
 
-      {/* <div className="border-t py-4 px-2 first-line: bg-gray-200 mt-5">
+     
+     
+    {!hideLayout && (
+      <footer className="bg-gray-200 py-4 px-2">
         <Footer />
-      </div> */}
-      {!hideLayout && (
-        <div className="border-t py-4 px-2 bg-gray-200 mt-5">
-          <Footer />
-        </div>
-      )}
-
+      </footer>
+    )}
       
     </div>
   );
+
+
+  
 };            
         
 export default MainContents;
