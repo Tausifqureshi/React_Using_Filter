@@ -229,6 +229,7 @@ const Product = React.memo(({
   </button>
 </div>
   )} */}
+  
   {visibleProducts < item.length && (
         <div className="flex justify-center mt-6">
           <button
