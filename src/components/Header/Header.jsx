@@ -6,7 +6,8 @@ function Header() {
   
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState(""); // Track selected category
-  const categories = ["beauty", "fragrances", "furniture", "groceries"];
+  // const categories = ["beauty", "fragrances", "furniture", "groceries"];
+  const categories = ["men's clothing","jewelery","electronics","women's clothing"]
 
   const handleCategoryChange = (e) => {
     const category = e.target.value;
