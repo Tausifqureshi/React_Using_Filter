@@ -5,7 +5,7 @@ import Input from "../../Input";
 function BrandFilter({ isSidebarOpen }) { 
   const { data, selectedBrand, setSelectedBrand, setFilteredProducts } =
     useProductContext();
-  console.log(selectedBrand, "selectedBrand");
+  // console.log(selectedBrand, "selectedBrand");
 
   const brand = [...new Set(data.map((item) => item.brand))];
 

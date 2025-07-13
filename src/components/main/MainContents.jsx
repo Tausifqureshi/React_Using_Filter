@@ -7,7 +7,7 @@ import Footer from "../../page/Footer/Footer";
 import Header from "../header/Header";
 
 const MainContents = () => {
-  console.log("MainContents Component Rendered");
+  // console.log("MainContents Component Rendered");
 
   const location = useLocation(); // Current URL path
   // const isHomePage = location.pathname === "/" ||location.pathname === "/about"; // Check if current path is "/"

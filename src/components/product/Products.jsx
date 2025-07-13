@@ -26,7 +26,8 @@
 //           return (
 //             <Product
 //               key={item.id}
-//               {...item}
+//               // {...item}
+//               item={item}
 //               handleAddToCart={handleAddToCart}
 //               cart={cart}
 //             />
@@ -47,7 +48,7 @@ import Product from "./Product";
 import { useProductContext } from "../Context API/ProductProvider";
 
 const Products = React.memo(() => {
-  console.log("Products Component Rendered!");
+  // console.log("Products Component Rendered!");
   const { loading, error, filteredProducts, handleAddToCart, cart } =
     useProductContext();
   const [visibleProducts, setVisibleProducts] = useState(8); // Start with 8 products

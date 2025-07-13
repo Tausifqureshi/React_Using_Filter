@@ -87,7 +87,7 @@ import React, { useMemo, useCallback } from "react";
 import { useProductContext } from "../../Context API/ProductProvider";
 
 const Price = React.memo(() => {
-  console.log("Price Component Rendered");
+  // console.log("Price Component Rendered");
 
   const { setFilteredProducts, data, bucketFiltering, setBucketFiltering } = useProductContext();
 

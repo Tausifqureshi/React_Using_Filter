@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Header() {
-  console.log("Header Component Rendered");
+  // console.log("Header Component Rendered");
   
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState(""); // Track selected category
@@ -24,7 +24,7 @@ function Header() {
         Selected Category: {selectedCategory || "None"}
       </h2>
       <label>Select Category: </label>
-      <select
+      <select   
         value={selectedCategory}
         onChange={handleCategoryChange}
         className="text-black"

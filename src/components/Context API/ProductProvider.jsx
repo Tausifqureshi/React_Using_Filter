@@ -93,7 +93,7 @@
 
 
 
-
+  
 // Process completed successfully.
  
 import React, { createContext, useContext, useEffect, useState, useMemo, useCallback } from "react";
@@ -121,8 +121,10 @@ function ProductProvider({ children }) {
   }, [dispatch]);
 
   useEffect(() => {
+    // console.log("DATA from Redux:", data);
     setFilteredProducts(data);
   }, [data]);
+  // console.log("Filtered Products in UI:", filteredProducts);
 
   const handleAddToCart = useCallback((product) => {
     dispatch(addToCart(product));

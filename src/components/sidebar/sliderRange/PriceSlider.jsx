@@ -56,7 +56,7 @@ import React, { useCallback } from "react";
 import { useProductContext } from "../../Context API/ProductProvider";
 
 const PriceSlider = React.memo(() => {
-  console.log("PriceSlider Component Rendered");
+  // console.log("PriceSlider Component Rendered");
 
   const {
     setFilteredProducts,

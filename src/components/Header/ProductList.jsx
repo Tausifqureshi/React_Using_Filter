@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 function ProductList() {
-  console.log("ProductList Component Rendered");   
+  // console.log("ProductList Component Rendered");   
 
   const { category } = useParams(); // URL se category get karega
   console.log("Category from URL:", category); // Check karega ki category sahi aa rahi hai
@@ -10,8 +10,9 @@ function ProductList() {
   const navigate = useNavigate();    
   
   useEffect(() => { 
-    fetch(`https://dummyjson.com/products/category/${category}`)
-
+    // fetch(`https://dummyjson.com/products/category/${category}`)
+    fetch(`https://fakestoreapi.com/products/category/${category}`)
+     
       .then((response) => response.json())
       .then((data) => setProducts(data.products))
       .catch((error) => console.error("Error fetching products:", error));
@@ -29,7 +30,8 @@ function ProductList() {
                 onClick={() => navigate(`/productsInfo/${product.id}`)}
               >
                 <img
-                  src={product.images?.[0]}
+                  // src={product.images?.[0]}
+                  src={product.image}
                   alt={product.title}
                   width="250"
                 />

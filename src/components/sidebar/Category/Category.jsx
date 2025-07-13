@@ -150,7 +150,7 @@ import { useProductContext } from "../../Context API/ProductProvider";
 import Input from "../../Input";
 
 const Category = React.memo(({ isSidebarOpen }) => {
-  console.log("Category Component Rendered");
+  // console.log("Category Component Rendered");
 
   const { data, setFilteredProducts, selectedCategories, setSelectedCategories } = useProductContext();
 

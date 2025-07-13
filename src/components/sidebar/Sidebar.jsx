@@ -85,7 +85,7 @@ import Dynamic from "./Dynamic";
 
 
 const Sidebar = () => {
-  console.log("Sidebar Component Rendered");
+  // console.log("Sidebar Component Rendered");
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 

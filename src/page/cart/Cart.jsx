@@ -60,7 +60,7 @@ import { useEffect } from "react";
 import {  removeFromCart, clearCart, incrementQuantity, decrementQuantity } from "../../Redux/productSlice";
 
 const Cart = () => {
-  console.log("Cart Component Rendered");
+  // console.log("Cart Component Rendered");
   const cart = useSelector((state) => state.product.cart);
   const dispatch = useDispatch();
 

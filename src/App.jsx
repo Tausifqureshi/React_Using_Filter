@@ -15,8 +15,9 @@ import Loging from "./components/ragistration/Loging";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
 function App() {
-  console.log("App Component");
+  // console.log("App Component");
   // const num = "Tausif";
   const router = createBrowserRouter([
     {

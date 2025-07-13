@@ -113,7 +113,7 @@ const Product = React.memo(({
   item,
   handleAddToCart, cart
   }) => {
-  console.log("Product Component Rendered!")
+  // console.log("Product Component Rendered!")
   const [visibleProducts, setVisibleProducts] = useState(8); // Start with 8 products
   
   const navigate = useNavigate();
@@ -181,7 +181,9 @@ const Product = React.memo(({
     setVisibleProducts((prev) => prev + 4); // Load 4 more products on click
   };
 
-  // const filteredProducts = item.slice(0, visibleProducts);
+  // const filteredProducts = item.slice(0, visibleProducts); // ya line jab visibleProducts < filteredProducts.length is kem  sath worr karti hai.
+  // console.trace("Rendering Product:", item);
+
   return (
     <div className="border rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 bg-white overflow-hidden">
       <div
@@ -189,8 +191,10 @@ const Product = React.memo(({
         style={{ aspectRatio: "4/3" }}
         onClick={() => navigate(`/productsInfo/${item.id}`)}
       >
+      
         <img
-          src={ item.images[0]}
+          // src={ item.images[0]}
+          src={ item.image}
           alt={item.title}
           className={`w-full h-full object-contain mix-blend-darken py-3 px-1`}
         />
@@ -203,10 +207,10 @@ const Product = React.memo(({
 
         <p className="text-xl font-bold text-green-600 mt-2">${item.price}</p>
         <p className="text-xl font-bold text-green-600 mt-2">
-          {item.availabilityStatus}
+          {/* {item.availabilityStatus} */}
         </p>
         <h4 className="text-xl font-bold text-green-600 mt-2">
-          Availabal {item.stock}
+          {/* Availabal {item.stock} */}
         </h4>
 
         <Button

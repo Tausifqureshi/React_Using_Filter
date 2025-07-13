@@ -3,10 +3,12 @@ import axios from "axios";
 
 const fetchData = createAsyncThunk("product/fetchProducts", async () => {
   try {
-    const response = await axios.get("https://dummyjson.com/products");
-    console.log(" response", response.data.products);
-    return response.data.products;
-  } catch (error) {
+    // const response = await axios.get("https://dummyjson.com/products");
+    const response = await axios.get("https://fakestoreapi.com/products");
+    // console.log(" response", response.data.products);
+    // return response.data.products;
+    return response.data;
+  } catch (error) {   
     console.log(error.message);
   }
 });

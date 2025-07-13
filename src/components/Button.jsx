@@ -8,7 +8,7 @@ function Button({
   className = "",
   ...props
 }) {
-  console.log("Button Component Rendered");
+  // console.log("Button Component Rendered");
 
   return (
     <button

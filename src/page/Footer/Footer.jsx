@@ -1,7 +1,7 @@
 import React, {memo} from "react";
 
 function Footer() {
-  console.log("Footer Component Rendered"); 
+  // console.log("Footer Component Rendered"); 
   return <div>Footer</div>;
 }
 

@@ -9,7 +9,7 @@ function Input({
   isSidebarOpen,
   ...props
 }) {
-  console.log("Input Component Rendered");
+  // console.log("Input Component Rendered");
 
   const id = useId();
   return (

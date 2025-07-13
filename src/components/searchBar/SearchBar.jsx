@@ -141,7 +141,7 @@ import { LuScanSearch } from "react-icons/lu";
 import { useProductContext } from "../Context API/ProductProvider";
 
 const SearchBar = React.memo(() => {
-  console.log("SearchBar Component Rendered");
+  // console.log("SearchBar Component Rendered");
 
   const { data, setFilteredProducts, searchQuery, setSearchQuery } = useProductContext();
 

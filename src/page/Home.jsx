@@ -3,7 +3,7 @@ import React from "react";
 import Products from "../components/product/Products";
 
 function Home() {
-  console.log("Home Component Rendered");
+  // console.log("Home Component Rendered");
   return (
     <div >
       {/* Home */}
