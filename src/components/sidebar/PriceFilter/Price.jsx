@@ -124,7 +124,7 @@ const Price = React.memo(() => {
     setFilteredProducts(filteredProducts);
   }, [data, priceRanges, setFilteredProducts, setBucketFiltering]);
 
-  return (
+  return (     
     <div>
       <h3>Price filter</h3>
       {priceRanges.map((range, index) => (
