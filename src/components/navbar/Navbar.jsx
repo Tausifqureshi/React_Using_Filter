@@ -4,7 +4,7 @@
 
 // function Navbar() {
 //   console.log("Navbar Component Rendered");
-  
+
 //   const [isVisible, setIsVisible] = useState(true); // Navbar dikh raha hai ya nahi
 //   const [isScrolled, setIsScrolled] = useState(false); // Scroll hone par color change hoga
 //   const [lastScrollY, setLastScrollY] = useState(0); // Pichla scroll position store karega
@@ -32,7 +32,7 @@
 //       window.removeEventListener("scroll", handleScroll);
 //     };
 //   }, [lastScrollY]);
- 
+
 //   const navItem = [
 //     // { name: "Home", URL: "/" },
 //     { name: "Home", URL: "/home" },
@@ -43,11 +43,11 @@
 //     { name: "Cart", URL: "/cart" },
 //   ];
 
-//   return ( 
+//   return (
 //     <div
 //       className={`
 //         p-4 sticky top-0 z-50 transition-all duration-300
-//         ${isVisible ? "translate-y-0" : "-translate-y-full"} 
+//         ${isVisible ? "translate-y-0" : "-translate-y-full"}
 //         ${isScrolled ? "bg-white shadow-md" : "bg-slate-700"}
 //       `}
 //     >
@@ -91,12 +91,9 @@
 //       </nav>
 //     </div>
 //   );
-// }     
+// }
 
 // export default Navbar;
-
-
-
 
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
@@ -154,7 +151,9 @@ function Navbar() {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="text-2xl text-gray-800"
           >
-            {isMenuOpen ? <HiX /> : <HiMenuAlt3 />}
+            {/* {isMenuOpen ? <HiX /> : <HiMenuAlt3 />} */}
+            <HiMenuAlt3 /> {/* <-- Yaha sirf hamburger icon rahega */}
+
           </button>
         </div>
 
@@ -181,51 +180,25 @@ function Navbar() {
         </ul>
 
         {/* Mobile Menu */}
-        {/* <div
-          className={`${
-            isMenuOpen ? "block" : "hidden"
-          } absolute top-16 left-0 w-full bg-white shadow-md md:hidden`}
+        {/* Mobile Sidebar (Slide from left) */}
+        <div
+          className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
+            isMenuOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
         >
-          <ul className="flex flex-col items-center space-y-4 py-4">
-            {navItem.map((item) => (
-              <li
-                key={item.URL}
-                className="w-full text-center py-2 hover:bg-gray-100"
-              >
-                <NavLink
-                  to={item.URL}
-                  onClick={() => setIsMenuOpen(false)} // Close menu on link click
-                  className="block text-gray-700"
-                >
-                  {item.name}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </div> */}
-
-
-      </nav>
-
-      {/* Mobile Menu Dropdown */}
-      {isMenuOpen && (
-        <div className="md:hidden w-full bg-white shadow-md mt-2 rounded-md">
-          {/* Mobile Search Bar */}
-          <div className="px-4 py-2 border-b border-gray-200">
-            <SearchBar />
+          <div className="flex justify-between items-center p-4 border-b">
+            <h2 className="text-lg font-semibold">Menu</h2>
+            <button onClick={() => setIsMenuOpen(false)} className="text-2xl">
+              <HiX />
+            </button>
           </div>
-
-          {/* Mobile Nav Links */}
-          <ul className="flex flex-col items-center space-y-4 py-4">
+          <ul className="flex flex-col space-y-4 p-4">
             {navItem.map((item) => (
-              <li
-                key={item.URL}
-                className="w-full text-center py-2 hover:bg-gray-100"
-              >
+              <li key={item.URL}>
                 <NavLink
                   to={item.URL}
-                  onClick={() => setIsMenuOpen(false)} // Close menu on click
-                  className="block text-gray-700"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block text-gray-700 hover:text-blue-500"
                 >
                   {item.name}
                 </NavLink>
@@ -233,12 +206,19 @@ function Navbar() {
             ))}
           </ul>
         </div>
-      )}
+
+        {/* Background Overlay */}
+        {isMenuOpen && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 z-40"
+            onClick={() => setIsMenuOpen(false)}
+          ></div>
+        )}
+      </nav>
+
+      {/* Mobile Menu Dropdown */}
     </div>
   );
-} 
+}
 
 export default Navbar;
-
-
-
