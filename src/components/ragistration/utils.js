@@ -7,6 +7,10 @@ export const validatePassword = (password) => {
   return password.length >= 8; // Password minimum 8 characters ka hona chahiye
 };
      
+
+
+
+// Yaha navabr ka code hai direact open ture tu hi open hoga koi smootly left ayah right se open nhi hoga 
   
   // {isMenuOpen && (
   //       <div className="md:hidden w-full bg-white shadow-md mt-2 rounded-md">
