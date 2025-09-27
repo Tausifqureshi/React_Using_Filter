@@ -185,7 +185,7 @@ const Product = React.memo(({
   // console.trace("Rendering Product:", item);
 
   return (
-    <div className="border rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 bg-white overflow-hidden">
+    <div className="border rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 bg-white overflow-hidden">z
       <div
         className="w-full bg-gray-100 cursor-pointer"
         style={{ aspectRatio: "4/3" }}
