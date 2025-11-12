@@ -17,7 +17,7 @@ function Header() {
       navigate(`/productsList/${category}`);
       console.log("Navigating to:", `/productsList/${category}`); // Check karega ki navigate sahi ho raha hai
     }
-  };      
+  };       
        
   return (
     <div className="bg-green-500 p-4 text-white">
