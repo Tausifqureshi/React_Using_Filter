@@ -42,7 +42,7 @@ function App() {
           path: "contact",
           element: <Contact />,
         },
-
+ 
         {
           path: "cart",
           element: <Cart />,

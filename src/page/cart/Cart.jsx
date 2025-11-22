@@ -54,7 +54,7 @@
 
 
   
-
+ 
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import {  removeFromCart, clearCart, incrementQuantity, decrementQuantity } from "../../Redux/productSlice";
@@ -83,7 +83,7 @@ const Cart = () => {
       ) : (
         cart.map((item) => (
           <div key={item.id} className="flex items-center justify-between bg-white p-4 rounded-lg shadow-md mb-4">
-            <img src={item.images[0]} alt={item.title} className="w-24 h-24 object-cover rounded-lg" />
+            <img src={item.image} alt={item.title} className="w-24 h-24 object-cover rounded-lg" />
             <div className="flex-1 ml-4">
               <h3 className="text-lg font-semibold">{item.title}</h3>
               <p className="text-gray-600">Quantity: {item.quantity}</p>

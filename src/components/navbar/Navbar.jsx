@@ -153,7 +153,6 @@ function Navbar() {
           >
             {/* {isMenuOpen ? <HiX /> : <HiMenuAlt3 />} */}
             <HiMenuAlt3 /> {/* <-- Yaha sirf hamburger icon rahega */}
-
           </button>
         </div>
 
